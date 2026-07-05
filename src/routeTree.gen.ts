@@ -21,6 +21,7 @@ import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogCategoryRouteImport } from './routes/blog.$category'
+import { Route as ApiPublicSendContactRouteImport } from './routes/api/public/send-contact'
 
 const WebsitesRoute = WebsitesRouteImport.update({
   id: '/websites',
@@ -82,6 +83,11 @@ const BlogCategoryRoute = BlogCategoryRouteImport.update({
   path: '/$category',
   getParentRoute: () => BlogRoute,
 } as any)
+const ApiPublicSendContactRoute = ApiPublicSendContactRouteImport.update({
+  id: '/api/public/send-contact',
+  path: '/api/public/send-contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -96,6 +102,7 @@ export interface FileRoutesByFullPath {
   '/websites': typeof WebsitesRoute
   '/blog/$category': typeof BlogCategoryRoute
   '/blog/': typeof BlogIndexRoute
+  '/api/public/send-contact': typeof ApiPublicSendContactRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -109,6 +116,7 @@ export interface FileRoutesByTo {
   '/websites': typeof WebsitesRoute
   '/blog/$category': typeof BlogCategoryRoute
   '/blog': typeof BlogIndexRoute
+  '/api/public/send-contact': typeof ApiPublicSendContactRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -124,6 +132,7 @@ export interface FileRoutesById {
   '/websites': typeof WebsitesRoute
   '/blog/$category': typeof BlogCategoryRoute
   '/blog/': typeof BlogIndexRoute
+  '/api/public/send-contact': typeof ApiPublicSendContactRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -140,6 +149,7 @@ export interface FileRouteTypes {
     | '/websites'
     | '/blog/$category'
     | '/blog/'
+    | '/api/public/send-contact'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -153,6 +163,7 @@ export interface FileRouteTypes {
     | '/websites'
     | '/blog/$category'
     | '/blog'
+    | '/api/public/send-contact'
   id:
     | '__root__'
     | '/'
@@ -167,6 +178,7 @@ export interface FileRouteTypes {
     | '/websites'
     | '/blog/$category'
     | '/blog/'
+    | '/api/public/send-contact'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -180,6 +192,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   WebsitesRoute: typeof WebsitesRoute
+  ApiPublicSendContactRoute: typeof ApiPublicSendContactRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -268,6 +281,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogCategoryRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/api/public/send-contact': {
+      id: '/api/public/send-contact'
+      path: '/api/public/send-contact'
+      fullPath: '/api/public/send-contact'
+      preLoaderRoute: typeof ApiPublicSendContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -294,7 +314,18 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   WebsitesRoute: WebsitesRoute,
+  ApiPublicSendContactRoute: ApiPublicSendContactRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
