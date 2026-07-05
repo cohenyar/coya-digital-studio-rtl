@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { Typewriter } from "../components/ui/typewriter-text";
 import founderPhoto from "@/assets/founder.png.asset.json";
+import coyaLogo from "@/assets/coya-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
