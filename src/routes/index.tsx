@@ -12,7 +12,7 @@ import coyaLogo from "@/assets/coya-logo.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "\u00a0COYA Studio | בניית אתרים, דפי נחיתה ואוטומציות AI" },
+      { title: "\u00a0COYA Studio | בניית אתרים, דפי נחיתה, אוטומציות וסוכני AI/בוטים" },
       { name: "description", content: "סטודיו דיגיטלי לבניית אתרים, דפי נחיתה ואוטומציות AI לעסקים שרוצים להיראות מקצועיים, לחסוך זמן ולהגדיל פניות." },
       { name: "keywords", content: "בניית אתרים, דפי נחיתה, אוטומציות AI, סטודיו דיגיטלי, קידום אתרים, עיצוב אתרים, COYA" },
       { property: "og:type", content: "website" },
@@ -177,7 +177,7 @@ function Home() {
               <Sparkles className="size-3.5" /> סטודיו דיגיטלי פרימיום
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.15] tracking-tight text-balance">
-              {"\u00a0"}COYA Studio — בניית אתרים, דפי נחיתה ואוטומציות AI
+              {"\u00a0"}COYA Studio — בניית אתרים, דפי נחיתה, אוטומציות וסוכני AI/בוטים
             </h1>
             <p className="mt-5 text-base md:text-lg text-white/60 leading-relaxed max-w-xl">
               עיצוב מודרני, חוויית משתמש חדה, ודף שמוביל אנשים להשאיר פרטים.
