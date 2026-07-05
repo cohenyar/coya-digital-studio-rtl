@@ -3,6 +3,7 @@ import { Mail, MessageCircle, MapPin } from "lucide-react";
 import { WA_LINK } from "./Header";
 import coyaLogo from "@/assets/coya-logo.png.asset.json";
 import { BLOG_CATEGORIES } from "@/lib/blog";
+import { useI18n } from "@/lib/i18n";
 
 export function Footer() {
   return (
