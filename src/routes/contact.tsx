@@ -12,14 +12,35 @@ export const Route = createFileRoute("/contact")({
       { property: "og:type", content: "website" },
       { property: "og:title", content: "צור קשר | COYA Digital Studio" },
       { property: "og:description", content: "בואו נדבר על הפרויקט הבא שלכם — וואטסאפ, טופס או מייל." },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: "https://coya-digital-studio-rtl.lovable.app/contact" },
+      { property: "og:image", content: "https://coya-digital-studio-rtl.lovable.app/__l5e/assets-v1/d36078bd-d7e4-499d-a833-0cdcde29ed97/og-image.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "COYA Digital Studio" },
+      { name: "twitter:image", content: "https://coya-digital-studio-rtl.lovable.app/__l5e/assets-v1/d36078bd-d7e4-499d-a833-0cdcde29ed97/og-image.jpg" },
       { property: "og:site_name", content: "COYA Digital Studio" },
       { property: "og:locale", content: "he_IL" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "צור קשר | COYA" },
       { name: "twitter:description", content: "בואו נדבר על הפרויקט הבא שלכם." },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "https://coya-digital-studio-rtl.lovable.app/contact" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify({
+        "@context":"https://schema.org","@type":"WebPage",
+        name:"צור קשר | COYA Digital Studio", description:"בואו נדבר על הפרויקט הבא שלכם.",
+        url:"https://coya-digital-studio-rtl.lovable.app/contact",
+        inLanguage:"he-IL",
+        isPartOf:{"@type":"WebSite",name:"COYA Digital Studio",url:"https://coya-digital-studio-rtl.lovable.app"}
+      }) },
+      { type: "application/ld+json", children: JSON.stringify({
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        itemListElement:[
+          {"@type":"ListItem",position:1,name:"בית",item:"https://coya-digital-studio-rtl.lovable.app/"},
+          {"@type":"ListItem",position:2,name:"צור קשר",item:"https://coya-digital-studio-rtl.lovable.app/contact"}
+        ]
+      }) },
+    ],
   }),
   component: ContactPage,
 });

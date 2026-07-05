@@ -11,12 +11,16 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WebsitesRouteImport } from './routes/websites'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as LandingRouteImport } from './routes/landing'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AiRouteImport } from './routes/ai'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogCategoryRouteImport } from './routes/blog.$category'
 
 const WebsitesRoute = WebsitesRouteImport.update({
   id: '/websites',
@@ -26,6 +30,11 @@ const WebsitesRoute = WebsitesRouteImport.update({
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -43,6 +52,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AiRoute = AiRouteImport.update({
   id: '/ai',
   path: '/ai',
@@ -58,16 +72,30 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlogRoute,
+} as any)
+const BlogCategoryRoute = BlogCategoryRouteImport.update({
+  id: '/$category',
+  path: '/$category',
+  getParentRoute: () => BlogRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/accessibility': typeof AccessibilityRoute
   '/ai': typeof AiRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/landing': typeof LandingRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/websites': typeof WebsitesRoute
+  '/blog/$category': typeof BlogCategoryRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -76,19 +104,26 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/landing': typeof LandingRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/websites': typeof WebsitesRoute
+  '/blog/$category': typeof BlogCategoryRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/accessibility': typeof AccessibilityRoute
   '/ai': typeof AiRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/landing': typeof LandingRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/websites': typeof WebsitesRoute
+  '/blog/$category': typeof BlogCategoryRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -96,11 +131,15 @@ export interface FileRouteTypes {
     | '/'
     | '/accessibility'
     | '/ai'
+    | '/blog'
     | '/contact'
     | '/landing'
     | '/privacy'
+    | '/sitemap.xml'
     | '/terms'
     | '/websites'
+    | '/blog/$category'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -109,27 +148,36 @@ export interface FileRouteTypes {
     | '/contact'
     | '/landing'
     | '/privacy'
+    | '/sitemap.xml'
     | '/terms'
     | '/websites'
+    | '/blog/$category'
+    | '/blog'
   id:
     | '__root__'
     | '/'
     | '/accessibility'
     | '/ai'
+    | '/blog'
     | '/contact'
     | '/landing'
     | '/privacy'
+    | '/sitemap.xml'
     | '/terms'
     | '/websites'
+    | '/blog/$category'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccessibilityRoute: typeof AccessibilityRoute
   AiRoute: typeof AiRoute
+  BlogRoute: typeof BlogRouteWithChildren
   ContactRoute: typeof ContactRoute
   LandingRoute: typeof LandingRoute
   PrivacyRoute: typeof PrivacyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   WebsitesRoute: typeof WebsitesRoute
 }
@@ -148,6 +196,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -171,6 +226,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ai': {
       id: '/ai'
       path: '/ai'
@@ -192,16 +254,44 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/blog/$category': {
+      id: '/blog/$category'
+      path: '/$category'
+      fullPath: '/blog/$category'
+      preLoaderRoute: typeof BlogCategoryRouteImport
+      parentRoute: typeof BlogRoute
+    }
   }
 }
+
+interface BlogRouteChildren {
+  BlogCategoryRoute: typeof BlogCategoryRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogCategoryRoute: BlogCategoryRoute,
+  BlogIndexRoute: BlogIndexRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccessibilityRoute: AccessibilityRoute,
   AiRoute: AiRoute,
+  BlogRoute: BlogRouteWithChildren,
   ContactRoute: ContactRoute,
   LandingRoute: LandingRoute,
   PrivacyRoute: PrivacyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   WebsitesRoute: WebsitesRoute,
 }

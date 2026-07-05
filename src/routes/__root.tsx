@@ -16,6 +16,7 @@ import { Footer } from "../components/site/Footer";
 import { WhatsAppFloat } from "../components/site/WhatsAppFloat";
 import { CookiesNotice } from "../components/site/CookiesNotice";
 import { AccessibilityPanel } from "../components/site/AccessibilityPanel";
+import { OG_IMAGE_URL, organizationJsonLd, websiteJsonLd } from "../lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -60,19 +61,40 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { title: "COYA Digital Studio | בניית אתרים, דפי נחיתה ואוטומציות AI" },
       { name: "description", content: "סטודיו דיגיטלי לבניית אתרים, דפי נחיתה ואוטומציות AI לעסקים שרוצים להיראות מקצועיים, לחסוך זמן ולהגדיל פניות." },
       { name: "theme-color", content: "#050505" },
-      { property: "og:title", content: "COYA Digital Studio | בניית אתרים, דפי נחיתה ואוטומציות AI" },
-      { property: "og:description", content: "סטודיו דיגיטלי לבניית אתרים, דפי נחיתה ואוטומציות AI לעסקים." },
-      { property: "og:type", content: "website" },
+      { name: "format-detection", content: "telephone=no" },
+      { name: "author", content: "COYA Digital Studio" },
+      { httpEquiv: "content-language", content: "he" },
       { property: "og:site_name", content: "COYA Digital Studio" },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "he_IL" },
+      { property: "og:image", content: OG_IMAGE_URL },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE_URL },
+      { name: "twitter:site", content: "@coya_studio" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon.png" },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+      { rel: "manifest", href: "/site.webmanifest" },
+      { rel: "preconnect", href: "https://cdn.simpleicons.org", crossOrigin: "" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(organizationJsonLd),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(websiteJsonLd),
+      },
     ],
   }),
   shellComponent: RootShell,

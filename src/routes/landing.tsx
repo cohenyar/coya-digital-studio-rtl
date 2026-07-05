@@ -12,14 +12,35 @@ export const Route = createFileRoute("/landing")({
       { property: "og:type", content: "website" },
       { property: "og:title", content: "בניית דפי נחיתה ממוקדי המרה | COYA Digital Studio" },
       { property: "og:description", content: "דפי נחיתה שממירים גולשים ללידים — מותאמים לקמפיינים בפייסבוק, גוגל וטיקטוק." },
-      { property: "og:url", content: "/landing" },
+      { property: "og:url", content: "https://coya-digital-studio-rtl.lovable.app/landing" },
+      { property: "og:image", content: "https://coya-digital-studio-rtl.lovable.app/__l5e/assets-v1/d36078bd-d7e4-499d-a833-0cdcde29ed97/og-image.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "COYA Digital Studio" },
+      { name: "twitter:image", content: "https://coya-digital-studio-rtl.lovable.app/__l5e/assets-v1/d36078bd-d7e4-499d-a833-0cdcde29ed97/og-image.jpg" },
       { property: "og:site_name", content: "COYA Digital Studio" },
       { property: "og:locale", content: "he_IL" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "בניית דפי נחיתה | COYA" },
       { name: "twitter:description", content: "דף נחיתה אחד. מטרה אחת. תוצאה אחת." },
     ],
-    links: [{ rel: "canonical", href: "/landing" }],
+    links: [{ rel: "canonical", href: "https://coya-digital-studio-rtl.lovable.app/landing" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify({
+        "@context":"https://schema.org","@type":"WebPage",
+        name:"בניית דפי נחיתה ממוקדי המרה | COYA Digital Studio", description:"דפי נחיתה שממירים גולשים ללידים משלמים.",
+        url:"https://coya-digital-studio-rtl.lovable.app/landing",
+        inLanguage:"he-IL",
+        isPartOf:{"@type":"WebSite",name:"COYA Digital Studio",url:"https://coya-digital-studio-rtl.lovable.app"}
+      }) },
+      { type: "application/ld+json", children: JSON.stringify({
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        itemListElement:[
+          {"@type":"ListItem",position:1,name:"בית",item:"https://coya-digital-studio-rtl.lovable.app/"},
+          {"@type":"ListItem",position:2,name:"דפי נחיתה",item:"https://coya-digital-studio-rtl.lovable.app/landing"}
+        ]
+      }) },
+    ],
   }),
   component: LandingPage,
 });

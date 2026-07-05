@@ -9,6 +9,7 @@ const nav = [
   { to: "/websites", label: "בניית אתרים" },
   { to: "/landing", label: "דפי נחיתה" },
   { to: "/ai", label: "AI ואוטומציות" },
+  { to: "/blog", label: "בלוג" },
   { to: "/contact", label: "צור קשר" },
 ];
 
