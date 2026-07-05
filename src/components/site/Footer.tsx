@@ -9,7 +9,7 @@ export function Footer() {
       <div className="container-x py-16 grid gap-10 md:grid-cols-4">
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <img src={coyaLogo.url} alt="COYA AI Solutions" className="h-10 w-10 rounded-lg object-cover" />
+            <img src={coyaLogo.url} alt="COYA AI Solutions" className="h-12 w-12 rounded-lg object-cover" />
             <span className="font-display font-bold text-xl">COYA</span>
           </div>
           <p className="text-sm text-white/60 leading-relaxed">
