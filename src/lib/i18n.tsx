@@ -106,3 +106,12 @@ export function useI18n(): Ctx {
   }
   return ctx;
 }
+
+/**
+ * Inline translator: returns the Hebrew string when lang=he, otherwise English.
+ * Use for one-off content strings that don't need a shared key.
+ */
+export function useTr() {
+  const { lang } = useI18n();
+  return (he: string, en: string) => (lang === "en" ? en : he);
+}
