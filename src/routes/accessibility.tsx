@@ -5,8 +5,16 @@ export const Route = createFileRoute("/accessibility")({
   head: () => ({
     meta: [
       { title: "הצהרת נגישות | COYA Digital Studio" },
-      { name: "description", content: "הצהרת הנגישות של אתר COYA Digital Studio." },
+      { name: "description", content: "הצהרת הנגישות של אתר COYA Digital Studio — התאמות, פאנל נגישות ודרכי פנייה לרכז הנגישות." },
+      { property: "og:type", content: "website" },
+      { property: "og:title", content: "הצהרת נגישות | COYA Digital Studio" },
+      { property: "og:description", content: "האתר נבנה בהתאם לתקנות שוויון זכויות ותומך בפאנל נגישות מלא." },
       { property: "og:url", content: "/accessibility" },
+      { property: "og:site_name", content: "COYA Digital Studio" },
+      { property: "og:locale", content: "he_IL" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "הצהרת נגישות | COYA" },
+      { name: "twitter:description", content: "הצהרת הנגישות של אתר COYA Digital Studio." },
     ],
     links: [{ rel: "canonical", href: "/accessibility" }],
   }),
