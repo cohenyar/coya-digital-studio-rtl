@@ -122,9 +122,14 @@ function Home() {
               <Sparkles className="size-3.5" /> סטודיו דיגיטלי פרימיום
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.15] tracking-tight text-balance min-h-[6.5em] sm:min-h-[5.5em] md:min-h-[4.5em]">
-              <TypewriterText
-                text="רוצה אתר שנראה יקר, נטען מהר, ומרגיש כאילו סטודיו פרימיום בנה אותו?"
-                speed={40}
+              <Typewriter
+                text={[
+                  "רוצה אתר שנראה יקר, נטען מהר, ומרגיש כאילו סטודיו פרימיום בנה אותו?",
+                  "רוצה דף נחיתה שמוביל אנשים להשאיר פרטים?",
+                  "רוצה עסק שנראה גדול יותר ממה שהוא באמת?",
+                ]}
+                speed={45}
+                holdDelay={1800}
                 className="text-gradient"
               />
             </h1>
