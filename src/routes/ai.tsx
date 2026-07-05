@@ -25,6 +25,22 @@ export const Route = createFileRoute("/ai")({
       { name: "twitter:description", content: "פחות עבודה ידנית. יותר לקוחות מרוצים." },
     ],
     links: [{ rel: "canonical", href: "https://coya-digital-studio-rtl.lovable.app/ai" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify({
+        "@context":"https://schema.org","@type":"WebPage",
+        name:"AI ואוטומציות עסקיות | COYA Digital Studio", description:"בוטים חכמים ואוטומציות שחוסכות שעות בעסק.",
+        url:"https://coya-digital-studio-rtl.lovable.app/ai",
+        inLanguage:"he-IL",
+        isPartOf:{"@type":"WebSite",name:"COYA Digital Studio",url:"https://coya-digital-studio-rtl.lovable.app"}
+      }) },
+      { type: "application/ld+json", children: JSON.stringify({
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        itemListElement:[
+          {"@type":"ListItem",position:1,name:"בית",item:"https://coya-digital-studio-rtl.lovable.app/"},
+          {"@type":"ListItem",position:2,name:"AI ואוטומציות",item:"https://coya-digital-studio-rtl.lovable.app/ai"}
+        ]
+      }) },
+    ],
   }),
   component: AiPage,
 });

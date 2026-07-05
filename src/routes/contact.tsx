@@ -25,6 +25,22 @@ export const Route = createFileRoute("/contact")({
       { name: "twitter:description", content: "בואו נדבר על הפרויקט הבא שלכם." },
     ],
     links: [{ rel: "canonical", href: "https://coya-digital-studio-rtl.lovable.app/contact" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify({
+        "@context":"https://schema.org","@type":"WebPage",
+        name:"צור קשר | COYA Digital Studio", description:"בואו נדבר על הפרויקט הבא שלכם.",
+        url:"https://coya-digital-studio-rtl.lovable.app/contact",
+        inLanguage:"he-IL",
+        isPartOf:{"@type":"WebSite",name:"COYA Digital Studio",url:"https://coya-digital-studio-rtl.lovable.app"}
+      }) },
+      { type: "application/ld+json", children: JSON.stringify({
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        itemListElement:[
+          {"@type":"ListItem",position:1,name:"בית",item:"https://coya-digital-studio-rtl.lovable.app/"},
+          {"@type":"ListItem",position:2,name:"צור קשר",item:"https://coya-digital-studio-rtl.lovable.app/contact"}
+        ]
+      }) },
+    ],
   }),
   component: ContactPage,
 });

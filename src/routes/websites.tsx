@@ -25,6 +25,22 @@ export const Route = createFileRoute("/websites")({
       { name: "twitter:description", content: "אתרי עסקים מעוצבים ומהירים שבונים אמון ומניעים לפעולה." },
     ],
     links: [{ rel: "canonical", href: "https://coya-digital-studio-rtl.lovable.app/websites" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify({
+        "@context":"https://schema.org","@type":"WebPage",
+        name:"בניית אתרים לעסקים | COYA Digital Studio", description:"בניית אתרים מקצועיים לעסקים — מהירים, רספונסיביים ומותאמים ל-SEO.",
+        url:"https://coya-digital-studio-rtl.lovable.app/websites",
+        inLanguage:"he-IL",
+        isPartOf:{"@type":"WebSite",name:"COYA Digital Studio",url:"https://coya-digital-studio-rtl.lovable.app"}
+      }) },
+      { type: "application/ld+json", children: JSON.stringify({
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        itemListElement:[
+          {"@type":"ListItem",position:1,name:"בית",item:"https://coya-digital-studio-rtl.lovable.app/"},
+          {"@type":"ListItem",position:2,name:"בניית אתרים",item:"https://coya-digital-studio-rtl.lovable.app/websites"}
+        ]
+      }) },
+    ],
   }),
   component: WebsitesPage,
 });

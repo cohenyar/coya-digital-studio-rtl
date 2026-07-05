@@ -25,6 +25,22 @@ export const Route = createFileRoute("/landing")({
       { name: "twitter:description", content: "דף נחיתה אחד. מטרה אחת. תוצאה אחת." },
     ],
     links: [{ rel: "canonical", href: "https://coya-digital-studio-rtl.lovable.app/landing" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify({
+        "@context":"https://schema.org","@type":"WebPage",
+        name:"בניית דפי נחיתה ממוקדי המרה | COYA Digital Studio", description:"דפי נחיתה שממירים גולשים ללידים משלמים.",
+        url:"https://coya-digital-studio-rtl.lovable.app/landing",
+        inLanguage:"he-IL",
+        isPartOf:{"@type":"WebSite",name:"COYA Digital Studio",url:"https://coya-digital-studio-rtl.lovable.app"}
+      }) },
+      { type: "application/ld+json", children: JSON.stringify({
+        "@context":"https://schema.org","@type":"BreadcrumbList",
+        itemListElement:[
+          {"@type":"ListItem",position:1,name:"בית",item:"https://coya-digital-studio-rtl.lovable.app/"},
+          {"@type":"ListItem",position:2,name:"דפי נחיתה",item:"https://coya-digital-studio-rtl.lovable.app/landing"}
+        ]
+      }) },
+    ],
   }),
   component: LandingPage,
 });
