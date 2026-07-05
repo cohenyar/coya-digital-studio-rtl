@@ -7,7 +7,6 @@ import {
   Palette, Code2, Send, TrendingUp, Sparkles, Zap, Workflow, Mail
 } from "lucide-react";
 import founderPhoto from "@/assets/founder.png.asset.json";
-import founderPhoto from "@/assets/founder.png.asset.json";
 import coyaLogo from "@/assets/coya-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
