@@ -355,9 +355,19 @@ function Home() {
           </div>
         </div>
       </Section>
+
+      {/* Big Logo */}
+      <Section>
+        <div className="flex justify-center">
+          <img src={coyaLogo.url} alt="COYA" className="w-56 md:w-80 h-auto rounded-2xl" />
+        </div>
+      </Section>
     </>
   );
 }
+
+// duplicate closing removed below
+function _unused() { return null;
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
