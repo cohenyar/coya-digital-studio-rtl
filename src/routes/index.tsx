@@ -110,12 +110,11 @@ function Home() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-32">
+        <div className="absolute inset-0 pointer-events-none opacity-60">
+          <ShaderBackground />
+        </div>
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/40 via-background/60 to-background" />
         <div className="absolute inset-0 pointer-events-none" style={{background: "var(--gradient-hero)"}} />
-        <div className="absolute inset-0 pointer-events-none opacity-30" style={{
-          backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-          maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)"
-        }} />
         <div className="container-x relative grid lg:grid-cols-2 gap-14 items-center">
           <div className="animate-fade-up">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-xs text-primary/90 mb-6">
