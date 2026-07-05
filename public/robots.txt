@@ -1,2 +1,9 @@
 User-agent: *
 Allow: /
+
+# Disallow legal boilerplate from indexing (still crawlable/linkable)
+Disallow: /privacy
+Disallow: /terms
+Disallow: /accessibility
+
+Sitemap: https://coya-digital-studio-rtl.lovable.app/sitemap.xml
