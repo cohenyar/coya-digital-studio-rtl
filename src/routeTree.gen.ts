@@ -19,6 +19,7 @@ import { Route as AiRouteImport } from './routes/ai'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogCategoryRouteImport } from './routes/blog.$category'
 
 const WebsitesRoute = WebsitesRouteImport.update({
   id: '/websites',
@@ -70,6 +71,11 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/',
   getParentRoute: () => BlogRoute,
 } as any)
+const BlogCategoryRoute = BlogCategoryRouteImport.update({
+  id: '/$category',
+  path: '/$category',
+  getParentRoute: () => BlogRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -81,6 +87,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
   '/websites': typeof WebsitesRoute
+  '/blog/$category': typeof BlogCategoryRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
@@ -92,6 +99,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
   '/websites': typeof WebsitesRoute
+  '/blog/$category': typeof BlogCategoryRoute
   '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
@@ -105,6 +113,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
   '/websites': typeof WebsitesRoute
+  '/blog/$category': typeof BlogCategoryRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
@@ -119,6 +128,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/terms'
     | '/websites'
+    | '/blog/$category'
     | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -130,6 +140,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/terms'
     | '/websites'
+    | '/blog/$category'
     | '/blog'
   id:
     | '__root__'
@@ -142,6 +153,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/terms'
     | '/websites'
+    | '/blog/$category'
     | '/blog/'
   fileRoutesById: FileRoutesById
 }
@@ -229,14 +241,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/blog/$category': {
+      id: '/blog/$category'
+      path: '/$category'
+      fullPath: '/blog/$category'
+      preLoaderRoute: typeof BlogCategoryRouteImport
+      parentRoute: typeof BlogRoute
+    }
   }
 }
 
 interface BlogRouteChildren {
+  BlogCategoryRoute: typeof BlogCategoryRoute
   BlogIndexRoute: typeof BlogIndexRoute
 }
 
 const BlogRouteChildren: BlogRouteChildren = {
+  BlogCategoryRoute: BlogCategoryRoute,
   BlogIndexRoute: BlogIndexRoute,
 }
 
