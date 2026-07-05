@@ -6,7 +6,7 @@ import {
   ArrowLeft, Check, X, MessageCircle, Globe, Rocket, Bot, Search, Layers,
   Palette, Code2, Send, TrendingUp, Sparkles, Zap, Workflow, Mail
 } from "lucide-react";
-import { TypewriterText } from "../components/ui/typewriter-text";
+import { Typewriter } from "../components/ui/typewriter-text";
 
 export const Route = createFileRoute("/")({
   head: () => ({
