@@ -4,10 +4,12 @@ import { WA_LINK } from "../components/site/Header";
 import ShaderBackground from "../components/ui/shader-background";
 import {
   ArrowLeft, Check, X, MessageCircle, Globe, Rocket, Bot, Search, Layers,
-  Palette, Code2, Send, TrendingUp, Sparkles, Zap, Workflow, Mail
+  Palette, Code2, Send, TrendingUp, Sparkles, Zap, Workflow, ChevronDown
 } from "lucide-react";
 import founderPhoto from "@/assets/founder.png.asset.json";
 import coyaLogo from "@/assets/coya-logo.png.asset.json";
+import { useState } from "react";
+import { useTr } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -16,19 +18,20 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "סטודיו דיגיטלי לבניית אתרים, דפי נחיתה ואוטומציות AI לעסקים שרוצים להיראות מקצועיים, לחסוך זמן ולהגדיל פניות." },
       { name: "keywords", content: "בניית אתרים, דפי נחיתה, אוטומציות AI, סטודיו דיגיטלי, קידום אתרים, עיצוב אתרים, COYA" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "COYA Digital Studio | סטודיו דיגיטלי פרימיום" },
-      { property: "og:description", content: "אתרים, דפי נחיתה ואוטומציות AI לעסקים שרוצים להיראות מקצועיים ולייצר יותר פניות." },
+      { property: "og:title", content: "COYA Studio | Websites, Landing Pages & AI Automation" },
+      { property: "og:description", content: "Websites, landing pages, and AI automation for businesses that want to look professional and generate more leads." },
       { property: "og:url", content: "https://coya-digital-studio-rtl.lovable.app/" },
       { property: "og:image", content: "https://coya-digital-studio-rtl.lovable.app/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "COYA Digital Studio" },
+      { property: "og:image:alt", content: "COYA Studio" },
       { name: "twitter:image", content: "https://coya-digital-studio-rtl.lovable.app/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
-      { property: "og:site_name", content: "COYA Digital Studio" },
+      { property: "og:site_name", content: "COYA Studio" },
       { property: "og:locale", content: "he_IL" },
+      { property: "og:locale:alternate", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "COYA Digital Studio" },
-      { name: "twitter:description", content: "סטודיו דיגיטלי שבונה נוכחות שמביאה תוצאות." },
+      { name: "twitter:title", content: "COYA Studio" },
+      { name: "twitter:description", content: "A digital studio that builds a presence that drives results." },
     ],
     scripts: [
       {
@@ -36,22 +39,22 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
-          name: "COYA Digital Studio",
-          description: "סטודיו דיגיטלי לבניית אתרים, דפי נחיתה ואוטומציות AI לעסקים.",
+          name: "COYA Studio",
+          description: "Digital studio building websites, landing pages, and AI automation for businesses.",
           url: "https://coya-digital-studio-rtl.lovable.app/",
           image: "https://coya-digital-studio-rtl.lovable.app/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg",
           logo: "https://coya-digital-studio-rtl.lovable.app/icon-512.png",
           email: "cohenyar21@gmail.com",
           telephone: "+972545509927",
           areaServed: { "@type": "Country", name: "Israel" },
-          inLanguage: "he",
+          inLanguage: ["he", "en"],
           priceRange: "$$",
           serviceType: [
-            "בניית אתרים",
-            "בניית דפי נחיתה",
-            "אוטומציות AI",
-            "צ׳אטבוטים",
-            "אינטגרציות n8n / Make",
+            "Website Development",
+            "Landing Pages",
+            "AI Automation",
+            "Chatbots",
+            "n8n / Make Integrations",
             "SEO",
           ],
         }),
@@ -61,12 +64,12 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          name: "COYA Digital Studio | בניית אתרים, דפי נחיתה ואוטומציות AI",
+          name: "COYA Studio | Websites, Landing Pages & AI Automation",
           url: "https://coya-digital-studio-rtl.lovable.app/",
           inLanguage: "he-IL",
           isPartOf: {
             "@type": "WebSite",
-            name: "COYA Digital Studio",
+            name: "COYA Studio",
             url: "https://coya-digital-studio-rtl.lovable.app",
           },
         }),
@@ -81,7 +84,6 @@ function HeroMockup() {
   return (
     <div className="relative aspect-[4/3] w-full max-w-2xl mx-auto">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-purple-500/10 to-transparent blur-3xl animate-pulse-glow" />
-      {/* laptop */}
       <div className="absolute inset-x-4 top-6 bottom-16 rounded-2xl border border-white/10 bg-gradient-to-br from-[#0f0f14] to-[#1a1a22] shadow-2xl overflow-hidden animate-float">
         <div className="h-6 flex items-center gap-1.5 px-3 border-b border-white/5">
           <div className="h-2 w-2 rounded-full bg-red-500/60" />
@@ -104,7 +106,6 @@ function HeroMockup() {
           </div>
         </div>
       </div>
-      {/* phone */}
       <div className="absolute -bottom-2 -left-2 w-36 h-64 rounded-3xl border-4 border-white/10 bg-gradient-to-br from-[#0f0f14] to-[#1a1a22] shadow-2xl overflow-hidden rotate-[-8deg]" style={{animation:'float-slow 7s ease-in-out infinite'}}>
         <div className="p-3 space-y-2">
           <div className="h-1.5 w-16 mx-auto rounded bg-white/20 mt-1" />
@@ -116,7 +117,6 @@ function HeroMockup() {
           <div className="h-6 w-full rounded bg-gradient-to-r from-primary to-purple-400" />
         </div>
       </div>
-      {/* tablet corner */}
       <div className="absolute -top-2 -right-2 w-40 h-52 rounded-xl border border-white/10 bg-gradient-to-br from-[#0f0f14] to-[#1a1a22] shadow-2xl overflow-hidden rotate-[6deg]" style={{animation:'float-slow 8s ease-in-out infinite'}}>
         <div className="p-3 space-y-2">
           <div className="h-2 w-16 rounded bg-primary/60" />
@@ -135,33 +135,46 @@ function HeroMockup() {
   );
 }
 
-const services = [
-  { icon: Globe, title: "בניית אתרים", desc: "אתרים מהירים, רספונסיביים ומעוצבים לעסקים שרוצים להיראות מקצועיים ולייצר אמון מהשנייה הראשונה.", to: "/websites" as const },
-  { icon: Rocket, title: "בניית דפי נחיתה", desc: "דפי נחיתה ממוקדי המרה לקמפיינים, שירותים ומוצרים — עם מסר ברור, עיצוב חד וקריאה לפעולה חזקה.", to: "/landing" as const },
-  { icon: Bot, title: "AI ואוטומציות", desc: "חיבור מערכות, בוטים חכמים, אוטומציות עסקיות ותהליכים שחוסכים זמן ומשפרים שירות לקוחות.", to: "/ai" as const },
-];
-
-const steps = [
-  { icon: Search, title: "אפיון וגילוי", desc: "אנחנו מבינים את העסק, הקהל, השירותים והמטרה העסקית של האתר." },
-  { icon: Layers, title: "אסטרטגיה ומבנה", desc: "בונים היררכיית תוכן, מסרים, מסע משתמש ומבנה שמוביל לפעולה." },
-  { icon: Palette, title: "עיצוב וחוויית משתמש", desc: "יוצרים עיצוב נקי, מודרני, רספונסיבי ומותאם למותג." },
-  { icon: Code2, title: "פיתוח והקמה", desc: "בונים אתר מהיר, יציב, נגיש ומוכן לפרסום." },
-  { icon: Send, title: "השקה וחיבור דומיין", desc: "מחברים דומיין, SSL, אנליטיקס וכלים בסיסיים למדידה." },
-  { icon: TrendingUp, title: "שיפור וצמיחה", desc: "בודקים ביצועים, משפרים המרות ומוסיפים אוטומציות לפי הצורך." },
-];
-
-const generic = ["עיצוב תבניתי", "מסר לא ממוקד", "מעט מחשבה על המרה", "בלי המשכיות טכנולוגית"];
-const coya = ["עיצוב מותאם אישית", "חשיבה עסקית", "התאמה ל-SEO", "מוכנות לאוטומציות AI", "אתר שמרגיש כמו נכס עסקי"];
-
-const faqs = [
-  { q: "כמה זמן לוקח לבנות דף נחיתה?", a: "בדרך כלל בין כמה ימים לשבוע, תלוי בכמות התוכן, העיצוב והחיבורים הנדרשים." },
-  { q: "האם אתם מחברים דומיין?", a: "כן. ניתן לחבר דומיין, SSL, Google Search Console וכלים בסיסיים ל-SEO." },
-  { q: "האם האתר מותאם למובייל?", a: "כן. כל אתר נבנה בגישה רספונסיבית ומתאים למובייל, טאבלט ודסקטופ." },
-  { q: "האם אפשר לחבר וואטסאפ או טופס לידים?", a: "כן. אפשר לחבר כפתור וואטסאפ, טפסים, מיילים, Google Sheets, CRM ואוטומציות נוספות." },
-  { q: "האם אתם עושים גם AI ואוטומציות?", a: "כן. אפשר להוסיף בוטים, אוטומציות, חיבורי API ותהליכים שמייעלים את העבודה בעסק." },
-];
-
 function Home() {
+  const tr = useTr();
+
+  const services = [
+    { icon: Globe, title: tr("בניית אתרים", "Website Development"), desc: tr("אתרים מהירים, רספונסיביים ומעוצבים לעסקים שרוצים להיראות מקצועיים ולייצר אמון מהשנייה הראשונה.", "Fast, responsive, well-designed websites for businesses that want to look professional and build trust from the first second."), to: "/websites" as const },
+    { icon: Rocket, title: tr("בניית דפי נחיתה", "Landing Pages"), desc: tr("דפי נחיתה ממוקדי המרה לקמפיינים, שירותים ומוצרים — עם מסר ברור, עיצוב חד וקריאה לפעולה חזקה.", "Conversion-focused landing pages for campaigns, services and products — with a clear message, sharp design and a strong CTA."), to: "/landing" as const },
+    { icon: Bot, title: tr("AI ואוטומציות", "AI & Automation"), desc: tr("חיבור מערכות, בוטים חכמים, אוטומציות עסקיות ותהליכים שחוסכים זמן ומשפרים שירות לקוחות.", "Systems integration, smart bots, business automation, and processes that save time and improve customer service."), to: "/ai" as const },
+  ];
+
+  const steps = [
+    { icon: Search, title: tr("אפיון וגילוי", "Discovery"), desc: tr("אנחנו מבינים את העסק, הקהל, השירותים והמטרה העסקית של האתר.", "We understand your business, audience, services, and the site's business goal.") },
+    { icon: Layers, title: tr("אסטרטגיה ומבנה", "Strategy & Structure"), desc: tr("בונים היררכיית תוכן, מסרים, מסע משתמש ומבנה שמוביל לפעולה.", "We map content hierarchy, messaging, user journey, and a structure that drives action.") },
+    { icon: Palette, title: tr("עיצוב וחוויית משתמש", "Design & UX"), desc: tr("יוצרים עיצוב נקי, מודרני, רספונסיבי ומותאם למותג.", "We craft clean, modern, responsive design tailored to your brand.") },
+    { icon: Code2, title: tr("פיתוח והקמה", "Development"), desc: tr("בונים אתר מהיר, יציב, נגיש ומוכן לפרסום.", "We build a fast, stable, accessible site ready to launch.") },
+    { icon: Send, title: tr("השקה וחיבור דומיין", "Launch & Domain"), desc: tr("מחברים דומיין, SSL, אנליטיקס וכלים בסיסיים למדידה.", "We connect the domain, SSL, analytics, and core measurement tools.") },
+    { icon: TrendingUp, title: tr("שיפור וצמיחה", "Growth & Optimization"), desc: tr("בודקים ביצועים, משפרים המרות ומוסיפים אוטומציות לפי הצורך.", "We monitor performance, improve conversions, and add automation as needed.") },
+  ];
+
+  const generic = [
+    tr("עיצוב תבניתי", "Template-based design"),
+    tr("מסר לא ממוקד", "Unfocused messaging"),
+    tr("מעט מחשבה על המרה", "Little thought about conversion"),
+    tr("בלי המשכיות טכנולוגית", "No tech continuity"),
+  ];
+  const coya = [
+    tr("עיצוב מותאם אישית", "Custom-made design"),
+    tr("חשיבה עסקית", "Business thinking"),
+    tr("התאמה ל-SEO", "SEO-ready"),
+    tr("מוכנות לאוטומציות AI", "Ready for AI automation"),
+    tr("אתר שמרגיש כמו נכס עסקי", "A site that feels like a business asset"),
+  ];
+
+  const faqs = [
+    { q: tr("כמה זמן לוקח לבנות דף נחיתה?", "How long does it take to build a landing page?"), a: tr("בדרך כלל בין כמה ימים לשבוע, תלוי בכמות התוכן, העיצוב והחיבורים הנדרשים.", "Usually a few days to a week, depending on content volume, design, and required integrations.") },
+    { q: tr("האם אתם מחברים דומיין?", "Do you connect the domain?"), a: tr("כן. ניתן לחבר דומיין, SSL, Google Search Console וכלים בסיסיים ל-SEO.", "Yes. We connect the domain, SSL, Google Search Console, and core SEO tools.") },
+    { q: tr("האם האתר מותאם למובייל?", "Is the site mobile-friendly?"), a: tr("כן. כל אתר נבנה בגישה רספונסיבית ומתאים למובייל, טאבלט ודסקטופ.", "Yes. Every site is built responsively for mobile, tablet, and desktop.") },
+    { q: tr("האם אפשר לחבר וואטסאפ או טופס לידים?", "Can you connect WhatsApp or a lead form?"), a: tr("כן. אפשר לחבר כפתור וואטסאפ, טפסים, מיילים, Google Sheets, CRM ואוטומציות נוספות.", "Yes. WhatsApp buttons, forms, emails, Google Sheets, CRM, and more automations.") },
+    { q: tr("האם אתם עושים גם AI ואוטומציות?", "Do you also do AI & automation?"), a: tr("כן. אפשר להוסיף בוטים, אוטומציות, חיבורי API ותהליכים שמייעלים את העבודה בעסק.", "Yes. We add bots, automations, API integrations, and processes that streamline business work.") },
+  ];
+
   return (
     <>
       {/* Hero */}
@@ -174,27 +187,27 @@ function Home() {
         <div className="container-x relative grid lg:grid-cols-2 gap-14 items-center">
           <div className="animate-fade-up">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-xs text-primary/90 mb-6">
-              <Sparkles className="size-3.5" /> סטודיו דיגיטלי פרימיום
+              <Sparkles className="size-3.5" /> {tr("סטודיו דיגיטלי פרימיום", "Premium digital studio")}
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.15] tracking-tight text-balance">
-              {"\u00a0"}COYA Studio — בניית אתרים, דפי נחיתה, אוטומציות וסוכני AI/בוטים
+              {"\u00a0"}{tr("COYA Studio — בניית אתרים, דפי נחיתה, אוטומציות וסוכני AI/בוטים", "COYA Studio — Websites, Landing Pages, Automation & AI Agents/Bots")}
             </h1>
             <p className="mt-5 text-base md:text-lg text-white/60 leading-relaxed max-w-xl">
-              עיצוב מודרני, חוויית משתמש חדה, ודף שמוביל אנשים להשאיר פרטים.
+              {tr("עיצוב מודרני, חוויית משתמש חדה, ודף שמוביל אנשים להשאיר פרטים.", "Modern design, sharp UX, and a page that gets people to leave their details.")}
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a href={WA_LINK} target="_blank" rel="noreferrer" className="btn-primary">
-                אני רוצה אתר כזה <ArrowLeft className="size-5" />
+                {tr("אני רוצה אתר כזה", "I want a site like this")} <ArrowLeft className="size-5" />
               </a>
               <Link to="/websites" className="btn-ghost">
-                צפו בשירותים <ArrowLeft className="size-4" />
+                {tr("צפו בשירותים", "View services")} <ArrowLeft className="size-4" />
               </Link>
             </div>
             <div className="mt-10 flex items-center gap-6 text-xs text-white/40">
-              <div>⚡ טעינה מהירה</div>
-              <div>📱 מובייל-first</div>
-              <div>🔒 מאובטח</div>
-              <div>🤖 מוכן ל-AI</div>
+              <div>⚡ {tr("טעינה מהירה", "Fast loading")}</div>
+              <div>📱 {tr("מובייל-first", "Mobile-first")}</div>
+              <div>🔒 {tr("מאובטח", "Secure")}</div>
+              <div>🤖 {tr("מוכן ל-AI", "AI-ready")}</div>
             </div>
           </div>
           <div className="animate-fade-up" style={{animationDelay: "0.15s"}}>
@@ -205,7 +218,11 @@ function Home() {
 
       {/* Services */}
       <Section>
-        <SectionHeader eyebrow="שירותים" title="שלושה עולמות. כל מה שהעסק שלכם צריך." subtitle="פתרונות דיגיטליים מקצה לקצה — מהאסטרטגיה ועד לאוטומציה שרצה ברקע." />
+        <SectionHeader
+          eyebrow={tr("שירותים", "Services")}
+          title={tr("שלושה עולמות. כל מה שהעסק שלכם צריך.", "Three disciplines. Everything your business needs.")}
+          subtitle={tr("פתרונות דיגיטליים מקצה לקצה — מהאסטרטגיה ועד לאוטומציה שרצה ברקע.", "End-to-end digital solutions — from strategy to the automation running in the background.")}
+        />
         <div className="grid md:grid-cols-3 gap-6">
           {services.map((s) => (
             <Link key={s.title} to={s.to} className="group glass-card rounded-2xl p-8 hover:border-primary/40 transition-all hover:-translate-y-1 duration-300">
@@ -215,7 +232,7 @@ function Home() {
               <h3 className="text-xl font-display font-bold mb-3">{s.title}</h3>
               <p className="text-white/60 leading-relaxed text-sm">{s.desc}</p>
               <div className="mt-6 flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all">
-                לפרטים נוספים <ArrowLeft className="size-4" />
+                {tr("לפרטים נוספים", "Learn more")} <ArrowLeft className="size-4" />
               </div>
             </Link>
           ))}
@@ -224,7 +241,11 @@ function Home() {
 
       {/* Process */}
       <Section className="bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent">
-        <SectionHeader eyebrow="תהליך העבודה" title="שישה שלבים. תוצאה שמרגישה כמו נכס עסקי." subtitle="תהליך מסודר, שקוף, ומדוד — כדי שתדעו בכל רגע איפה הפרויקט עומד." />
+        <SectionHeader
+          eyebrow={tr("תהליך העבודה", "Our Process")}
+          title={tr("שישה שלבים. תוצאה שמרגישה כמו נכס עסקי.", "Six steps. A result that feels like a business asset.")}
+          subtitle={tr("תהליך מסודר, שקוף, ומדוד — כדי שתדעו בכל רגע איפה הפרויקט עומד.", "An organized, transparent, measurable process — so you always know where the project stands.")}
+        />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {steps.map((s, i) => (
             <div key={s.title} className="relative glass-card rounded-2xl p-8 hover:border-primary/30 transition group">
@@ -245,14 +266,17 @@ function Home() {
 
       {/* Comparison */}
       <Section>
-        <SectionHeader eyebrow="השוואה" title="למה לעבוד עם COYA ולא עם פתרון גנרי?" />
+        <SectionHeader
+          eyebrow={tr("השוואה", "Comparison")}
+          title={tr("למה לעבוד עם COYA ולא עם פתרון גנרי?", "Why work with COYA instead of a generic solution?")}
+        />
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           <div className="glass-card rounded-2xl p-8 opacity-70">
             <div className="flex items-center gap-2 mb-6">
               <div className="h-10 w-10 rounded-lg bg-white/5 flex items-center justify-center">
                 <X className="size-5 text-white/40" />
               </div>
-              <h3 className="font-display font-bold text-lg">פתרון גנרי</h3>
+              <h3 className="font-display font-bold text-lg">{tr("פתרון גנרי", "Generic solution")}</h3>
             </div>
             <ul className="space-y-3">
               {generic.map(item => (
@@ -287,9 +311,9 @@ function Home() {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-xs text-primary/90 mb-4">
               <Zap className="size-3.5" /> AI Advantage
             </div>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-gradient leading-[1.1]">היתרון של AI בתוך תהליך הבנייה</h2>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-gradient leading-[1.1]">{tr("היתרון של AI בתוך תהליך הבנייה", "The AI advantage inside the build process")}</h2>
             <p className="mt-6 text-white/60 text-lg leading-relaxed">
-              אנחנו לא רק בונים אתר. אנחנו חושבים איך האתר יכול להתחבר לתהליכים עסקיים חכמים: טפסים, לידים, CRM, וואטסאפ, מיילים, סיכומי פניות, בוטים ואוטומציות.
+              {tr("אנחנו לא רק בונים אתר. אנחנו חושבים איך האתר יכול להתחבר לתהליכים עסקיים חכמים: טפסים, לידים, CRM, וואטסאפ, מיילים, סיכומי פניות, בוטים ואוטומציות.", "We don't just build a website. We think about how the site plugs into smart business processes: forms, leads, CRM, WhatsApp, email, inquiry summaries, bots, and automations.")}
             </p>
           </div>
           <div className="relative aspect-square max-w-md mx-auto w-full">
@@ -301,14 +325,12 @@ function Home() {
                   <stop offset="100%" stopColor="#a855f7" />
                 </linearGradient>
               </defs>
-              {/* connections */}
               {[
                 [200,200,80,80],[200,200,320,80],[200,200,80,320],[200,200,320,320],
                 [200,200,60,200],[200,200,340,200],[200,200,200,60],[200,200,200,340],
               ].map(([x1,y1,x2,y2],i) => (
                 <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="url(#grad)" strokeWidth="1" opacity="0.4" />
               ))}
-              {/* nodes */}
               {[[80,80],[320,80],[80,320],[320,320],[60,200],[340,200],[200,60],[200,340]].map(([x,y],i)=>(
                 <circle key={i} cx={x} cy={y} r="12" fill="#141414" stroke="#7C3AED" strokeWidth="2" />
               ))}
@@ -350,7 +372,7 @@ function Home() {
               <div className="relative h-56 w-56 rounded-full bg-gradient-to-br from-primary/40 via-purple-500/20 to-transparent border border-primary/30 p-1">
                 <img
                   src={founderPhoto.url}
-                  alt="מייסד COYA Digital Studio"
+                  alt={tr("מייסד COYA Studio", "Founder of COYA Studio")}
                   loading="lazy"
                   className="h-full w-full rounded-full object-cover"
                 />
@@ -358,11 +380,13 @@ function Home() {
             </div>
           </div>
           <div>
-            <div className="text-xs uppercase tracking-[0.2em] text-primary/80 mb-4">מי אנחנו</div>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gradient leading-tight">מי עומד מאחורי COYA?</h2>
+            <div className="text-xs uppercase tracking-[0.2em] text-primary/80 mb-4">{tr("מי אנחנו", "Who we are")}</div>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-gradient leading-tight">{tr("מי עומד מאחורי COYA?", "Who is behind COYA?")}</h2>
             <p className="mt-5 text-white/70 leading-relaxed text-lg whitespace-pre-line">
-              היי אני ירין כהן ואני בניתי את האתר הזה מאפס מאמץ ומאה אחוזים נתינה
-              {"\n"}COYA&nbsp;נבנתה מתוך מטרה לעזור לעסקים קטנים ובינוניים להיראות גדולים יותר, לעבוד חכם יותר ולהשתמש בטכנולוגיה בצורה פרקטית. המיקוד שלנו הוא לא רק עיצוב יפה, אלא תוצאה עסקית: יותר אמון, יותר פניות, פחות עבודה ידנית.
+              {tr(
+                "היי אני ירין כהן ואני בניתי את האתר הזה מאפס מאמץ ומאה אחוזים נתינה\nCOYA\u00a0נבנתה מתוך מטרה לעזור לעסקים קטנים ובינוניים להיראות גדולים יותר, לעבוד חכם יותר ולהשתמש בטכנולוגיה בצורה פרקטית. המיקוד שלנו הוא לא רק עיצוב יפה, אלא תוצאה עסקית: יותר אמון, יותר פניות, פחות עבודה ידנית.",
+                "Hi, I'm Yarin Cohen — I built this site from scratch with effort and 100% dedication.\nCOYA\u00a0was built to help small and mid-sized businesses look bigger, work smarter, and use technology in a practical way. Our focus isn't only beautiful design, but business outcomes: more trust, more inquiries, less manual work."
+              )}
             </p>
           </div>
         </div>
@@ -370,7 +394,7 @@ function Home() {
 
       {/* FAQ */}
       <Section>
-        <SectionHeader eyebrow="שאלות נפוצות" title="הכל מה שרציתם לדעת" />
+        <SectionHeader eyebrow={tr("שאלות נפוצות", "FAQ")} title={tr("הכל מה שרציתם לדעת", "Everything you wanted to know")} />
         <div className="max-w-3xl mx-auto space-y-3">
           {faqs.map((f, i) => <FaqItem key={i} q={f.q} a={f.a} />)}
         </div>
@@ -383,14 +407,14 @@ function Home() {
           <div className="relative">
             <Workflow className="size-12 mx-auto text-primary mb-6" />
             <h2 className="text-3xl md:text-5xl font-display font-bold text-gradient leading-tight">
-              רוצים אתר שמרגיש מקצועי מהקליק הראשון?
+              {tr("רוצים אתר שמרגיש מקצועי מהקליק הראשון?", "Want a site that feels professional from the first click?")}
             </h2>
             <div className="mt-8 flex flex-wrap gap-3 justify-center">
               <Link to="/contact" className="btn-primary">
-                בואו נתחיל <ArrowLeft className="size-5" />
+                {tr("בואו נתחיל", "Let's start")} <ArrowLeft className="size-5" />
               </Link>
               <a href={WA_LINK} target="_blank" rel="noreferrer" className="btn-ghost">
-                <MessageCircle className="size-5" /> וואטסאפ
+                <MessageCircle className="size-5" /> {tr("וואטסאפ", "WhatsApp")}
               </a>
             </div>
           </div>
@@ -407,10 +431,6 @@ function Home() {
   );
 }
 
-
-
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
 function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
