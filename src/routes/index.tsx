@@ -366,8 +366,7 @@ function Home() {
   );
 }
 
-// duplicate closing removed below
-function _unused() { return null;
+
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
