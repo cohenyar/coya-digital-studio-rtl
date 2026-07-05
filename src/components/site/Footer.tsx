@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MessageCircle, MapPin } from "lucide-react";
 import { WA_LINK } from "./Header";
+import coyaLogo from "@/assets/coya-logo.png.asset.json";
 
 export function Footer() {
   return (
@@ -8,7 +9,7 @@ export function Footer() {
       <div className="container-x py-16 grid gap-10 md:grid-cols-4">
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-purple-400 flex items-center justify-center font-display font-bold text-sm">C</div>
+            <img src={coyaLogo.url} alt="COYA AI Solutions" className="h-10 w-10 rounded-lg object-cover" />
             <span className="font-display font-bold text-xl">COYA</span>
           </div>
           <p className="text-sm text-white/60 leading-relaxed">
