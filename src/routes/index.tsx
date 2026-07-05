@@ -6,6 +6,7 @@ import {
   ArrowLeft, Check, X, MessageCircle, Globe, Rocket, Bot, Search, Layers,
   Palette, Code2, Send, TrendingUp, Sparkles, Zap, Workflow, Mail
 } from "lucide-react";
+import { TypewriterText } from "../components/ui/typewriter-text";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -120,15 +121,19 @@ function Home() {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-xs text-primary/90 mb-6">
               <Sparkles className="size-3.5" /> סטודיו דיגיטלי פרימיום
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.05] tracking-tight">
-              סטודיו דיגיטלי שבונה <span className="text-gradient">נוכחות שמביאה תוצאות</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.15] tracking-tight text-balance min-h-[6.5em] sm:min-h-[5.5em] md:min-h-[4.5em]">
+              <TypewriterText
+                text="רוצה אתר שנראה יקר, נטען מהר, ומרגיש כאילו סטודיו פרימיום בנה אותו?"
+                speed={40}
+                className="text-gradient"
+              />
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-white/60 leading-relaxed max-w-xl">
-              אנחנו בונים אתרים, דפי נחיתה ואוטומציות AI לעסקים שרוצים להיראות מקצועיים, לחסוך זמן ולהפוך יותר גולשים ללקוחות.
+            <p className="mt-5 text-base md:text-lg text-white/60 leading-relaxed max-w-xl">
+              עיצוב מודרני, חוויית משתמש חדה, ודף שמוביל אנשים להשאיר פרטים.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-7 flex flex-wrap gap-3">
               <a href={WA_LINK} target="_blank" rel="noreferrer" className="btn-primary">
-                <MessageCircle className="size-5" /> דברו איתנו בוואטסאפ
+                אני רוצה אתר כזה <ArrowLeft className="size-5" />
               </a>
               <Link to="/websites" className="btn-ghost">
                 צפו בשירותים <ArrowLeft className="size-4" />
