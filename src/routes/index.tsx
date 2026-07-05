@@ -6,8 +6,8 @@ import {
   ArrowLeft, Check, X, MessageCircle, Globe, Rocket, Bot, Search, Layers,
   Palette, Code2, Send, TrendingUp, Sparkles, Zap, Workflow, ChevronDown
 } from "lucide-react";
-import founderPhoto from "@/assets/founder.png.asset.json";
-import coyaLogo from "@/assets/coya-logo.png.asset.json";
+const founderPhoto = { url: "/images/branding/founder.jpg" };
+const coyaLogo = { url: "/images/coya-logo.png" };
 import { useState } from "react";
 import { useTr } from "@/lib/i18n";
 
