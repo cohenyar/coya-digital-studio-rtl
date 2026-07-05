@@ -5,8 +5,17 @@ export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
       { title: "תנאי שימוש | COYA Digital Studio" },
-      { name: "description", content: "תנאי השימוש באתר COYA Digital Studio." },
+      { name: "description", content: "תנאי השימוש באתר COYA Digital Studio — זכויות יוצרים, אחריות, פרטיות ושימוש מותר בתכני האתר." },
+      { name: "robots", content: "noindex, follow" },
+      { property: "og:type", content: "website" },
+      { property: "og:title", content: "תנאי שימוש | COYA Digital Studio" },
+      { property: "og:description", content: "התנאים לשימוש באתר ובשירותי COYA." },
       { property: "og:url", content: "/terms" },
+      { property: "og:site_name", content: "COYA Digital Studio" },
+      { property: "og:locale", content: "he_IL" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "תנאי שימוש | COYA" },
+      { name: "twitter:description", content: "תנאי השימוש באתר COYA Digital Studio." },
     ],
     links: [{ rel: "canonical", href: "/terms" }],
   }),
