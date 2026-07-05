@@ -16,7 +16,9 @@ import { Footer } from "../components/site/Footer";
 import { WhatsAppFloat } from "../components/site/WhatsAppFloat";
 import { CookiesNotice } from "../components/site/CookiesNotice";
 import { AccessibilityPanel } from "../components/site/AccessibilityPanel";
+import { Analytics } from "../components/site/Analytics";
 import { OG_IMAGE_URL, organizationJsonLd, websiteJsonLd } from "../lib/seo";
+import { GA_MEASUREMENT_ID } from "../lib/analytics";
 import { I18nProvider } from "../lib/i18n";
 
 function NotFoundComponent() {
@@ -86,8 +88,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
       { rel: "manifest", href: "/site.webmanifest" },
       { rel: "preconnect", href: "https://cdn.simpleicons.org", crossOrigin: "" },
+      { rel: "preconnect", href: "https://www.googletagmanager.com" },
     ],
     scripts: [
+      {
+        async: true,
+        src: `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`,
+      },
+      {
+        children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}',{send_page_view:false});`,
+      },
       {
         type: "application/ld+json",
         children: JSON.stringify(organizationJsonLd),
@@ -130,6 +140,7 @@ function RootComponent() {
           <WhatsAppFloat />
           <AccessibilityPanel />
           <CookiesNotice />
+          <Analytics />
         </div>
       </I18nProvider>
     </QueryClientProvider>
