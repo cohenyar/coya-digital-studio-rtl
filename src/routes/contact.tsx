@@ -111,7 +111,7 @@ function ContactPage() {
                   <Field label={tr("טלפון", "Phone")} value={form.phone} onChange={v => setForm({...form, phone: v})} required type="tel" />
                 </div>
                 <Field label={tr("אימייל", "Email")} value={form.email} onChange={v => setForm({...form, email: v})} required type="email" />
-                {error && <p className="text-sm text-destructive">{error}</p>}
+                <div>
                   <label htmlFor={typeId} className="block text-sm font-medium mb-2 text-white/80">{tr("מה תרצו לבנות?", "What would you like to build?")}</label>
                   <select id={typeId} value={form.type} onChange={e => setForm({...form, type: e.target.value})} required
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition">
@@ -127,8 +127,9 @@ function ContactPage() {
                   <textarea id={messageId} value={form.message} onChange={e => setForm({...form, message: e.target.value})} rows={4} required
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition resize-none" />
                 </div>
-                <button type="submit" className="btn-primary w-full">
-                  <Send className="size-4" /> {tr("שלח פנייה", "Send message")}
+                {error && <p className="text-sm text-destructive">{error}</p>}
+                <button type="submit" disabled={sending} className="btn-primary w-full disabled:opacity-60">
+                  <Send className="size-4" /> {sending ? tr("שולח...", "Sending...") : tr("שלח פנייה", "Send message")}
                 </button>
               </form>
             )}
