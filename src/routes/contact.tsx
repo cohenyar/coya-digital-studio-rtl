@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "../components/site/Section";
 import { WA_LINK } from "../components/site/Header";
 import { MessageCircle, Mail, Calendar, Send } from "lucide-react";
-import { useState } from "react";
+import { useId, useState } from "react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -67,8 +67,8 @@ function ContactPage() {
                 </div>
                 <Field label="אימייל" value={form.email} onChange={v => setForm({...form, email: v})} required type="email" />
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-white/80">מה תרצו לבנות?</label>
-                  <select value={form.type} onChange={e => setForm({...form, type: e.target.value})} required
+                  <label htmlFor={typeId} className="block text-sm font-medium mb-2 text-white/80">מה תרצו לבנות?</label>
+                  <select id={typeId} value={form.type} onChange={e => setForm({...form, type: e.target.value})} required
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition">
                     <option value="" className="bg-background">בחרו שירות...</option>
                     <option value="אתר" className="bg-background">אתר עסקי</option>
@@ -78,8 +78,8 @@ function ContactPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-white/80">הודעה</label>
-                  <textarea value={form.message} onChange={e => setForm({...form, message: e.target.value})} rows={4} required
+                  <label htmlFor={messageId} className="block text-sm font-medium mb-2 text-white/80">הודעה</label>
+                  <textarea id={messageId} value={form.message} onChange={e => setForm({...form, message: e.target.value})} rows={4} required
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition resize-none" />
                 </div>
                 <button type="submit" className="btn-primary w-full">
@@ -101,10 +101,11 @@ function ContactPage() {
 }
 
 function Field({ label, value, onChange, type = "text", required }: { label: string; value: string; onChange: (v: string) => void; type?: string; required?: boolean }) {
+  const id = useId();
   return (
     <div>
-      <label className="block text-sm font-medium mb-2 text-white/80">{label}{required && <span className="text-primary"> *</span>}</label>
-      <input type={type} value={value} onChange={e => onChange(e.target.value)} required={required}
+      <label htmlFor={id} className="block text-sm font-medium mb-2 text-white/80">{label}{required && <span className="text-primary"> *</span>}</label>
+      <input id={id} type={type} value={value} onChange={e => onChange(e.target.value)} required={required}
         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition" />
     </div>
   );
