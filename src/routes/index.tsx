@@ -7,6 +7,7 @@ import {
   Palette, Code2, Send, TrendingUp, Sparkles, Zap, Workflow, Mail
 } from "lucide-react";
 import { Typewriter } from "../components/ui/typewriter-text";
+import founderPhoto from "@/assets/founder.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
