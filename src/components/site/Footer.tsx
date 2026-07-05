@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MessageCircle, MapPin } from "lucide-react";
 import { WA_LINK } from "./Header";
-import coyaLogo from "@/assets/coya-logo.png.asset.json";
+const coyaLogo = { url: "/images/coya-logo.png" };
 import { BLOG_CATEGORIES_I18N } from "@/lib/blog";
 import { useI18n } from "@/lib/i18n";
 
