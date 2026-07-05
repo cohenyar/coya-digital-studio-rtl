@@ -14,6 +14,7 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as LandingRouteImport } from './routes/landing'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AiRouteImport } from './routes/ai'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as IndexRouteImport } from './routes/index'
@@ -43,6 +44,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AiRoute = AiRouteImport.update({
   id: '/ai',
   path: '/ai',
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/accessibility': typeof AccessibilityRoute
   '/ai': typeof AiRoute
+  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/landing': typeof LandingRoute
   '/privacy': typeof PrivacyRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/accessibility': typeof AccessibilityRoute
   '/ai': typeof AiRoute
+  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/landing': typeof LandingRoute
   '/privacy': typeof PrivacyRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/accessibility': typeof AccessibilityRoute
   '/ai': typeof AiRoute
+  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/landing': typeof LandingRoute
   '/privacy': typeof PrivacyRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accessibility'
     | '/ai'
+    | '/blog'
     | '/contact'
     | '/landing'
     | '/privacy'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accessibility'
     | '/ai'
+    | '/blog'
     | '/contact'
     | '/landing'
     | '/privacy'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accessibility'
     | '/ai'
+    | '/blog'
     | '/contact'
     | '/landing'
     | '/privacy'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccessibilityRoute: typeof AccessibilityRoute
   AiRoute: typeof AiRoute
+  BlogRoute: typeof BlogRoute
   ContactRoute: typeof ContactRoute
   LandingRoute: typeof LandingRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ai': {
       id: '/ai'
       path: '/ai'
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccessibilityRoute: AccessibilityRoute,
   AiRoute: AiRoute,
+  BlogRoute: BlogRoute,
   ContactRoute: ContactRoute,
   LandingRoute: LandingRoute,
   PrivacyRoute: PrivacyRoute,
