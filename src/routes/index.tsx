@@ -305,10 +305,13 @@ function Home() {
           <div className="mx-auto">
             <div className="relative">
               <div className="absolute inset-0 rounded-full bg-primary/40 blur-2xl" />
-              <div className="relative h-56 w-56 rounded-full bg-gradient-to-br from-primary/40 via-purple-500/20 to-transparent border border-primary/30 flex items-center justify-center">
-                <div className="h-48 w-48 rounded-full bg-gradient-to-br from-[#1a1a22] to-[#0a0a0f] flex items-center justify-center text-6xl font-display font-black text-gradient">
-                  C
-                </div>
+              <div className="relative h-56 w-56 rounded-full bg-gradient-to-br from-primary/40 via-purple-500/20 to-transparent border border-primary/30 p-1">
+                <img
+                  src={founderPhoto.url}
+                  alt="מייסד COYA Digital Studio"
+                  loading="lazy"
+                  className="h-full w-full rounded-full object-cover"
+                />
               </div>
             </div>
           </div>
