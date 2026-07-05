@@ -17,6 +17,7 @@ import { WhatsAppFloat } from "../components/site/WhatsAppFloat";
 import { CookiesNotice } from "../components/site/CookiesNotice";
 import { AccessibilityPanel } from "../components/site/AccessibilityPanel";
 import { OG_IMAGE_URL, organizationJsonLd, websiteJsonLd } from "../lib/seo";
+import { I18nProvider } from "../lib/i18n";
 
 function NotFoundComponent() {
   return (
