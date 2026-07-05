@@ -3,8 +3,10 @@ import { Mail, MessageCircle, MapPin } from "lucide-react";
 import { WA_LINK } from "./Header";
 import coyaLogo from "@/assets/coya-logo.png.asset.json";
 import { BLOG_CATEGORIES } from "@/lib/blog";
+import { useI18n } from "@/lib/i18n";
 
 export function Footer() {
+  const { t } = useI18n();
   return (
     <footer className="border-t border-border mt-24 bg-[#08080a]">
       <div className="container-x py-16 grid gap-10 md:grid-cols-5">
@@ -13,24 +15,22 @@ export function Footer() {
             <img src={coyaLogo.url} alt="COYA Digital Studio" className="h-12 w-12 object-contain" />
             <span className="font-display font-bold text-xl">COYA</span>
           </div>
-          <p className="text-sm text-white/60 leading-relaxed">
-            סטודיו דיגיטלי לבניית אתרים, דפי נחיתה ואוטומציות AI לעסקים שרוצים להיראות מקצועיים ולייצר תוצאות.
-          </p>
+          <p className="text-sm text-white/60 leading-relaxed">{t("footer.tagline")}</p>
         </div>
 
         <div>
-          <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-white/50">שירותים</h3>
+          <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-white/50">{t("footer.services")}</h3>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/websites" className="text-white/70 hover:text-white">בניית אתרים</Link></li>
-            <li><Link to="/landing" className="text-white/70 hover:text-white">דפי נחיתה</Link></li>
-            <li><Link to="/ai" className="text-white/70 hover:text-white">AI ואוטומציות</Link></li>
+            <li><Link to="/websites" className="text-white/70 hover:text-white">{t("nav.websites")}</Link></li>
+            <li><Link to="/landing" className="text-white/70 hover:text-white">{t("nav.landing")}</Link></li>
+            <li><Link to="/ai" className="text-white/70 hover:text-white">{t("nav.ai")}</Link></li>
           </ul>
         </div>
 
         <div>
-          <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-white/50">בלוג</h3>
+          <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-white/50">{t("footer.blog")}</h3>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/blog" className="text-white/70 hover:text-white">כל הפוסטים</Link></li>
+            <li><Link to="/blog" className="text-white/70 hover:text-white">{t("footer.allPosts")}</Link></li>
             {BLOG_CATEGORIES.slice(0, 5).map((c) => (
               <li key={c.slug}>
                 <Link to="/blog/$category" params={{ category: c.slug }} className="text-white/70 hover:text-white">
@@ -42,22 +42,22 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-white/50">מידע</h3>
+          <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-white/50">{t("footer.info")}</h3>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/contact" className="text-white/70 hover:text-white">צור קשר</Link></li>
-            <li><Link to="/terms" className="text-white/70 hover:text-white">תנאי שימוש</Link></li>
-            <li><Link to="/privacy" className="text-white/70 hover:text-white">מדיניות פרטיות</Link></li>
-            <li><Link to="/accessibility" className="text-white/70 hover:text-white">הצהרת נגישות</Link></li>
+            <li><Link to="/contact" className="text-white/70 hover:text-white">{t("nav.contact")}</Link></li>
+            <li><Link to="/terms" className="text-white/70 hover:text-white">{t("footer.terms")}</Link></li>
+            <li><Link to="/privacy" className="text-white/70 hover:text-white">{t("footer.privacy")}</Link></li>
+            <li><Link to="/accessibility" className="text-white/70 hover:text-white">{t("footer.accessibility")}</Link></li>
           </ul>
         </div>
       </div>
 
       <div className="container-x pb-8">
-        <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-white/50">יצירת קשר</h3>
+        <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-white/50">{t("footer.contact")}</h3>
         <ul className="flex flex-wrap gap-6 text-sm">
           <li>
-            <a href={WA_LINK} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-white/70 hover:text-white" aria-label="פתיחת שיחת וואטסאפ עם COYA">
-              <MessageCircle className="size-4 text-primary" aria-hidden /> וואטסאפ
+            <a href={WA_LINK} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-white/70 hover:text-white" aria-label={t("cta.whatsapp.long")}>
+              <MessageCircle className="size-4 text-primary" aria-hidden /> {t("cta.whatsapp")}
             </a>
           </li>
           <li>
@@ -66,13 +66,13 @@ export function Footer() {
             </a>
           </li>
           <li className="flex items-center gap-2 text-white/70">
-            <MapPin className="size-4 text-primary" aria-hidden /> ישראל
+            <MapPin className="size-4 text-primary" aria-hidden /> {t("footer.israel")}
           </li>
         </ul>
       </div>
 
       <div className="border-t border-border py-6 text-center text-xs text-white/40">
-        © {new Date().getFullYear()} COYA Digital Studio. כל הזכויות שמורות.
+        © {new Date().getFullYear()} COYA Digital Studio. {t("footer.rights")}
       </div>
     </footer>
   );
