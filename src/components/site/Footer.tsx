@@ -72,7 +72,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-border py-6 text-center text-xs text-white/40">
-        © {new Date().getFullYear()} COYA Digital Studio. {t("footer.rights")}
+        © {new Date().getFullYear()} &nbsp;COYA Studio Ai. {t("footer.rights")}
       </div>
     </footer>
   );
