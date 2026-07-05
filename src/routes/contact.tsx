@@ -49,20 +49,35 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   const tr = useTr();
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [form, setForm] = useState({ name: "", phone: "", email: "", type: "", message: "" });
   const typeId = useId();
   const messageId = useId();
 
-  const submit = (e: React.FormEvent) => {
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const nameLbl = tr("שם", "Name");
-    const phoneLbl = tr("טלפון", "Phone");
-    const emailLbl = tr("אימייל", "Email");
-    const interestLbl = tr("מעוניין ב", "Interested in");
-    const msgLbl = tr("הודעה", "Message");
-    const body = `${nameLbl}: ${form.name}%0A${phoneLbl}: ${form.phone}%0A${emailLbl}: ${form.email}%0A${interestLbl}: ${form.type}%0A${msgLbl}: ${form.message}`;
-    window.open(`https://wa.me/972545509927?text=${body}`, "_blank");
-    setSent(true);
+    setError(null);
+    if (!emailRe.test(form.email.trim())) {
+      setError(tr("נא להזין כתובת אימייל תקינה.", "Please enter a valid email address."));
+      return;
+    }
+    setSending(true);
+    try {
+      const res = await fetch("/api/public/send-contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("send_failed");
+      setSent(true);
+    } catch {
+      setError(tr("שליחה נכשלה. נסו שוב או פנו בוואטסאפ.", "Sending failed. Please try again or contact us on WhatsApp."));
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -87,7 +102,7 @@ function ContactPage() {
                   <Send className="size-6 text-primary" />
                 </div>
                 <h3 className="font-display font-bold text-xl mb-2">{tr("תודה!", "Thank you!")}</h3>
-                <p className="text-white/60">{tr("פתחנו לכם וואטסאפ עם ההודעה. נחזור אליכם בהקדם.", "We opened WhatsApp with your message. We'll get back to you shortly.")}</p>
+                <p className="text-white/60">{tr("קיבלנו את הפרטים במייל. נחזור אליכם בהקדם.", "We received your details by email. We'll get back to you shortly.")}</p>
               </div>
             ) : (
               <form onSubmit={submit} className="space-y-5">
@@ -112,8 +127,9 @@ function ContactPage() {
                   <textarea id={messageId} value={form.message} onChange={e => setForm({...form, message: e.target.value})} rows={4} required
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition resize-none" />
                 </div>
-                <button type="submit" className="btn-primary w-full">
-                  <Send className="size-4" /> {tr("שלח פנייה", "Send message")}
+                {error && <p className="text-sm text-destructive">{error}</p>}
+                <button type="submit" disabled={sending} className="btn-primary w-full disabled:opacity-60">
+                  <Send className="size-4" /> {sending ? tr("שולח...", "Sending...") : tr("שלח פנייה", "Send message")}
                 </button>
               </form>
             )}
