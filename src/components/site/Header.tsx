@@ -24,7 +24,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border/60 backdrop-blur-xl bg-background/70">
       <div className="container-x flex items-center justify-between h-16">
         <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <img src={coyaLogo.url} alt="COYA AI Solutions" className="h-12 w-12 rounded-lg object-cover" />
+          <img src={coyaLogo.url} alt="COYA AI Solutions" className="h-12 w-12 object-contain" />
           <span className="font-display font-bold text-xl tracking-tight">COYA</span>
         </Link>
 
