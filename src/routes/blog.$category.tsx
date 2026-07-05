@@ -91,7 +91,7 @@ function CategoryPage() {
           <article className="card-glass p-8">
             <h2 className="font-display font-bold text-xl mb-4">נושאים מרכזיים בקטגוריה</h2>
             <div className="flex flex-wrap gap-2">
-              {category.topics.map((t) => (
+              {category.topics.map((t: string) => (
                 <span
                   key={t}
                   className="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-white/80"
@@ -121,7 +121,7 @@ function CategoryPage() {
               <div className="mt-10">
                 <h2 className="font-display font-bold text-xl mb-4">שאלות נפוצות</h2>
                 <div className="space-y-4">
-                  {category.faqs.map((f) => (
+                  {category.faqs.map((f: { q: string; a: string }) => (
                     <details key={f.q} className="rounded-lg border border-white/10 bg-white/5 p-4">
                       <summary className="cursor-pointer font-medium text-white">{f.q}</summary>
                       <p className="mt-2 text-sm text-white/70 leading-relaxed">{f.a}</p>
