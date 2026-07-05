@@ -3,35 +3,36 @@ import { Section } from "../components/site/Section";
 import { WA_LINK } from "../components/site/Header";
 import { MessageCircle, Mail, Calendar, Send } from "lucide-react";
 import { useId, useState } from "react";
+import { useTr } from "@/lib/i18n";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "צור קשר | COYA Digital Studio" },
+      { title: "צור קשר | COYA Studio" },
       { name: "description", content: "רוצים להתחיל פרויקט? השאירו פרטים, דברו איתנו בוואטסאפ או שלחו מייל ל‑cohenyar21@gmail.com. נחזור אליכם במהירות." },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "צור קשר | COYA Digital Studio" },
-      { property: "og:description", content: "בואו נדבר על הפרויקט הבא שלכם — וואטסאפ, טופס או מייל." },
+      { property: "og:title", content: "Contact | COYA Studio" },
+      { property: "og:description", content: "Let's talk about your next project — WhatsApp, form, or email." },
       { property: "og:url", content: "https://coya-digital-studio-rtl.lovable.app/contact" },
       { property: "og:image", content: "https://coya-digital-studio-rtl.lovable.app/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "COYA Digital Studio" },
+      { property: "og:image:alt", content: "COYA Studio" },
       { name: "twitter:image", content: "https://coya-digital-studio-rtl.lovable.app/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
-      { property: "og:site_name", content: "COYA Digital Studio" },
+      { property: "og:site_name", content: "COYA Studio" },
       { property: "og:locale", content: "he_IL" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "צור קשר | COYA" },
-      { name: "twitter:description", content: "בואו נדבר על הפרויקט הבא שלכם." },
+      { name: "twitter:title", content: "Contact | COYA" },
+      { name: "twitter:description", content: "Let's talk about your next project." },
     ],
     links: [{ rel: "canonical", href: "https://coya-digital-studio-rtl.lovable.app/contact" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({
         "@context":"https://schema.org","@type":"WebPage",
-        name:"צור קשר | COYA Digital Studio", description:"בואו נדבר על הפרויקט הבא שלכם.",
+        name:"צור קשר | COYA Studio", description:"בואו נדבר על הפרויקט הבא שלכם.",
         url:"https://coya-digital-studio-rtl.lovable.app/contact",
         inLanguage:"he-IL",
-        isPartOf:{"@type":"WebSite",name:"COYA Digital Studio",url:"https://coya-digital-studio-rtl.lovable.app"}
+        isPartOf:{"@type":"WebSite",name:"COYA Studio",url:"https://coya-digital-studio-rtl.lovable.app"}
       }) },
       { type: "application/ld+json", children: JSON.stringify({
         "@context":"https://schema.org","@type":"BreadcrumbList",
@@ -46,6 +47,7 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const tr = useTr();
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", email: "", type: "", message: "" });
   const typeId = useId();
@@ -53,7 +55,12 @@ function ContactPage() {
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    const body = `שם: ${form.name}%0Aטלפון: ${form.phone}%0Aאימייל: ${form.email}%0Aמעוניין ב: ${form.type}%0Aהודעה: ${form.message}`;
+    const nameLbl = tr("שם", "Name");
+    const phoneLbl = tr("טלפון", "Phone");
+    const emailLbl = tr("אימייל", "Email");
+    const interestLbl = tr("מעוניין ב", "Interested in");
+    const msgLbl = tr("הודעה", "Message");
+    const body = `${nameLbl}: ${form.name}%0A${phoneLbl}: ${form.phone}%0A${emailLbl}: ${form.email}%0A${interestLbl}: ${form.type}%0A${msgLbl}: ${form.message}`;
     window.open(`https://wa.me/972545509927?text=${body}`, "_blank");
     setSent(true);
   };
@@ -64,10 +71,10 @@ function ContactPage() {
         <div className="absolute inset-0 pointer-events-none" style={{background: "var(--gradient-hero)"}} />
         <div className="container-x relative text-center max-w-3xl mx-auto animate-fade-up">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 mb-6">
-            <span className="text-xs uppercase tracking-[0.2em] text-primary/90">צור קשר</span>
+            <span className="text-xs uppercase tracking-[0.2em] text-primary/90">{tr("צור קשר", "Contact")}</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-display font-bold text-gradient leading-[1.1]">בואו נדבר על הפרויקט שלכם</h1>
-          <p className="mt-5 text-lg text-white/60">מלאו את הטופס, שלחו הודעה בוואטסאפ או קבעו שיחת ייעוץ ללא עלות.</p>
+          <h1 className="text-4xl md:text-6xl font-display font-bold text-gradient leading-[1.1]">{tr("בואו נדבר על הפרויקט שלכם", "Let's talk about your project")}</h1>
+          <p className="mt-5 text-lg text-white/60">{tr("מלאו את הטופס, שלחו הודעה בוואטסאפ או קבעו שיחת ייעוץ ללא עלות.", "Fill out the form, message us on WhatsApp, or book a free consultation.")}</p>
         </div>
       </section>
 
@@ -79,43 +86,43 @@ function ContactPage() {
                 <div className="h-14 w-14 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center mx-auto mb-4">
                   <Send className="size-6 text-primary" />
                 </div>
-                <h3 className="font-display font-bold text-xl mb-2">תודה!</h3>
-                <p className="text-white/60">פתחנו לכם וואטסאפ עם ההודעה. נחזור אליכם בהקדם.</p>
+                <h3 className="font-display font-bold text-xl mb-2">{tr("תודה!", "Thank you!")}</h3>
+                <p className="text-white/60">{tr("פתחנו לכם וואטסאפ עם ההודעה. נחזור אליכם בהקדם.", "We opened WhatsApp with your message. We'll get back to you shortly.")}</p>
               </div>
             ) : (
               <form onSubmit={submit} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <Field label="שם מלא" value={form.name} onChange={v => setForm({...form, name: v})} required />
-                  <Field label="טלפון" value={form.phone} onChange={v => setForm({...form, phone: v})} required type="tel" />
+                  <Field label={tr("שם מלא", "Full name")} value={form.name} onChange={v => setForm({...form, name: v})} required />
+                  <Field label={tr("טלפון", "Phone")} value={form.phone} onChange={v => setForm({...form, phone: v})} required type="tel" />
                 </div>
-                <Field label="אימייל" value={form.email} onChange={v => setForm({...form, email: v})} required type="email" />
+                <Field label={tr("אימייל", "Email")} value={form.email} onChange={v => setForm({...form, email: v})} required type="email" />
                 <div>
-                  <label htmlFor={typeId} className="block text-sm font-medium mb-2 text-white/80">מה תרצו לבנות?</label>
+                  <label htmlFor={typeId} className="block text-sm font-medium mb-2 text-white/80">{tr("מה תרצו לבנות?", "What would you like to build?")}</label>
                   <select id={typeId} value={form.type} onChange={e => setForm({...form, type: e.target.value})} required
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition">
-                    <option value="" className="bg-background">בחרו שירות...</option>
-                    <option value="אתר" className="bg-background">אתר עסקי</option>
-                    <option value="דף נחיתה" className="bg-background">דף נחיתה</option>
-                    <option value="AI/אוטומציה" className="bg-background">AI ואוטומציות</option>
-                    <option value="אחר" className="bg-background">אחר</option>
+                    <option value="" className="bg-background">{tr("בחרו שירות...", "Choose a service...")}</option>
+                    <option value={tr("אתר", "Website")} className="bg-background">{tr("אתר עסקי", "Business website")}</option>
+                    <option value={tr("דף נחיתה", "Landing page")} className="bg-background">{tr("דף נחיתה", "Landing page")}</option>
+                    <option value={tr("AI/אוטומציה", "AI/Automation")} className="bg-background">{tr("AI ואוטומציות", "AI & Automation")}</option>
+                    <option value={tr("אחר", "Other")} className="bg-background">{tr("אחר", "Other")}</option>
                   </select>
                 </div>
                 <div>
-                  <label htmlFor={messageId} className="block text-sm font-medium mb-2 text-white/80">הודעה</label>
+                  <label htmlFor={messageId} className="block text-sm font-medium mb-2 text-white/80">{tr("הודעה", "Message")}</label>
                   <textarea id={messageId} value={form.message} onChange={e => setForm({...form, message: e.target.value})} rows={4} required
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition resize-none" />
                 </div>
                 <button type="submit" className="btn-primary w-full">
-                  <Send className="size-4" /> שלח פנייה
+                  <Send className="size-4" /> {tr("שלח פנייה", "Send message")}
                 </button>
               </form>
             )}
           </div>
 
           <div className="space-y-4">
-            <ContactCard icon={MessageCircle} title="וואטסאפ" desc="המהיר ביותר. תגובה תוך שעות." href={WA_LINK} cta="פתח וואטסאפ" />
-            <ContactCard icon={Mail} title="אימייל" desc="cohenyar21@gmail.com" href="mailto:cohenyar21@gmail.com" cta="שלח מייל" />
-            <ContactCard icon={Calendar} title="שיחת ייעוץ" desc="שיחה של 30 דקות ללא עלות." href={WA_LINK} cta="קבע שיחה" />
+            <ContactCard icon={MessageCircle} title={tr("וואטסאפ", "WhatsApp")} desc={tr("המהיר ביותר. תגובה תוך שעות.", "Fastest. Reply within hours.")} href={WA_LINK} cta={tr("פתח וואטסאפ", "Open WhatsApp")} />
+            <ContactCard icon={Mail} title={tr("אימייל", "Email")} desc="cohenyar21@gmail.com" href="mailto:cohenyar21@gmail.com" cta={tr("שלח מייל", "Send email")} />
+            <ContactCard icon={Calendar} title={tr("שיחת ייעוץ", "Consultation call")} desc={tr("שיחה של 30 דקות ללא עלות.", "Free 30-minute call.")} href={WA_LINK} cta={tr("קבע שיחה", "Book a call")} />
           </div>
         </div>
       </Section>

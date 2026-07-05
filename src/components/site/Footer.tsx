@@ -2,11 +2,11 @@ import { Link } from "@tanstack/react-router";
 import { Mail, MessageCircle, MapPin } from "lucide-react";
 import { WA_LINK } from "./Header";
 import coyaLogo from "@/assets/coya-logo.png.asset.json";
-import { BLOG_CATEGORIES } from "@/lib/blog";
+import { BLOG_CATEGORIES_I18N } from "@/lib/blog";
 import { useI18n } from "@/lib/i18n";
 
 export function Footer() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   return (
     <footer className="border-t border-border mt-24 bg-[#08080a]">
       <div className="container-x py-16 grid gap-10 md:grid-cols-5">
@@ -31,10 +31,10 @@ export function Footer() {
           <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-white/50">{t("footer.blog")}</h3>
           <ul className="space-y-2 text-sm">
             <li><Link to="/blog" className="text-white/70 hover:text-white">{t("footer.allPosts")}</Link></li>
-            {BLOG_CATEGORIES.slice(0, 5).map((c) => (
+            {BLOG_CATEGORIES_I18N.slice(0, 5).map((c) => (
               <li key={c.slug}>
                 <Link to="/blog/$category" params={{ category: c.slug }} className="text-white/70 hover:text-white">
-                  {c.name}
+                  {c.name[lang]}
                 </Link>
               </li>
             ))}
