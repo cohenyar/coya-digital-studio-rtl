@@ -302,7 +302,7 @@ function Home() {
               <div
                 key={b.slug}
                 className={`absolute ${b.pos} group cursor-default`}
-                style={{ animation: `float 6s ease-in-out ${b.delay} infinite` }}
+                style={{ animation: `float-slow 6s ease-in-out ${b.delay} infinite` }}
               >
                 <div className="relative h-14 w-14 md:h-16 md:w-16 rounded-full backdrop-blur-xl bg-white/5 border border-white/15 shadow-[0_8px_32px_rgba(124,58,237,0.25)] flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/10 group-hover:border-white/25 group-hover:shadow-[0_8px_40px_rgba(124,58,237,0.55)]">
                   <div className="absolute inset-0 rounded-full bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
