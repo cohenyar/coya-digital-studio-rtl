@@ -102,7 +102,7 @@ function ContactPage() {
                   <Send className="size-6 text-primary" />
                 </div>
                 <h3 className="font-display font-bold text-xl mb-2">{tr("תודה!", "Thank you!")}</h3>
-                <p className="text-white/60">{tr("פתחנו לכם וואטסאפ עם ההודעה. נחזור אליכם בהקדם.", "We opened WhatsApp with your message. We'll get back to you shortly.")}</p>
+                <p className="text-white/60">{tr("קיבלנו את הפרטים במייל. נחזור אליכם בהקדם.", "We received your details by email. We'll get back to you shortly.")}</p>
               </div>
             ) : (
               <form onSubmit={submit} className="space-y-5">
