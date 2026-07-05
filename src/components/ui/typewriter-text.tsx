@@ -1,78 +1,101 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-interface TypewriterTextProps {
-  text: string;
-  speed?: number;
+interface TypewriterProps {
+  text: string | string[];
+  speed?: number;          // ms per char while typing
+  deleteSpeed?: number;    // ms per char while deleting
+  holdDelay?: number;      // ms to hold a completed phrase
   startDelay?: number;
+  loop?: boolean;
   className?: string;
   cursorClassName?: string;
-  onDone?: () => void;
 }
 
-export function TypewriterText({
+/**
+ * Typewriter — inspired by hextaui/typewriter-text.
+ * Types phrase, holds, deletes, moves to next. Respects prefers-reduced-motion.
+ */
+export function Typewriter({
   text,
-  speed = 45,
-  startDelay = 150,
+  speed = 60,
+  deleteSpeed = 35,
+  holdDelay = 1600,
+  startDelay = 120,
+  loop = true,
   className,
   cursorClassName,
-  onDone,
-}: TypewriterTextProps) {
-  const prefersReducedMotion =
+}: TypewriterProps) {
+  const phrases = Array.isArray(text) ? text : [text];
+  const reduced =
     typeof window !== "undefined" &&
     window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
-  const [displayed, setDisplayed] = useState(prefersReducedMotion ? text : "");
-  const [done, setDone] = useState(prefersReducedMotion);
+  const [display, setDisplay] = useState(reduced ? phrases[0] : "");
+  const idxRef = useRef(0);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      onDone?.();
-      return;
-    }
-    let i = 0;
+    if (reduced) return;
     let cancelled = false;
-    const timers: ReturnType<typeof setTimeout>[] = [];
+    let charCount = 0;
+    let deleting = false;
 
-    const start = setTimeout(() => {
-      const tick = () => {
-        if (cancelled) return;
-        i += 1;
-        setDisplayed(text.slice(0, i));
-        if (i >= text.length) {
-          setDone(true);
-          onDone?.();
+    const clear = () => timer.current && clearTimeout(timer.current);
+    const schedule = (fn: () => void, ms: number) => {
+      clear();
+      timer.current = setTimeout(() => {
+        if (!cancelled) fn();
+      }, ms);
+    };
+
+    const step = () => {
+      const phrase = phrases[idxRef.current];
+      if (!deleting) {
+        charCount += 1;
+        setDisplay(phrase.slice(0, charCount));
+        if (charCount === phrase.length) {
+          const isLast = idxRef.current === phrases.length - 1;
+          if (!loop && isLast) return;
+          deleting = true;
+          schedule(step, holdDelay);
           return;
         }
-        const ch = text[i - 1];
-        const jitter = ch === " " ? 20 : ch === "," || ch === "?" ? 180 : 0;
-        timers.push(setTimeout(tick, speed + jitter));
-      };
-      tick();
-    }, startDelay);
+        const ch = phrase[charCount - 1];
+        const jitter = ch === " " ? 15 : ch === "," || ch === "?" ? 140 : 0;
+        schedule(step, speed + jitter);
+      } else {
+        charCount -= 1;
+        setDisplay(phrase.slice(0, charCount));
+        if (charCount === 0) {
+          deleting = false;
+          idxRef.current = (idxRef.current + 1) % phrases.length;
+          schedule(step, 220);
+          return;
+        }
+        schedule(step, deleteSpeed);
+      }
+    };
 
+    schedule(step, startDelay);
     return () => {
       cancelled = true;
-      clearTimeout(start);
-      timers.forEach(clearTimeout);
+      clear();
     };
-  }, [text, speed, startDelay, prefersReducedMotion, onDone]);
+    // phrases identity change is intentional trigger
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [text, speed, deleteSpeed, holdDelay, startDelay, loop, reduced]);
 
   return (
-    <span className={className} aria-label={text}>
-      <span aria-hidden="true">{displayed}</span>
+    <span className={className} aria-label={phrases.join(". ")}>
+      <span aria-hidden="true">{display}</span>
       <span
         aria-hidden="true"
         className={cn(
-          "inline-block w-[0.08em] h-[0.9em] align-[-0.1em] mr-1 bg-primary rounded-sm",
-          done ? "animate-pulse" : "opacity-100",
+          "inline-block w-[3px] h-[0.95em] align-[-0.12em] mr-1 bg-primary rounded-[1px]",
           cursorClassName,
         )}
-        style={{
-          animation: done
-            ? "typewriter-blink 1s steps(1) infinite"
-            : undefined,
-        }}
+        style={{ animation: "typewriter-blink 1s steps(1) infinite" }}
       />
       <style>{`@keyframes typewriter-blink { 50% { opacity: 0; } }`}</style>
     </span>
