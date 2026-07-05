@@ -5,7 +5,7 @@ export const SITE_URL = "https://coya-digital-studio-rtl.lovable.app";
 export const SITE_NAME = "COYA Digital Studio";
 export const SITE_TAGLINE = "בניית אתרים, דפי נחיתה ואוטומציות AI";
 export const OG_IMAGE_PATH =
-  "/__l5e/assets-v1/d36078bd-d7e4-499d-a833-0cdcde29ed97/og-image.jpg";
+  "/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg";
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`;
 export const CONTACT_EMAIL = "cohenyar21@gmail.com";
 export const CONTACT_PHONE = "+972545509927";
