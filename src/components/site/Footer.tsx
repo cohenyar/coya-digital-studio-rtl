@@ -55,7 +55,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-border py-6 text-center text-xs text-white/40">
-        © {new Date().getFullYear()} COYA Digital Studio. כל הזכויות שמורות.
+        © {new Date().getFullYear()} COYA Studio Ai. כל הזכויות שמורות.
       </div>
     </footer>
   );
