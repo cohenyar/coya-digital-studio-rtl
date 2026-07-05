@@ -140,6 +140,7 @@ function RootComponent() {
           <WhatsAppFloat />
           <AccessibilityPanel />
           <CookiesNotice />
+          <Analytics />
         </div>
       </I18nProvider>
     </QueryClientProvider>
