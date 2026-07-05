@@ -85,7 +85,7 @@ function ContactPage() {
 
           <div className="space-y-4">
             <ContactCard icon={MessageCircle} title="וואטסאפ" desc="המהיר ביותר. תגובה תוך שעות." href={WA_LINK} cta="פתח וואטסאפ" />
-            <ContactCard icon={Mail} title="אימייל" desc="hello@coya.studio" href="mailto:hello@coya.studio" cta="שלח מייל" />
+            <ContactCard icon={Mail} title="אימייל" desc="cohenyar21@gmail.com" href="mailto:cohenyar21@gmail.com" cta="שלח מייל" />
             <ContactCard icon={Calendar} title="שיחת ייעוץ" desc="שיחה של 30 דקות ללא עלות." href={WA_LINK} cta="קבע שיחה" />
           </div>
         </div>

@@ -44,8 +44,8 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a href="mailto:hello@coya.studio" className="flex items-center gap-2 text-white/70 hover:text-white">
-                <Mail className="size-4 text-primary" /> hello@coya.studio
+              <a href="mailto:cohenyar21@gmail.com" className="flex items-center gap-2 text-white/70 hover:text-white">
+                <Mail className="size-4 text-primary" /> cohenyar21@gmail.com
               </a>
             </li>
             <li className="flex items-center gap-2 text-white/70">
