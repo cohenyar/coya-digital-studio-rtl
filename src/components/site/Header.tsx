@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
-import coyaLogo from "@/assets/coya-logo.png.asset.json";
+const coyaLogo = { url: "/images/coya-logo.png" };
 import { useI18n } from "@/lib/i18n";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
