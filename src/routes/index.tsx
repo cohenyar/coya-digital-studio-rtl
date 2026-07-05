@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { Typewriter } from "../components/ui/typewriter-text";
 import founderPhoto from "@/assets/founder.png.asset.json";
+import coyaLogo from "@/assets/coya-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -355,9 +356,18 @@ function Home() {
           </div>
         </div>
       </Section>
+
+      {/* Big Logo */}
+      <Section>
+        <div className="flex justify-center">
+          <img src={coyaLogo.url} alt="COYA" className="w-56 md:w-80 h-auto rounded-2xl" />
+        </div>
+      </Section>
     </>
   );
 }
+
+
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
