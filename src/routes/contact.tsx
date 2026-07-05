@@ -111,7 +111,7 @@ function ContactPage() {
                   <Field label={tr("טלפון", "Phone")} value={form.phone} onChange={v => setForm({...form, phone: v})} required type="tel" />
                 </div>
                 <Field label={tr("אימייל", "Email")} value={form.email} onChange={v => setForm({...form, email: v})} required type="email" />
-                <div>
+                {error && <p className="text-sm text-destructive">{error}</p>}
                   <label htmlFor={typeId} className="block text-sm font-medium mb-2 text-white/80">{tr("מה תרצו לבנות?", "What would you like to build?")}</label>
                   <select id={typeId} value={form.type} onChange={e => setForm({...form, type: e.target.value})} required
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition">
