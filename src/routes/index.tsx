@@ -293,10 +293,28 @@ function Home() {
               <circle cx="200" cy="200" r="40" fill="url(#grad)" />
               <text x="200" y="207" textAnchor="middle" fill="white" fontSize="16" fontWeight="700" fontFamily="Space Grotesk">AI</text>
             </svg>
-            <div className="absolute top-0 right-0 text-xs text-white/50 bg-card/80 px-2 py-1 rounded border border-border">CRM</div>
-            <div className="absolute top-0 left-0 text-xs text-white/50 bg-card/80 px-2 py-1 rounded border border-border">WhatsApp</div>
-            <div className="absolute bottom-0 right-0 text-xs text-white/50 bg-card/80 px-2 py-1 rounded border border-border">Email</div>
-            <div className="absolute bottom-0 left-0 text-xs text-white/50 bg-card/80 px-2 py-1 rounded border border-border">Sheets</div>
+            {[
+              { name: "HubSpot", slug: "hubspot", color: "FF7A59", pos: "top-0 right-0", delay: "0s" },
+              { name: "WhatsApp", slug: "whatsapp", color: "25D366", pos: "top-0 left-0", delay: "0.6s" },
+              { name: "Gmail", slug: "gmail", color: "EA4335", pos: "bottom-0 right-0", delay: "1.2s" },
+              { name: "Google Sheets", slug: "googlesheets", color: "34A853", pos: "bottom-0 left-0", delay: "1.8s" },
+            ].map((b) => (
+              <div
+                key={b.slug}
+                className={`absolute ${b.pos} group cursor-default`}
+                style={{ animation: `float 6s ease-in-out ${b.delay} infinite` }}
+              >
+                <div className="relative h-14 w-14 md:h-16 md:w-16 rounded-full backdrop-blur-xl bg-white/5 border border-white/15 shadow-[0_8px_32px_rgba(124,58,237,0.25)] flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/10 group-hover:border-white/25 group-hover:shadow-[0_8px_40px_rgba(124,58,237,0.55)]">
+                  <div className="absolute inset-0 rounded-full bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
+                  <img
+                    src={`https://cdn.simpleicons.org/${b.slug}/${b.color}`}
+                    alt={`${b.name} logo`}
+                    loading="lazy"
+                    className="relative h-7 w-7 md:h-9 md:w-9 object-contain"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </Section>
