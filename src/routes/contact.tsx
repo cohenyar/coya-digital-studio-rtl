@@ -94,7 +94,7 @@ function ContactPage() {
   );
 }
 
-function Field({ label, value, onChange, type = "text", required }: any) {
+function Field({ label, value, onChange, type = "text", required }: { label: string; value: string; onChange: (v: string) => void; type?: string; required?: boolean }) {
   return (
     <div>
       <label className="block text-sm font-medium mb-2 text-white/80">{label}{required && <span className="text-primary"> *</span>}</label>
