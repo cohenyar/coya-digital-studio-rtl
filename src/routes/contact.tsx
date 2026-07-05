@@ -27,6 +27,8 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", email: "", type: "", message: "" });
+  const typeId = useId();
+  const messageId = useId();
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
