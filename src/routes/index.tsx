@@ -360,7 +360,7 @@ function Home() {
       {/* Big Logo */}
       <Section>
         <div className="flex justify-center">
-          <img src={coyaLogo.url} alt="COYA" className="w-56 md:w-80 h-auto rounded-2xl" />
+          <img src={coyaLogo.url} alt="COYA" className="w-64 md:w-96 h-auto" />
         </div>
       </Section>
     </>
