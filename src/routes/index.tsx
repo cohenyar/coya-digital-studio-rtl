@@ -6,7 +6,7 @@ import {
   ArrowLeft, Check, X, MessageCircle, Globe, Rocket, Bot, Search, Layers,
   Palette, Code2, Send, TrendingUp, Sparkles, Zap, Workflow, Mail
 } from "lucide-react";
-import { Typewriter } from "../components/ui/typewriter-text";
+import founderPhoto from "@/assets/founder.png.asset.json";
 import founderPhoto from "@/assets/founder.png.asset.json";
 import coyaLogo from "@/assets/coya-logo.png.asset.json";
 
