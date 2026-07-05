@@ -49,20 +49,35 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   const tr = useTr();
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [form, setForm] = useState({ name: "", phone: "", email: "", type: "", message: "" });
   const typeId = useId();
   const messageId = useId();
 
-  const submit = (e: React.FormEvent) => {
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const nameLbl = tr("שם", "Name");
-    const phoneLbl = tr("טלפון", "Phone");
-    const emailLbl = tr("אימייל", "Email");
-    const interestLbl = tr("מעוניין ב", "Interested in");
-    const msgLbl = tr("הודעה", "Message");
-    const body = `${nameLbl}: ${form.name}%0A${phoneLbl}: ${form.phone}%0A${emailLbl}: ${form.email}%0A${interestLbl}: ${form.type}%0A${msgLbl}: ${form.message}`;
-    window.open(`https://wa.me/972545509927?text=${body}`, "_blank");
-    setSent(true);
+    setError(null);
+    if (!emailRe.test(form.email.trim())) {
+      setError(tr("נא להזין כתובת אימייל תקינה.", "Please enter a valid email address."));
+      return;
+    }
+    setSending(true);
+    try {
+      const res = await fetch("/api/public/send-contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("send_failed");
+      setSent(true);
+    } catch {
+      setError(tr("שליחה נכשלה. נסו שוב או פנו בוואטסאפ.", "Sending failed. Please try again or contact us on WhatsApp."));
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
