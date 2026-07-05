@@ -13,32 +13,32 @@ export const Route = createFileRoute("/landing")({
       { property: "og:type", content: "website" },
       { property: "og:title", content: "Conversion-Focused Landing Pages | COYA Studio" },
       { property: "og:description", content: "Landing pages that convert visitors into leads — built for Meta, Google, and TikTok campaigns." },
-      { property: "og:url", content: "https://coya-digital-studio-rtl.lovable.app/landing" },
-      { property: "og:image", content: "https://coya-digital-studio-rtl.lovable.app/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
+      { property: "og:url", content: "https://www.coyastudioai.com/landing" },
+      { property: "og:image", content: "https://www.coyastudioai.com/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: "COYA Studio" },
-      { name: "twitter:image", content: "https://coya-digital-studio-rtl.lovable.app/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
+      { name: "twitter:image", content: "https://www.coyastudioai.com/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
       { property: "og:site_name", content: "COYA Studio" },
       { property: "og:locale", content: "he_IL" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Landing Pages | COYA" },
       { name: "twitter:description", content: "One page. One goal. One result." },
     ],
-    links: [{ rel: "canonical", href: "https://coya-digital-studio-rtl.lovable.app/landing" }],
+    links: [{ rel: "canonical", href: "https://www.coyastudioai.com/landing" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({
         "@context":"https://schema.org","@type":"WebPage",
         name:"בניית דפי נחיתה ממוקדי המרה | COYA Studio", description:"דפי נחיתה שממירים גולשים ללידים משלמים.",
-        url:"https://coya-digital-studio-rtl.lovable.app/landing",
+        url:"https://www.coyastudioai.com/landing",
         inLanguage:"he-IL",
-        isPartOf:{"@type":"WebSite",name:"COYA Studio",url:"https://coya-digital-studio-rtl.lovable.app"}
+        isPartOf:{"@type":"WebSite",name:"COYA Studio",url:"https://www.coyastudioai.com"}
       }) },
       { type: "application/ld+json", children: JSON.stringify({
         "@context":"https://schema.org","@type":"BreadcrumbList",
         itemListElement:[
-          {"@type":"ListItem",position:1,name:"בית",item:"https://coya-digital-studio-rtl.lovable.app/"},
-          {"@type":"ListItem",position:2,name:"דפי נחיתה",item:"https://coya-digital-studio-rtl.lovable.app/landing"}
+          {"@type":"ListItem",position:1,name:"בית",item:"https://www.coyastudioai.com/"},
+          {"@type":"ListItem",position:2,name:"דפי נחיתה",item:"https://www.coyastudioai.com/landing"}
         ]
       }) },
     ],

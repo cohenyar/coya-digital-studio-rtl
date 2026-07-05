@@ -6,4 +6,4 @@ Disallow: /privacy
 Disallow: /terms
 Disallow: /accessibility
 
-Sitemap: https://coya-digital-studio-rtl.lovable.app/sitemap.xml
+Sitemap: https://www.coyastudioai.com/sitemap.xml

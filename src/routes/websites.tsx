@@ -13,32 +13,32 @@ export const Route = createFileRoute("/websites")({
       { property: "og:type", content: "website" },
       { property: "og:title", content: "Website Development for Businesses | COYA Studio" },
       { property: "og:description", content: "Professional business websites — designed, fast, and ready to grow." },
-      { property: "og:url", content: "https://coya-digital-studio-rtl.lovable.app/websites" },
-      { property: "og:image", content: "https://coya-digital-studio-rtl.lovable.app/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
+      { property: "og:url", content: "https://www.coyastudioai.com/websites" },
+      { property: "og:image", content: "https://www.coyastudioai.com/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: "COYA Studio" },
-      { name: "twitter:image", content: "https://coya-digital-studio-rtl.lovable.app/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
+      { name: "twitter:image", content: "https://www.coyastudioai.com/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
       { property: "og:site_name", content: "COYA Studio" },
       { property: "og:locale", content: "he_IL" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Website Development | COYA" },
       { name: "twitter:description", content: "Business websites that build trust and drive action." },
     ],
-    links: [{ rel: "canonical", href: "https://coya-digital-studio-rtl.lovable.app/websites" }],
+    links: [{ rel: "canonical", href: "https://www.coyastudioai.com/websites" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({
         "@context":"https://schema.org","@type":"WebPage",
         name:"בניית אתרים לעסקים | COYA Studio", description:"בניית אתרים מקצועיים לעסקים — מהירים, רספונסיביים ומותאמים ל-SEO.",
-        url:"https://coya-digital-studio-rtl.lovable.app/websites",
+        url:"https://www.coyastudioai.com/websites",
         inLanguage:"he-IL",
-        isPartOf:{"@type":"WebSite",name:"COYA Studio",url:"https://coya-digital-studio-rtl.lovable.app"}
+        isPartOf:{"@type":"WebSite",name:"COYA Studio",url:"https://www.coyastudioai.com"}
       }) },
       { type: "application/ld+json", children: JSON.stringify({
         "@context":"https://schema.org","@type":"BreadcrumbList",
         itemListElement:[
-          {"@type":"ListItem",position:1,name:"בית",item:"https://coya-digital-studio-rtl.lovable.app/"},
-          {"@type":"ListItem",position:2,name:"בניית אתרים",item:"https://coya-digital-studio-rtl.lovable.app/websites"}
+          {"@type":"ListItem",position:1,name:"בית",item:"https://www.coyastudioai.com/"},
+          {"@type":"ListItem",position:2,name:"בניית אתרים",item:"https://www.coyastudioai.com/websites"}
         ]
       }) },
     ],

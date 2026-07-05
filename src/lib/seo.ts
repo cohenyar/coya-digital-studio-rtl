@@ -1,7 +1,7 @@
 // Central SEO helpers so every route ships absolute canonical/og URLs
 // and consistent JSON-LD. Do not hardcode the domain elsewhere.
 
-export const SITE_URL = "https://coya-digital-studio-rtl.lovable.app";
+export const SITE_URL = "https://www.coyastudioai.com";
 export const SITE_NAME = "COYA Digital Studio";
 export const SITE_TAGLINE = "בניית אתרים, דפי נחיתה ואוטומציות AI";
 export const OG_IMAGE_PATH =
