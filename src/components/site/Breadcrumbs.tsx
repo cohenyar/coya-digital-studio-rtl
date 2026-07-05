@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft, Home } from "lucide-react";
+import { useTr } from "@/lib/i18n";
 
 export interface BreadcrumbItem {
   name: string;
@@ -7,13 +8,14 @@ export interface BreadcrumbItem {
 }
 
 export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
+  const tr = useTr();
   return (
-    <nav aria-label="פירורי לחם" className="container-x pt-6">
+    <nav aria-label={tr("פירורי לחם", "Breadcrumbs")} className="container-x pt-6">
       <ol className="flex flex-wrap items-center gap-1 text-xs text-white/60">
         <li className="flex items-center gap-1">
           <Link to="/" className="inline-flex items-center gap-1 hover:text-white transition">
             <Home className="size-3.5" aria-hidden />
-            <span>בית</span>
+            <span>{tr("בית", "Home")}</span>
           </Link>
         </li>
         {items.map((c, i) => (
