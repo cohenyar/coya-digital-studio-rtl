@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
+import coyaLogo from "@/assets/coya-logo.png.asset.json";
+
 
 const nav = [
   { to: "/", label: "בית" },
@@ -22,7 +24,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border/60 backdrop-blur-xl bg-background/70">
       <div className="container-x flex items-center justify-between h-16">
         <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-purple-400 flex items-center justify-center font-display font-bold text-sm">C</div>
+          <img src={coyaLogo.url} alt="COYA AI Solutions" className="h-10 w-10 rounded-lg object-cover" />
           <span className="font-display font-bold text-xl tracking-tight">COYA</span>
         </Link>
 
