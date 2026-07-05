@@ -27,15 +27,10 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 backdrop-blur-xl bg-background/70">
       <div className="container-x flex items-center justify-between h-16 gap-3">
-        {/* Start-of-row group: language switcher sits at the row start,
-            which maps to top-right in RTL (he) and top-left in LTR (en). */}
-        <div className="flex items-center gap-3">
-          <LanguageSwitcher className="hidden md:inline-flex" />
-          <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-            <img src={coyaLogo.url} alt="COYA AI Solutions" className="h-12 w-12 object-contain" />
-            <span className="font-display font-bold text-xl tracking-tight">COYA</span>
-          </Link>
-        </div>
+        <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
+          <img src={coyaLogo.url} alt="COYA AI Solutions" className="h-12 w-12 object-contain" />
+          <span className="font-display font-bold text-xl tracking-tight">COYA</span>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-1">
           {nav.map((n) => (
@@ -51,7 +46,9 @@ export function Header() {
           ))}
         </nav>
 
+        {/* End-of-row group: maps to top-left in RTL (he) and top-right in LTR (en). */}
         <div className="flex items-center gap-2">
+          <LanguageSwitcher className="hidden md:inline-flex" />
           <a
             href={WA_LINK}
             target="_blank"
