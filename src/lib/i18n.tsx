@@ -7,9 +7,17 @@ type Dict = Record<string, { he: string; en: string }>;
 export const translations: Dict = {
   // Nav
   "nav.home": { he: "בית", en: "Home" },
+  "nav.services": { he: "שירותים", en: "Services" },
+  "nav.allServices": { he: "כל השירותים", en: "All Services" },
   "nav.websites": { he: "בניית אתרים", en: "Websites" },
   "nav.landing": { he: "דפי נחיתה", en: "Landing Pages" },
   "nav.ai": { he: "AI ואוטומציות", en: "AI & Automation" },
+  "nav.aiForBusiness": { he: "AI לעסקים", en: "AI for Business" },
+  "nav.aiAvatars": { he: "דמויות AI", en: "AI Avatars" },
+  "nav.aiAds": { he: "פרסומות AI", en: "AI Ads" },
+  "nav.aiVideos": { he: "סרטוני AI", en: "AI Videos" },
+  "nav.automation": { he: "אוטומציה עסקית", en: "Business Automation" },
+  "nav.chatbots": { he: "צ'אטבוטים", en: "Chatbots" },
   "nav.blog": { he: "בלוג", en: "Blog" },
   "nav.contact": { he: "צור קשר", en: "Contact" },
 
