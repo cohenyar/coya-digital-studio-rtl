@@ -58,10 +58,10 @@ export function canonicalLink(path: string) {
 
 export const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
   "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
-  alternateName: "COYA Studio",
+  alternateName: ["COYA Studio", "קויה סטודיו", "COYA"],
   url: SITE_URL,
   logo: {
     "@type": "ImageObject",
@@ -71,11 +71,67 @@ export const organizationJsonLd = {
   },
   image: OG_IMAGE_URL,
   description:
-    "סטודיו דיגיטלי לבניית אתרים, דפי נחיתה, אוטומציות AI, דמויות AI, פרסומות וסרטוני AI לעסקים.",
+    "COYA Studio — סטודיו דיגיטלי בישראל לבניית אתרים, פיתוח אתרים לעסקים, דפי נחיתה, אוטומציות AI, סוכני AI, צ׳אטבוטים ופתרונות בינה מלאכותית לעסקים.",
+  slogan: "בניית אתרים ופתרונות AI לעסקים בישראל",
   email: CONTACT_EMAIL,
   telephone: CONTACT_PHONE,
-  areaServed: { "@type": "Country", name: "Israel" },
-  address: { "@type": "PostalAddress", addressCountry: "IL" },
+  priceRange: "$$",
+  currenciesAccepted: "ILS",
+  paymentAccepted: ["Cash", "Credit Card", "Bank Transfer"],
+  areaServed: [
+    { "@type": "Country", name: "Israel" },
+    { "@type": "AdministrativeArea", name: "תל אביב" },
+    { "@type": "AdministrativeArea", name: "מרכז" },
+    { "@type": "AdministrativeArea", name: "ירושלים" },
+    { "@type": "AdministrativeArea", name: "חיפה והצפון" },
+    { "@type": "AdministrativeArea", name: "השרון" },
+    { "@type": "AdministrativeArea", name: "הדרום" },
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "IL",
+    addressRegion: "Israel",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 32.0853,
+    longitude: 34.7818,
+  },
+  serviceArea: {
+    "@type": "GeoShape",
+    addressCountry: "IL",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+      opens: "09:00",
+      closes: "19:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Friday",
+      opens: "09:00",
+      closes: "13:00",
+    },
+  ],
+  knowsAbout: [
+    "בניית אתרים",
+    "בניית אתר לעסק",
+    "פיתוח אתרים",
+    "דפי נחיתה",
+    "אוטומציה לעסקים",
+    "אוטומציות AI",
+    "סוכני AI",
+    "פיתוח סוכני AI",
+    "צ׳אטבוט לעסק",
+    "בינה מלאכותית לעסקים",
+    "פתרונות AI לעסקים",
+    "יישום AI",
+    "AI לעסקים",
+    "SEO",
+  ],
+  knowsLanguage: ["he", "en"],
   contactPoint: [
     {
       "@type": "ContactPoint",
@@ -85,18 +141,39 @@ export const organizationJsonLd = {
       areaServed: "IL",
       availableLanguage: ["Hebrew", "English"],
     },
+    {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      telephone: CONTACT_PHONE,
+      areaServed: "IL",
+      availableLanguage: ["Hebrew", "English"],
+    },
   ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "שירותי COYA Studio",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "בניית אתרים לעסקים", url: `${SITE_URL}/websites` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "בניית דפי נחיתה", url: `${SITE_URL}/landing` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "אוטומציות AI ואוטומציה לעסקים", url: `${SITE_URL}/ai` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "הטמעת מערכות AI וסוכני AI", url: `${SITE_URL}/ai-systems` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "בניית דמויות AI", url: `${SITE_URL}/ai-avatars` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "פרסומות AI", url: `${SITE_URL}/ai-ads` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "סרטוני AI", url: `${SITE_URL}/ai-videos` } },
+    ],
+  },
   sameAs: [] as string[],
 };
 
+
 const SERVICE_DEFS: Array<{ path: string; name: string; serviceType: string; description: string }> = [
-  { path: "/websites", name: "בניית אתרים", serviceType: "Website Development", description: "בניית אתרים מקצועיים לעסקים — עיצוב מותאם, ביצועים גבוהים, SEO ותשתית מוכנה לצמיחה." },
-  { path: "/landing", name: "בניית דפי נחיתה", serviceType: "Landing Page Development", description: "דפי נחיתה ממוקדי המרה לקמפיינים — עיצוב, קופי ומבנה שנועדו להביא לידים." },
-  { path: "/ai", name: "אוטומציות AI לעסק", serviceType: "AI Automation", description: "אוטומציות מבוססות AI, n8n ו-Make לחיבור מערכות, חיסכון בזמן וייעול תהליכים עסקיים." },
-  { path: "/ai-systems", name: "הטמעת מערכות AI", serviceType: "AI Systems Integration", description: "הטמעת כלי AI וצ׳אטבוטים בתוך המערכות הקיימות של העסק — CRM, תמיכה, מכירות ותפעול." },
-  { path: "/ai-avatars", name: "בניית דמויות AI", serviceType: "AI Avatar Production", description: "דמויות AI מציאותיות לוידאו, מצגות והדרכות — עם קול, שפה ואופי אחידים למותג." },
-  { path: "/ai-ads", name: "פרסומות AI", serviceType: "AI Advertising Creative", description: "הפקת פרסומות AI לוידאו וסטילס לקמפיינים — קריאייטיב מהיר, מגוון ומותאם לפלטפורמות." },
-  { path: "/ai-videos", name: "סרטוני AI", serviceType: "AI Video Production", description: "הפקת סרטוני שיווק, הסבר וסושיאל עם כלים כמו Sora, Runway ו-HeyGen — מסקריפט ועד קליפ מוכן." },
+  { path: "/websites", name: "בניית אתרים לעסקים", serviceType: "Website Development", description: "בניית אתרים ופיתוח אתרים לעסקים בישראל — אתר תדמית מקצועי, מהיר, רספונסיבי ומותאם ל-SEO." },
+  { path: "/landing", name: "בניית דפי נחיתה לעסקים", serviceType: "Landing Page Development", description: "בניית דפי נחיתה ממוקדי המרה לקמפיינים בישראל — מסר חד, עיצוב ומבנה שמייצרים לידים איכותיים." },
+  { path: "/ai", name: "אוטומציה לעסקים ואוטומציות AI", serviceType: "AI Automation", description: "אוטומציה לעסקים בישראל: אוטומציות AI, n8n ו-Make לחיבור מערכות, חיסכון בזמן וייעול תהליכים." },
+  { path: "/ai-systems", name: "פיתוח סוכני AI ויישום AI בעסק", serviceType: "AI Agents & Systems Integration", description: "פיתוח סוכני AI, יישום AI והטמעת בינה מלאכותית לעסקים בישראל — CRM, מכירות, שירות ותפעול." },
+  { path: "/ai-avatars", name: "בניית דמויות AI לעסקים", serviceType: "AI Avatar Production", description: "דמויות AI (Avatars) מציאותיות לוידאו, מצגות והדרכות — עם קול, שפה ואופי אחידים למותג בישראל." },
+  { path: "/ai-ads", name: "פרסומות AI לעסקים", serviceType: "AI Advertising Creative", description: "הפקת פרסומות AI לוידאו ולסטילס לקמפיינים במטא, גוגל, טיקטוק ויוטיוב — עבור עסקים בישראל." },
+  { path: "/ai-videos", name: "סרטוני AI לעסקים", serviceType: "AI Video Production", description: "הפקת סרטוני AI לשיווק, הסבר וסושיאל עם Sora, Runway ו-HeyGen — עבור עסקים ומותגים בישראל." },
 ];
 
 export const servicesJsonLd = SERVICE_DEFS.map((s) => ({

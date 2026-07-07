@@ -8,8 +8,9 @@ import { useTr } from "@/lib/i18n";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "צור קשר | COYA Studio" },
-      { name: "description", content: "רוצים להתחיל פרויקט? השאירו פרטים, דברו איתנו בוואטסאפ או שלחו מייל ל‑cohenyar21@gmail.com. נחזור אליכם במהירות." },
+      { title: "צור קשר — בניית אתרים ופתרונות AI לעסקים בישראל | COYA" },
+      { name: "description", content: "מדברים על בניית אתרים, דפי נחיתה, אוטומציה לעסקים ופתרונות AI לעסקים בישראל. השאירו פרטים, שלחו וואטסאפ או מייל ל-cohenyar21@gmail.com." },
+      { name: "keywords", content: "צור קשר, COYA Studio, בניית אתרים, פיתוח אתרים, אוטומציה לעסקים, פתרונות AI לעסקים, בישראל" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "Contact | COYA Studio" },
       { property: "og:description", content: "Let's talk about your next project — WhatsApp, form, or email." },

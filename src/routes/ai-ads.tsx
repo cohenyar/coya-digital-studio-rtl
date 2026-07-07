@@ -7,9 +7,9 @@ import { useTr } from "@/lib/i18n";
 export const Route = createFileRoute("/ai-ads")({
   head: () => ({
     meta: [
-      { title: "פרסומות AI וקריאייטיב גנרטיבי | COYA Studio" },
-      { name: "description", content: "הפקת קריאייטיבים גנרטיביים לקמפיינים — תמונות, וידאו וקופי למטא, גוגל, טיקטוק ויוטיוב, מותאמים לקהל היעד ולמותג." },
-      { name: "keywords", content: "פרסומות AI, קריאייטיב גנרטיבי, מודעות AI, קמפיינים AI, AI ads, generative ads, COYA" },
+      { title: "פרסומות AI לעסקים בישראל | קריאייטיב גנרטיבי | COYA Studio" },
+      { name: "description", content: "הפקת פרסומות AI לעסקים בישראל — תמונות, וידאו וקופי גנרטיבי לקמפיינים במטא, גוגל, טיקטוק ויוטיוב. פתרונות AI לעסקים למודעות שממירות." },
+      { name: "keywords", content: "פרסומות AI, קריאייטיב גנרטיבי, מודעות AI, קמפיינים AI, פרסום AI לעסקים, פתרונות AI לעסקים, AI ads, generative ads, COYA" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "AI-Generated Ads & Creative | COYA Studio" },
       { property: "og:description", content: "Generative images, video and copy for Meta, Google, TikTok and YouTube campaigns — tailored to audience and brand." },

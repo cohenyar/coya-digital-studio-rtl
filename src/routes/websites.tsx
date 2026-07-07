@@ -7,9 +7,9 @@ import { useTr } from "@/lib/i18n";
 export const Route = createFileRoute("/websites")({
   head: () => ({
     meta: [
-      { title: "בניית אתרים לעסקים | COYA Studio" },
-      { name: "description", content: "בניית אתרים מקצועיים לעסקים — מהירים, רספונסיביים, מותאמים ל-SEO ומעוצבים לפי המותג שלכם. אתר שמרגיש כמו נכס עסקי." },
-      { name: "keywords", content: "בניית אתרים, אתרים לעסקים, עיצוב אתרים, קידום אתרים, אתר תדמית, COYA" },
+      { title: "בניית אתרים לעסקים בישראל | פיתוח אתרים מקצועי | COYA Studio" },
+      { name: "description", content: "בניית אתרים ופיתוח אתרים לעסקים בישראל — בניית אתר לעסק מהיר, רספונסיבי, מעוצב לפי המותג ומותאם ל-SEO. אתר תדמית שמייצר אמון ולידים." },
+      { name: "keywords", content: "בניית אתרים, בניית אתר לעסק, פיתוח אתרים, בניית אתרים לעסקים, אתר תדמית, עיצוב אתרים, קידום אתרים, בניית אתרים בישראל, COYA" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "Website Development for Businesses | COYA Studio" },
       { property: "og:description", content: "Professional business websites — designed, fast, and ready to grow." },

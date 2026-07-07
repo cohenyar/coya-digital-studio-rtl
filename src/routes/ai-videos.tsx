@@ -7,9 +7,9 @@ import { useTr } from "@/lib/i18n";
 export const Route = createFileRoute("/ai-videos")({
   head: () => ({
     meta: [
-      { title: "סרטוני AI להפקת תוכן שיווקי | COYA Studio" },
-      { name: "description", content: "הפקת סרטוני שיווק, הסבר וסושיאל עם כלים מתקדמים כמו Sora, Runway ו-HeyGen — מסקריפט ועד קליפ מוכן, בזמן קצר ובעלות אפקטיבית." },
-      { name: "keywords", content: "סרטוני AI, וידאו גנרטיבי, AI video, Sora, Runway, HeyGen, סרטון שיווקי, COYA" },
+      { title: "סרטוני AI לעסקים בישראל | הפקת וידאו AI לשיווק | COYA Studio" },
+      { name: "description", content: "הפקת סרטוני AI לעסקים בישראל — סרטוני שיווק, הסבר וסושיאל עם Sora, Runway ו-HeyGen. מסקריפט ועד קליפ מוכן, בזמן קצר ובעלות אפקטיבית." },
+      { name: "keywords", content: "סרטוני AI, וידאו AI לעסקים, וידאו גנרטיבי, הפקת סרטונים AI, פתרונות AI לעסקים, AI video, Sora, Runway, HeyGen, סרטון שיווקי, COYA" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "AI Video Production for Marketing | COYA Studio" },
       { property: "og:description", content: "Marketing, explainer and social videos produced with AI tools from script to final clip — fast and on budget." },
