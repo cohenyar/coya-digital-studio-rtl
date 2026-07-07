@@ -59,14 +59,59 @@ export function canonicalLink(path: string) {
 export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
+  alternateName: "COYA Studio",
   url: SITE_URL,
-  logo: `${SITE_URL}/icon-512.png`,
+  logo: {
+    "@type": "ImageObject",
+    url: `${SITE_URL}/icon-512.png`,
+    width: 512,
+    height: 512,
+  },
+  image: OG_IMAGE_URL,
+  description:
+    "סטודיו דיגיטלי לבניית אתרים, דפי נחיתה, אוטומציות AI, דמויות AI, פרסומות וסרטוני AI לעסקים.",
   email: CONTACT_EMAIL,
   telephone: CONTACT_PHONE,
-  areaServed: "IL",
+  areaServed: { "@type": "Country", name: "Israel" },
+  address: { "@type": "PostalAddress", addressCountry: "IL" },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: CONTACT_EMAIL,
+      telephone: CONTACT_PHONE,
+      areaServed: "IL",
+      availableLanguage: ["Hebrew", "English"],
+    },
+  ],
   sameAs: [] as string[],
 };
+
+const SERVICE_DEFS: Array<{ path: string; name: string; serviceType: string; description: string }> = [
+  { path: "/websites", name: "בניית אתרים", serviceType: "Website Development", description: "בניית אתרים מקצועיים לעסקים — עיצוב מותאם, ביצועים גבוהים, SEO ותשתית מוכנה לצמיחה." },
+  { path: "/landing", name: "בניית דפי נחיתה", serviceType: "Landing Page Development", description: "דפי נחיתה ממוקדי המרה לקמפיינים — עיצוב, קופי ומבנה שנועדו להביא לידים." },
+  { path: "/ai", name: "אוטומציות AI לעסק", serviceType: "AI Automation", description: "אוטומציות מבוססות AI, n8n ו-Make לחיבור מערכות, חיסכון בזמן וייעול תהליכים עסקיים." },
+  { path: "/ai-systems", name: "הטמעת מערכות AI", serviceType: "AI Systems Integration", description: "הטמעת כלי AI וצ׳אטבוטים בתוך המערכות הקיימות של העסק — CRM, תמיכה, מכירות ותפעול." },
+  { path: "/ai-avatars", name: "בניית דמויות AI", serviceType: "AI Avatar Production", description: "דמויות AI מציאותיות לוידאו, מצגות והדרכות — עם קול, שפה ואופי אחידים למותג." },
+  { path: "/ai-ads", name: "פרסומות AI", serviceType: "AI Advertising Creative", description: "הפקת פרסומות AI לוידאו וסטילס לקמפיינים — קריאייטיב מהיר, מגוון ומותאם לפלטפורמות." },
+  { path: "/ai-videos", name: "סרטוני AI", serviceType: "AI Video Production", description: "הפקת סרטוני שיווק, הסבר וסושיאל עם כלים כמו Sora, Runway ו-HeyGen — מסקריפט ועד קליפ מוכן." },
+];
+
+export const servicesJsonLd = SERVICE_DEFS.map((s) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${SITE_URL}${s.path}#service`,
+  name: s.name,
+  serviceType: s.serviceType,
+  description: s.description,
+  url: absUrl(s.path),
+  image: OG_IMAGE_URL,
+  provider: { "@id": `${SITE_URL}/#organization` },
+  areaServed: { "@type": "Country", name: "Israel" },
+  availableLanguage: ["he", "en"],
+}));
 
 export const professionalServiceJsonLd = {
   "@context": "https://schema.org",
