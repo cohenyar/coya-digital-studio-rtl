@@ -7,9 +7,9 @@ import { useTr } from "@/lib/i18n";
 export const Route = createFileRoute("/ai")({
   head: () => ({
     meta: [
-      { title: "AI לעסקים: אוטומציות, דמויות AI, פרסומות וסרטוני AI | COYA Studio" },
-      { name: "description", content: "פתרונות AI מקצה לקצה: הטמעת מערכות AI בעסק, אוטומציות, בוטים חכמים, בניית דמויות AI (Avatars), פרסומות גנרטיביות וסרטוני AI לשיווק ולסושיאל." },
-      { name: "keywords", content: "AI לעסקים, אוטומציות, הטמעת AI, דמויות AI, אווטארים דיגיטליים, פרסומות AI, סרטוני AI, וידאו גנרטיבי, Sora, Runway, HeyGen, צ׳אטבוט, CRM, COYA" },
+      { title: "אוטומציה לעסקים ואוטומציות AI בישראל | COYA Studio" },
+      { name: "description", content: "אוטומציה לעסקים בישראל: אוטומציות AI, סוכני AI, צ׳אטבוט לעסק, חיבור CRM, וואטסאפ, מייל וגוגל שיטס. פתרונות AI לעסקים שחוסכים שעות עבודה." },
+      { name: "keywords", content: "אוטומציה לעסקים, אוטומציות AI, AI לעסקים, סוכני AI, צ׳אטבוט לעסק, פתרונות AI לעסקים, בינה מלאכותית לעסקים, יישום AI, n8n, Make, COYA" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "AI for Business: Automation, Avatars, Ads & Videos | COYA Studio" },
       { property: "og:description", content: "End-to-end AI: systems integration, automation, AI avatars, generative ads, and AI-produced marketing videos." },
