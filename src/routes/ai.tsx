@@ -58,6 +58,13 @@ function AiPage() {
     { icon: Workflow, title: tr("תהליכים עסקיים", "Business processes"), desc: tr("אוטומציה של תהליכים חוזרים בעסק — מהגשת בקשה ועד גביית תשלום.", "Automation of repeat processes — from request submission to payment collection.") },
   ];
 
+  const aiServices = [
+    { to: "/ai-systems", icon: Workflow, title: tr("הטמעת מערכות AI לעסק", "AI Systems for Business"), desc: tr("שילוב AI ב-CRM, שירות לקוחות, מכירות ותוכן — עם ליווי מלא מהאפיון ועד ההטמעה.", "AI integration into CRM, customer service, sales and content — fully guided from planning to deployment.") },
+    { to: "/ai-avatars", icon: UserSquare, title: tr("בניית דמויות AI", "AI Avatars"), desc: tr("דמויות דיגיטליות מציאותיות לוידאו, מצגות ותוכן שיווקי — עם קול ואופי אחידים למותג.", "Photorealistic digital avatars for video, presentations and marketing — with a consistent brand voice and character.") },
+    { to: "/ai-ads", icon: Megaphone, title: tr("פרסומות AI", "AI-Generated Ads"), desc: tr("תמונות, וידאו וקופי לקמפיינים במטא, גוגל, טיקטוק ויוטיוב — מותאמים לקהל ולפלטפורמה.", "Images, video and copy for Meta, Google, TikTok and YouTube campaigns — tailored to audience and platform.") },
+    { to: "/ai-videos", icon: Clapperboard, title: tr("סרטוני AI", "AI Video Production"), desc: tr("סרטוני שיווק, הסבר וסושיאל עם כלים כמו Sora, Runway ו-HeyGen — מסקריפט ועד קליפ מוכן.", "Marketing, explainer and social videos using Sora, Runway and HeyGen — from script to final clip.") },
+  ];
+
   return (
     <>
       <ServiceHero
