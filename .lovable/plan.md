@@ -1,30 +1,30 @@
-## הוספת שירותי AI חדשים
+Plan: Create dedicated AI service pages
 
-הוסף שלושה שירותים נוספים בשפה מקצועית:
+1. Scope & URLs
+   - Create 4 new shareable routes so every AI service card leads to its own page instead of the generic `/ai` automation page:
+     - `/ai-systems` — הטמעת מערכות AI לעסק
+     - `/ai-avatars` — בניית דמויות AI
+     - `/ai-ads` — פרסומות AI
+     - `/ai-videos` — סרטוני AI
+   - Keep the existing `/ai` page as the automation overview.
 
-1. **בניית דמויות AI (AI Avatars)** — יצירת דמויות דיגיטליות מבוססות AI לשימוש בשיווק, מצגות ותוכן וידאו.
-2. **פרסומות AI (AI-Generated Ads)** — הפקת קריאייטיבים לקמפיינים (תמונות, וידאו וקופי) בעזרת מודלים גנרטיביים, מותאמים למטא, גוגל וטיקטוק.
-3. **סרטוני AI (AI Video Production)** — הפקת סרטוני שיווק, הסבר וסושיאל עם כלי AI מתקדמים (Sora, Runway, HeyGen וכד').
+2. Content
+   - Write professional Hebrew/English copy for each page: hero, key benefits, what’s included, process/approach, and CTA.
+   - Reuse the existing `ServiceHero` and `CTABlock` components from `websites.tsx` to maintain the current design.
 
-## שינויים בקוד
+3. SEO & metadata per page
+   - Unique title, description, keywords, og:title, og:description, og:url, canonical, and JSON-LD (WebPage + BreadcrumbList).
+   - Keep the existing shared `og:image` unless a unique image is requested later.
 
-### `src/routes/index.tsx`
-- הוספת שלושה כרטיסי שירות חדשים למערך `services` (עם אייקונים מתאימים: `UserSquare` / `Megaphone` / `Clapperboard` מ־lucide-react).
-- עדכון כותרת סקציית השירותים מ־"חמישה עולמות" ל־**"שמונה עולמות. כל מה שהעסק שלכם צריך."** (וב־EN: "Eight disciplines.").
-- עדכון ה־meta description, keywords, og:description ו־twitter של הדף לכלול: דמויות AI, פרסומות AI, סרטוני AI.
-- הוספת המונחים ל־FAQ ול־Hero H1 העילי אם רלוונטי (משפט אחד).
-- הוספת המונחים ל־JSON-LD `serviceType`.
+4. Navigation updates
+   - Update homepage service cards so each card links to its own dedicated page.
+   - Update the mobile menu and footer service lists to point to the new routes.
+   - Add internal links from `/ai` to the new pages so users can still discover them from the overview.
 
-### `src/lib/seo.ts`
-- עדכון `professionalServiceJsonLd.serviceType` — להוסיף: "בניית דמויות AI", "פרסומות AI", "סרטוני AI".
-- עדכון `SITE_TAGLINE` להוסיף את ההיצע החדש בקצרה.
+5. Sitemap
+   - Add the 4 new URLs to `src/routes/sitemap[.]xml.ts` with priority 0.9.
 
-### דפי משנה (SEO גלובלי)
-- עדכון keywords / description של `src/routes/ai.tsx` לכלול דמויות AI, פרסומות AI, סרטוני AI.
-- ללא יצירת ראוטים חדשים כרגע — כל שלושת השירותים יקושרו ל־`/ai`.
+6. Verification
+   - Build the app in dev mode and navigate to each new route to confirm rendering, links, and metadata.
 
-## ללא שינויים בעיצוב
-הרשת כבר `md:grid-cols-2 lg:grid-cols-3` — 8 כרטיסים יתפרסו יפה (3+3+2). אין שינוי בסטייל, בצבעים או במבנה.
-
-## הבהרה
-האם לפתוח בעתיד ראוט ייעודי `/ai-video` / `/ai-ads` / `/ai-avatars` (עם דפי SEO נפרדים ותוכן מפורט), או להשאיר הכול תחת `/ai`? כרגע התוכנית משאירה תחת `/ai` — עדכן אם תרצה דפים נפרדים.
+No design overhaul — the new pages will reuse the existing glass-card, gradient, and button styles.

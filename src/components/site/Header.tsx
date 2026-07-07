@@ -36,10 +36,10 @@ export function Header() {
     {
       title: t("nav.allServices"),
       links: [
-        { to: "/ai", label: t("nav.aiForBusiness") },
-        { to: "/ai", label: t("nav.aiAvatars") },
-        { to: "/ai", label: t("nav.aiAds") },
-        { to: "/ai", label: t("nav.aiVideos") },
+        { to: "/ai-systems", label: t("nav.aiForBusiness") },
+        { to: "/ai-avatars", label: t("nav.aiAvatars") },
+        { to: "/ai-ads", label: t("nav.aiAds") },
+        { to: "/ai-videos", label: t("nav.aiVideos") },
         { to: "/ai", label: t("nav.automation") },
         { to: "/ai", label: t("nav.chatbots") },
       ],

@@ -16,6 +16,10 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as LandingRouteImport } from './routes/landing'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AiVideosRouteImport } from './routes/ai-videos'
+import { Route as AiSystemsRouteImport } from './routes/ai-systems'
+import { Route as AiAvatarsRouteImport } from './routes/ai-avatars'
+import { Route as AiAdsRouteImport } from './routes/ai-ads'
 import { Route as AiRouteImport } from './routes/ai'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as IndexRouteImport } from './routes/index'
@@ -58,6 +62,26 @@ const BlogRoute = BlogRouteImport.update({
   path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AiVideosRoute = AiVideosRouteImport.update({
+  id: '/ai-videos',
+  path: '/ai-videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiSystemsRoute = AiSystemsRouteImport.update({
+  id: '/ai-systems',
+  path: '/ai-systems',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiAvatarsRoute = AiAvatarsRouteImport.update({
+  id: '/ai-avatars',
+  path: '/ai-avatars',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiAdsRoute = AiAdsRouteImport.update({
+  id: '/ai-ads',
+  path: '/ai-ads',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AiRoute = AiRouteImport.update({
   id: '/ai',
   path: '/ai',
@@ -93,6 +117,10 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/accessibility': typeof AccessibilityRoute
   '/ai': typeof AiRoute
+  '/ai-ads': typeof AiAdsRoute
+  '/ai-avatars': typeof AiAvatarsRoute
+  '/ai-systems': typeof AiSystemsRoute
+  '/ai-videos': typeof AiVideosRoute
   '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/landing': typeof LandingRoute
@@ -108,6 +136,10 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/accessibility': typeof AccessibilityRoute
   '/ai': typeof AiRoute
+  '/ai-ads': typeof AiAdsRoute
+  '/ai-avatars': typeof AiAvatarsRoute
+  '/ai-systems': typeof AiSystemsRoute
+  '/ai-videos': typeof AiVideosRoute
   '/contact': typeof ContactRoute
   '/landing': typeof LandingRoute
   '/privacy': typeof PrivacyRoute
@@ -123,6 +155,10 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/accessibility': typeof AccessibilityRoute
   '/ai': typeof AiRoute
+  '/ai-ads': typeof AiAdsRoute
+  '/ai-avatars': typeof AiAvatarsRoute
+  '/ai-systems': typeof AiSystemsRoute
+  '/ai-videos': typeof AiVideosRoute
   '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/landing': typeof LandingRoute
@@ -140,6 +176,10 @@ export interface FileRouteTypes {
     | '/'
     | '/accessibility'
     | '/ai'
+    | '/ai-ads'
+    | '/ai-avatars'
+    | '/ai-systems'
+    | '/ai-videos'
     | '/blog'
     | '/contact'
     | '/landing'
@@ -155,6 +195,10 @@ export interface FileRouteTypes {
     | '/'
     | '/accessibility'
     | '/ai'
+    | '/ai-ads'
+    | '/ai-avatars'
+    | '/ai-systems'
+    | '/ai-videos'
     | '/contact'
     | '/landing'
     | '/privacy'
@@ -169,6 +213,10 @@ export interface FileRouteTypes {
     | '/'
     | '/accessibility'
     | '/ai'
+    | '/ai-ads'
+    | '/ai-avatars'
+    | '/ai-systems'
+    | '/ai-videos'
     | '/blog'
     | '/contact'
     | '/landing'
@@ -185,6 +233,10 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccessibilityRoute: typeof AccessibilityRoute
   AiRoute: typeof AiRoute
+  AiAdsRoute: typeof AiAdsRoute
+  AiAvatarsRoute: typeof AiAvatarsRoute
+  AiSystemsRoute: typeof AiSystemsRoute
+  AiVideosRoute: typeof AiVideosRoute
   BlogRoute: typeof BlogRouteWithChildren
   ContactRoute: typeof ContactRoute
   LandingRoute: typeof LandingRoute
@@ -244,6 +296,34 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/blog'
       preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-videos': {
+      id: '/ai-videos'
+      path: '/ai-videos'
+      fullPath: '/ai-videos'
+      preLoaderRoute: typeof AiVideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-systems': {
+      id: '/ai-systems'
+      path: '/ai-systems'
+      fullPath: '/ai-systems'
+      preLoaderRoute: typeof AiSystemsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-avatars': {
+      id: '/ai-avatars'
+      path: '/ai-avatars'
+      fullPath: '/ai-avatars'
+      preLoaderRoute: typeof AiAvatarsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-ads': {
+      id: '/ai-ads'
+      path: '/ai-ads'
+      fullPath: '/ai-ads'
+      preLoaderRoute: typeof AiAdsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ai': {
@@ -307,6 +387,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccessibilityRoute: AccessibilityRoute,
   AiRoute: AiRoute,
+  AiAdsRoute: AiAdsRoute,
+  AiAvatarsRoute: AiAvatarsRoute,
+  AiSystemsRoute: AiSystemsRoute,
+  AiVideosRoute: AiVideosRoute,
   BlogRoute: BlogRouteWithChildren,
   ContactRoute: ContactRoute,
   LandingRoute: LandingRoute,

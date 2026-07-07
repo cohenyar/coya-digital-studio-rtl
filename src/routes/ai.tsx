@@ -1,7 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Section, SectionHeader } from "../components/site/Section";
 import { ServiceHero, CTABlock } from "./websites";
-import { Bot, MessageCircle, FileSpreadsheet, Mail, Workflow, Clock, Users, Zap } from "lucide-react";
+import { Bot, MessageCircle, FileSpreadsheet, Mail, Workflow, Clock, Users, Zap, UserSquare, Megaphone, Clapperboard, ArrowLeft } from "lucide-react";
 import { useTr } from "@/lib/i18n";
 
 export const Route = createFileRoute("/ai")({
@@ -58,6 +58,13 @@ function AiPage() {
     { icon: Workflow, title: tr("תהליכים עסקיים", "Business processes"), desc: tr("אוטומציה של תהליכים חוזרים בעסק — מהגשת בקשה ועד גביית תשלום.", "Automation of repeat processes — from request submission to payment collection.") },
   ];
 
+  const aiServices = [
+    { to: "/ai-systems", icon: Workflow, title: tr("הטמעת מערכות AI לעסק", "AI Systems for Business"), desc: tr("שילוב AI ב-CRM, שירות לקוחות, מכירות ותוכן — עם ליווי מלא מהאפיון ועד ההטמעה.", "AI integration into CRM, customer service, sales and content — fully guided from planning to deployment.") },
+    { to: "/ai-avatars", icon: UserSquare, title: tr("בניית דמויות AI", "AI Avatars"), desc: tr("דמויות דיגיטליות מציאותיות לוידאו, מצגות ותוכן שיווקי — עם קול ואופי אחידים למותג.", "Photorealistic digital avatars for video, presentations and marketing — with a consistent brand voice and character.") },
+    { to: "/ai-ads", icon: Megaphone, title: tr("פרסומות AI", "AI-Generated Ads"), desc: tr("תמונות, וידאו וקופי לקמפיינים במטא, גוגל, טיקטוק ויוטיוב — מותאמים לקהל ולפלטפורמה.", "Images, video and copy for Meta, Google, TikTok and YouTube campaigns — tailored to audience and platform.") },
+    { to: "/ai-videos", icon: Clapperboard, title: tr("סרטוני AI", "AI Video Production"), desc: tr("סרטוני שיווק, הסבר וסושיאל עם כלים כמו Sora, Runway ו-HeyGen — מסקריפט ועד קליפ מוכן.", "Marketing, explainer and social videos using Sora, Runway and HeyGen — from script to final clip.") },
+  ];
+
   return (
     <>
       <ServiceHero
@@ -87,6 +94,24 @@ function AiPage() {
           <Stat icon={Clock} title={tr("שעות", "Hours")} value="10+" desc={tr("חיסכון בשבוע לעסק ממוצע", "Saved per week for a typical business")} />
           <Stat icon={Zap} title={tr("מהירות", "Availability")} value="24/7" desc={tr("מענה אוטומטי סביב השעון", "Automated response around the clock")} />
           <Stat icon={Users} title={tr("פחות פניות אבודות", "Fewer lost leads")} value="90%" desc={tr("של הלידים מטופלים אוטומטית", "of leads handled automatically")} />
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeader eyebrow={tr("שירותי AI נוספים", "More AI Services")} title={tr("AI מכל הכיוונים", "AI from every angle")} />
+        <div className="grid md:grid-cols-2 gap-6">
+          {aiServices.map(s => (
+            <Link key={s.to} to={s.to} className="group glass-card rounded-2xl p-6 hover:border-primary/40 transition hover:-translate-y-1 duration-300">
+              <div className="h-11 w-11 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center mb-4 group-hover:scale-110 transition">
+                <s.icon className="size-5 text-primary" />
+              </div>
+              <h3 className="font-display font-bold mb-2">{s.title}</h3>
+              <p className="text-white/60 text-sm leading-relaxed mb-4">{s.desc}</p>
+              <div className="flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all">
+                {tr("לפרטים נוספים", "Learn more")} <ArrowLeft className="size-4" />
+              </div>
+            </Link>
+          ))}
         </div>
       </Section>
 
