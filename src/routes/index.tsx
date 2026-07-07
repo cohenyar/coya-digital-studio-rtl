@@ -304,12 +304,17 @@ function Home() {
               <Sparkles className="size-3.5" /> {tr("סטודיו דיגיטלי פרימיום", "Premium digital studio")}
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.15] tracking-tight text-balance">
-              <span className="block text-gradient">COYA Studio</span>
-              <span className="block mt-2 text-white/90">
-                {tr("נוכחות דיגיטלית ופתרונות AI לעסקים", "Digital presence & AI solutions for business")}
+              <span className="block text-gradient">
+                {tr("בניית אתרים ופתרונות AI לעסקים", "AI Solutions & Website Development for Business")}
+              </span>
+              <span className="block mt-2 text-white/90 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                {tr(
+                  "אתרים, דפי נחיתה, אוטומציות וסוכני AI חכמים",
+                  "Websites, landing pages, automation & smart AI agents",
+                )}
               </span>
             </h1>
-            <div className="mt-5 flex flex-wrap gap-2">
+            <div className="mt-5 flex flex-wrap gap-2" aria-label={tr("שירותים", "Services")}>
               {HERO_SERVICES_HE.map((he, i) => {
                 const en = HERO_SERVICES_EN[i];
                 const label = tr(he, en);
@@ -323,9 +328,21 @@ function Home() {
                 );
               })}
             </div>
-            <p className="mt-5 text-base md:text-lg text-white/60 leading-relaxed max-w-xl">
-              {tr("עיצוב מודרני, חוויית משתמש חדה, ודף שמוביל אנשים להשאיר פרטים.", "Modern design, sharp UX, and a page that gets people to leave their details.")}
+            <p className="mt-5 text-base md:text-lg text-white/70 leading-relaxed max-w-xl">
+              {tr(
+                "COYA Studio הוא סטודיו דיגיטלי המתמחה בבניית אתרים, דפי נחיתה, אוטומציות AI, סוכני AI וצ׳אטבוטים לעסקים. אנחנו משלבים עיצוב מודרני עם פתרונות AI פרקטיים — כדי שהאתר לא רק ייראה מקצועי, אלא גם יביא לידים, יחסוך זמן ויפעיל תהליכים חכמים ברקע.",
+                "COYA Studio is a digital studio specializing in website development, landing pages, AI automation, AI agents and chatbots for business. We combine modern design with practical AI solutions — so your site not only looks professional, but also brings leads, saves time, and runs smart processes in the background.",
+              )}
             </p>
+            <nav className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm text-white/60" aria-label={tr("קישורים לשירותים", "Service links")}>
+              <Link to="/websites" className="hover:text-primary underline-offset-4 hover:underline">{tr("בניית אתרים", "Website Development")}</Link>
+              <Link to="/landing" className="hover:text-primary underline-offset-4 hover:underline">{tr("דפי נחיתה", "Landing Pages")}</Link>
+              <Link to="/ai" className="hover:text-primary underline-offset-4 hover:underline">{tr("אוטומציות AI", "AI Automation")}</Link>
+              <Link to="/ai-systems" className="hover:text-primary underline-offset-4 hover:underline">{tr("הטמעת מערכות AI", "AI Systems")}</Link>
+              <Link to="/ai-avatars" className="hover:text-primary underline-offset-4 hover:underline">{tr("דמויות AI", "AI Avatars")}</Link>
+              <Link to="/ai-ads" className="hover:text-primary underline-offset-4 hover:underline">{tr("פרסומות AI", "AI Ads")}</Link>
+              <Link to="/ai-videos" className="hover:text-primary underline-offset-4 hover:underline">{tr("סרטוני AI", "AI Videos")}</Link>
+            </nav>
             <div className="mt-7 flex flex-wrap gap-3">
               <a href={WA_LINK} target="_blank" rel="noreferrer" className="btn-primary">
                 {tr("אני רוצה אתר כזה", "I want a site like this")} <ArrowLeft className="size-5" />
