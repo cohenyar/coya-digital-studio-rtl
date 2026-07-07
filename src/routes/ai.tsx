@@ -7,12 +7,12 @@ import { useTr } from "@/lib/i18n";
 export const Route = createFileRoute("/ai")({
   head: () => ({
     meta: [
-      { title: "AI ואוטומציות עסקיות | COYA Studio" },
-      { name: "description", content: "בוטים חכמים, אוטומציות עסקיות, חיבור וואטסאפ, CRM, מיילים ו-Google Sheets. פחות עבודה ידנית — יותר תוצאות." },
-      { name: "keywords", content: "AI לעסקים, אוטומציות, בוט וואטסאפ, צ׳אטבוט, CRM, אוטומציה עסקית, COYA" },
+      { title: "AI לעסקים: אוטומציות, דמויות AI, פרסומות וסרטוני AI | COYA Studio" },
+      { name: "description", content: "פתרונות AI מקצה לקצה: הטמעת מערכות AI בעסק, אוטומציות, בוטים חכמים, בניית דמויות AI (Avatars), פרסומות גנרטיביות וסרטוני AI לשיווק ולסושיאל." },
+      { name: "keywords", content: "AI לעסקים, אוטומציות, הטמעת AI, דמויות AI, אווטארים דיגיטליים, פרסומות AI, סרטוני AI, וידאו גנרטיבי, Sora, Runway, HeyGen, צ׳אטבוט, CRM, COYA" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "AI & Business Automation | COYA Studio" },
-      { property: "og:description", content: "Smart bots and automation that save hours and capture every lead." },
+      { property: "og:title", content: "AI for Business: Automation, Avatars, Ads & Videos | COYA Studio" },
+      { property: "og:description", content: "End-to-end AI: systems integration, automation, AI avatars, generative ads, and AI-produced marketing videos." },
       { property: "og:url", content: "https://www.coyastudioai.com/ai" },
       { property: "og:image", content: "https://www.coyastudioai.com/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
       { property: "og:image:width", content: "1200" },

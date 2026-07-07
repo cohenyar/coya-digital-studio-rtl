@@ -1,34 +1,30 @@
-## 1. Fix contact form ("שליחה נכשלה")
+## הוספת שירותי AI חדשים
 
-The `/api/public/send-contact` route requires two env vars: `LOVABLE_API_KEY` and `GOOGLE_MAIL_API_KEY`. On the live site (Vercel) at least one is missing, so it returns 500 → "שליחה נכשלה".
+הוסף שלושה שירותים נוספים בשפה מקצועית:
 
-Steps:
+1. **בניית דמויות AI (AI Avatars)** — יצירת דמויות דיגיטליות מבוססות AI לשימוש בשיווק, מצגות ותוכן וידאו.
+2. **פרסומות AI (AI-Generated Ads)** — הפקת קריאייטיבים לקמפיינים (תמונות, וידאו וקופי) בעזרת מודלים גנרטיביים, מותאמים למטא, גוגל וטיקטוק.
+3. **סרטוני AI (AI Video Production)** — הפקת סרטוני שיווק, הסבר וסושיאל עם כלי AI מתקדמים (Sora, Runway, HeyGen וכד').
 
-- Check server logs for the endpoint to confirm the exact failure (missing env vs Gmail API error).
-- If it's the missing env on Vercel: the Gmail connector was set up in Lovable Cloud, but Vercel doesn't have those secrets. Fix options:
-  - **A (recommended)**: switch the send route to use Resend (or another SMTP service) with a single `RESEND_API_KEY` secret added to both Lovable and Vercel — simpler and doesn't depend on the Lovable gateway.
-  - **B**: keep Gmail gateway, and add `LOVABLE_API_KEY` + `GOOGLE_MAIL_API_KEY` as environment variables in the Vercel project settings.
-- Add clearer client-side error surfacing (show server error text in dev) to debug faster next time.
+## שינויים בקוד
 
-I need one input from you before implementing — see clarifying question at the end.
+### `src/routes/index.tsx`
+- הוספת שלושה כרטיסי שירות חדשים למערך `services` (עם אייקונים מתאימים: `UserSquare` / `Megaphone` / `Clapperboard` מ־lucide-react).
+- עדכון כותרת סקציית השירותים מ־"חמישה עולמות" ל־**"שמונה עולמות. כל מה שהעסק שלכם צריך."** (וב־EN: "Eight disciplines.").
+- עדכון ה־meta description, keywords, og:description ו־twitter של הדף לכלול: דמויות AI, פרסומות AI, סרטוני AI.
+- הוספת המונחים ל־FAQ ול־Hero H1 העילי אם רלוונטי (משפט אחד).
+- הוספת המונחים ל־JSON-LD `serviceType`.
 
-## 2. Add two new service cards on the homepage
+### `src/lib/seo.ts`
+- עדכון `professionalServiceJsonLd.serviceType` — להוסיף: "בניית דמויות AI", "פרסומות AI", "סרטוני AI".
+- עדכון `SITE_TAGLINE` להוסיף את ההיצע החדש בקצרה.
 
-In `src/routes/index.tsx` (the `services` array, line 141), add two cards below "AI ואוטומציות":
+### דפי משנה (SEO גלובלי)
+- עדכון keywords / description של `src/routes/ai.tsx` לכלול דמויות AI, פרסומות AI, סרטוני AI.
+- ללא יצירת ראוטים חדשים כרגע — כל שלושת השירותים יקושרו ל־`/ai`.
 
-- **הטמעת מערכות AI לעסק** / "AI Systems for Business" — icon `Cpu` or `Workflow`, short bilingual description (integrating GPT/AI tools into internal workflows, CRM, support, content). Links to `/ai`.
-  &nbsp;
+## ללא שינויים בעיצוב
+הרשת כבר `md:grid-cols-2 lg:grid-cols-3` — 8 כרטיסים יתפרסו יפה (3+3+2). אין שינוי בסטייל, בצבעים או במבנה.
 
-Layout stays the same grid; it will flow to a 2×2 (or wrap) on desktop automatically.
-
-## 3. SEO content (site-wide)
-
-The site already has strong SEO infrastructure (`src/lib/seo.ts`, per-route metadata, JSON-LD, sitemap). What I'll add:
-
-- Bilingual copy for the new SEO service card + a small feature block on the homepage highlighting SEO capabilities.
-- No new route unless you want a dedicated `/seo` page (see question).
-
-## Clarifying questions
-
-1. **Contact form fix** — do you want me to switch to **Resend** (you give me one API key, works everywhere) or **keep Gmail** and you'll add the two secrets in Vercel yourself?
-2. **SEO card** — should it link to the existing `/websites` page, or should I create a new dedicated `**/seo**` route with full content + metadata?
+## הבהרה
+האם לפתוח בעתיד ראוט ייעודי `/ai-video` / `/ai-ads` / `/ai-avatars` (עם דפי SEO נפרדים ותוכן מפורט), או להשאיר הכול תחת `/ai`? כרגע התוכנית משאירה תחת `/ai` — עדכן אם תרצה דפים נפרדים.

@@ -4,7 +4,8 @@ import { WA_LINK } from "../components/site/Header";
 import ShaderBackground from "../components/ui/shader-background";
 import {
   ArrowLeft, Check, X, MessageCircle, Globe, Rocket, Bot, Search, Layers,
-  Palette, Code2, Send, TrendingUp, Sparkles, Zap, Workflow, ChevronDown
+  Palette, Code2, Send, TrendingUp, Sparkles, Zap, Workflow, ChevronDown,
+  UserSquare, Megaphone, Clapperboard
 } from "lucide-react";
 const founderPhoto = { url: "/images/branding/founder.jpg" };
 const coyaLogo = { url: "/images/coya-logo.png" };
@@ -14,9 +15,9 @@ import { useTr } from "@/lib/i18n";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "\u00a0COYA Studio | בניית אתרים, דפי נחיתה, אוטומציות וסוכני AI/בוטים" },
-      { name: "description", content: "סטודיו דיגיטלי לבניית אתרים, דפי נחיתה ואוטומציות AI לעסקים שרוצים להיראות מקצועיים, לחסוך זמן ולהגדיל פניות." },
-      { name: "keywords", content: "בניית אתרים, דפי נחיתה, אוטומציות AI, סטודיו דיגיטלי, קידום אתרים, עיצוב אתרים, COYA" },
+      { title: "\u00a0COYA Studio | בניית אתרים, דפי נחיתה, אוטומציות AI, דמויות AI, פרסומות וסרטוני AI" },
+      { name: "description", content: "סטודיו דיגיטלי לבניית אתרים, דפי נחיתה, אוטומציות AI, דמויות AI, פרסומות AI וסרטוני AI לעסקים שרוצים להיראות מקצועיים, לחסוך זמן ולהגדיל פניות." },
+      { name: "keywords", content: "בניית אתרים, דפי נחיתה, אוטומציות AI, דמויות AI, אווטארים דיגיטליים, פרסומות AI, סרטוני AI, וידאו גנרטיבי, סטודיו דיגיטלי, קידום אתרים, COYA" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "COYA Studio | Websites, Landing Pages & AI Automation" },
       { property: "og:description", content: "Websites, landing pages, and AI automation for businesses that want to look professional and generate more leads." },
@@ -53,6 +54,10 @@ export const Route = createFileRoute("/")({
             "Website Development",
             "Landing Pages",
             "AI Automation",
+            "AI Systems Integration",
+            "AI Avatars",
+            "AI Advertising Creatives",
+            "AI Video Production",
             "Chatbots",
             "n8n / Make Integrations",
             "SEO",
@@ -144,6 +149,9 @@ function Home() {
     { icon: Bot, title: tr("AI ואוטומציות", "AI & Automation"), desc: tr("חיבור מערכות, בוטים חכמים, אוטומציות עסקיות ותהליכים שחוסכים זמן ומשפרים שירות לקוחות.", "Systems integration, smart bots, business automation, and processes that save time and improve customer service."), to: "/ai" as const },
     { icon: Workflow, title: tr("הטמעת מערכות AI לעסק", "AI Systems for Business"), desc: tr("שילוב כלי AI בתהליכי העבודה של העסק — CRM, שירות לקוחות, מכירות ותוכן — עם ליווי מלא מהאפיון ועד ההטמעה.", "Embedding AI tools into your business workflows — CRM, customer service, sales and content — with full guidance from planning to deployment."), to: "/ai" as const },
     { icon: TrendingUp, title: tr("SEO וקידום אורגני", "SEO & Organic Growth"), desc: tr("קידום אורגני בגוגל: אופטימיזציה טכנית, מילות מפתח, תוכן, נתונים מובנים ומהירות אתר — כדי שהעסק שלכם יימצא ראשון.", "Organic Google growth: technical SEO, keywords, content, structured data and site speed — so your business is found first."), to: "/websites" as const },
+    { icon: UserSquare, title: tr("בניית דמויות AI", "AI Avatars"), desc: tr("יצירת דמויות דיגיטליות מבוססות AI — Avatars מציאותיים לוידאו, מצגות ותוכן שיווקי, עם קול, מיתוג ואופי אחיד למותג.", "Photorealistic AI-generated avatars for video, presentations, and marketing content — with consistent voice, branding, and character across every asset."), to: "/ai" as const },
+    { icon: Megaphone, title: tr("פרסומות AI", "AI-Generated Ads"), desc: tr("הפקת קריאייטיבים גנרטיביים לקמפיינים במטא, גוגל, טיקטוק ויוטיוב — תמונות, וידאו וקופי שמותאמים לפלטפורמה ולקהל היעד.", "Generative ad creatives for Meta, Google, TikTok, and YouTube — images, video, and copy tailored to each platform and audience."), to: "/ai" as const },
+    { icon: Clapperboard, title: tr("סרטוני AI", "AI Video Production"), desc: tr("הפקת סרטוני שיווק, הסבר וסושיאל עם כלים מתקדמים כמו Sora, Runway ו־HeyGen — תוכן ויזואלי איכותי בזמן קצר ובעלות אפקטיבית.", "Marketing, explainer, and social videos produced with cutting-edge tools like Sora, Runway, and HeyGen — high-quality visual content at speed and scale."), to: "/ai" as const },
   ];
 
   const steps = [
@@ -222,7 +230,7 @@ function Home() {
       <Section>
         <SectionHeader
           eyebrow={tr("שירותים", "Services")}
-          title={tr("חמישה עולמות. כל מה שהעסק שלכם צריך.", "Five disciplines. Everything your business needs.")}
+          title={tr("שמונה עולמות. כל מה שהעסק שלכם צריך.", "Eight disciplines. Everything your business needs.")}
           subtitle={tr("פתרונות דיגיטליים מקצה לקצה — מהאסטרטגיה ועד לאוטומציה שרצה ברקע.", "End-to-end digital solutions — from strategy to the automation running in the background.")}
         />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

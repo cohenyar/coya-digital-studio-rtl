@@ -3,7 +3,7 @@
 
 export const SITE_URL = "https://www.coyastudioai.com";
 export const SITE_NAME = "COYA Digital Studio";
-export const SITE_TAGLINE = "בניית אתרים, דפי נחיתה ואוטומציות AI";
+export const SITE_TAGLINE = "בניית אתרים, דפי נחיתה, אוטומציות AI, דמויות AI, פרסומות וסרטוני AI";
 export const OG_IMAGE_PATH =
   "/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg";
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`;
@@ -85,6 +85,10 @@ export const professionalServiceJsonLd = {
     "בניית אתרים",
     "בניית דפי נחיתה",
     "אוטומציות AI",
+    "הטמעת מערכות AI",
+    "בניית דמויות AI",
+    "פרסומות AI",
+    "סרטוני AI",
     "אינטגרציות n8n / Make",
     "צ׳אטבוטים",
     "SEO",
