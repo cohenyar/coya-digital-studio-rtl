@@ -51,9 +51,8 @@ This project is optimized for deployment on **Vercel**.
 
 ## Live Website
 
-https://coyaai.com
+https://www.coyastudioai.com/
 
-> *(Replace with your Vercel URL until the custom domain is connected.)*
 
 ## Repository
 
