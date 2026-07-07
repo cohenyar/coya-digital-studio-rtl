@@ -4,7 +4,8 @@ import { WA_LINK } from "../components/site/Header";
 import ShaderBackground from "../components/ui/shader-background";
 import {
   ArrowLeft, Check, X, MessageCircle, Globe, Rocket, Bot, Search, Layers,
-  Palette, Code2, Send, TrendingUp, Sparkles, Zap, Workflow, ChevronDown
+  Palette, Code2, Send, TrendingUp, Sparkles, Zap, Workflow, ChevronDown,
+  UserSquare, Megaphone, Clapperboard
 } from "lucide-react";
 const founderPhoto = { url: "/images/branding/founder.jpg" };
 const coyaLogo = { url: "/images/coya-logo.png" };
