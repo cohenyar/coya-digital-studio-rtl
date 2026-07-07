@@ -167,13 +167,13 @@ export const organizationJsonLd = {
 
 
 const SERVICE_DEFS: Array<{ path: string; name: string; serviceType: string; description: string }> = [
-  { path: "/websites", name: "בניית אתרים", serviceType: "Website Development", description: "בניית אתרים מקצועיים לעסקים — עיצוב מותאם, ביצועים גבוהים, SEO ותשתית מוכנה לצמיחה." },
-  { path: "/landing", name: "בניית דפי נחיתה", serviceType: "Landing Page Development", description: "דפי נחיתה ממוקדי המרה לקמפיינים — עיצוב, קופי ומבנה שנועדו להביא לידים." },
-  { path: "/ai", name: "אוטומציות AI לעסק", serviceType: "AI Automation", description: "אוטומציות מבוססות AI, n8n ו-Make לחיבור מערכות, חיסכון בזמן וייעול תהליכים עסקיים." },
-  { path: "/ai-systems", name: "הטמעת מערכות AI", serviceType: "AI Systems Integration", description: "הטמעת כלי AI וצ׳אטבוטים בתוך המערכות הקיימות של העסק — CRM, תמיכה, מכירות ותפעול." },
-  { path: "/ai-avatars", name: "בניית דמויות AI", serviceType: "AI Avatar Production", description: "דמויות AI מציאותיות לוידאו, מצגות והדרכות — עם קול, שפה ואופי אחידים למותג." },
-  { path: "/ai-ads", name: "פרסומות AI", serviceType: "AI Advertising Creative", description: "הפקת פרסומות AI לוידאו וסטילס לקמפיינים — קריאייטיב מהיר, מגוון ומותאם לפלטפורמות." },
-  { path: "/ai-videos", name: "סרטוני AI", serviceType: "AI Video Production", description: "הפקת סרטוני שיווק, הסבר וסושיאל עם כלים כמו Sora, Runway ו-HeyGen — מסקריפט ועד קליפ מוכן." },
+  { path: "/websites", name: "בניית אתרים לעסקים", serviceType: "Website Development", description: "בניית אתרים ופיתוח אתרים לעסקים בישראל — אתר תדמית מקצועי, מהיר, רספונסיבי ומותאם ל-SEO." },
+  { path: "/landing", name: "בניית דפי נחיתה לעסקים", serviceType: "Landing Page Development", description: "בניית דפי נחיתה ממוקדי המרה לקמפיינים בישראל — מסר חד, עיצוב ומבנה שמייצרים לידים איכותיים." },
+  { path: "/ai", name: "אוטומציה לעסקים ואוטומציות AI", serviceType: "AI Automation", description: "אוטומציה לעסקים בישראל: אוטומציות AI, n8n ו-Make לחיבור מערכות, חיסכון בזמן וייעול תהליכים." },
+  { path: "/ai-systems", name: "פיתוח סוכני AI ויישום AI בעסק", serviceType: "AI Agents & Systems Integration", description: "פיתוח סוכני AI, יישום AI והטמעת בינה מלאכותית לעסקים בישראל — CRM, מכירות, שירות ותפעול." },
+  { path: "/ai-avatars", name: "בניית דמויות AI לעסקים", serviceType: "AI Avatar Production", description: "דמויות AI (Avatars) מציאותיות לוידאו, מצגות והדרכות — עם קול, שפה ואופי אחידים למותג בישראל." },
+  { path: "/ai-ads", name: "פרסומות AI לעסקים", serviceType: "AI Advertising Creative", description: "הפקת פרסומות AI לוידאו ולסטילס לקמפיינים במטא, גוגל, טיקטוק ויוטיוב — עבור עסקים בישראל." },
+  { path: "/ai-videos", name: "סרטוני AI לעסקים", serviceType: "AI Video Production", description: "הפקת סרטוני AI לשיווק, הסבר וסושיאל עם Sora, Runway ו-HeyGen — עבור עסקים ומותגים בישראל." },
 ];
 
 export const servicesJsonLd = SERVICE_DEFS.map((s) => ({
