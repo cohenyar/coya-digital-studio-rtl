@@ -7,9 +7,9 @@ import { useTr } from "@/lib/i18n";
 export const Route = createFileRoute("/ai-systems")({
   head: () => ({
     meta: [
-      { title: "הטמעת מערכות AI לעסק | COYA Studio" },
-      { name: "description", content: "מלווים עסקים מהאפיון ועד ההטמעה — שילוב AI ב-CRM, שירות לקוחות, מכירות, תוכן ודיוור כך שה-AI עובד בשביל הצוות." },
-      { name: "keywords", content: "הטמעת AI, מערכות AI לעסק, AI לעסקים, CRM, אוטומציה, שילוב AI, COYA" },
+      { title: "פיתוח סוכני AI ויישום AI בעסק | בינה מלאכותית לעסקים | COYA" },
+      { name: "description", content: "פיתוח סוכני AI, יישום AI והטמעת בינה מלאכותית לעסקים בישראל — CRM, מכירות, שירות לקוחות ותפעול. פתרונות AI לעסקים מהאפיון ועד ההטמעה." },
+      { name: "keywords", content: "סוכני AI, פיתוח סוכני AI, יישום AI, בינה מלאכותית לעסקים, פתרונות AI לעסקים, AI לעסקים, הטמעת AI, מערכות AI, CRM, אוטומציה עסקית, COYA" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "AI Systems Integration for Business | COYA Studio" },
       { property: "og:description", content: "End-to-end AI integration into CRM, customer service, sales, content and email workflows." },
