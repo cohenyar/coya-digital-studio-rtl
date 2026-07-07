@@ -170,14 +170,14 @@ function Home() {
   const coya = [
     tr("עיצוב מותאם אישית", "Custom-made design"),
     tr("חשיבה עסקית", "Business thinking"),
-    tr("התאמה ל-SEO", "SEO-ready"),
+    tr("מוכנות לגילוי וחשיפה", "Discoverability-ready"),
     tr("מוכנות לאוטומציות AI", "Ready for AI automation"),
     tr("אתר שמרגיש כמו נכס עסקי", "A site that feels like a business asset"),
   ];
 
   const faqs = [
     { q: tr("כמה זמן לוקח לבנות דף נחיתה?", "How long does it take to build a landing page?"), a: tr("בדרך כלל בין כמה ימים לשבוע, תלוי בכמות התוכן, העיצוב והחיבורים הנדרשים.", "Usually a few days to a week, depending on content volume, design, and required integrations.") },
-    { q: tr("האם אתם מחברים דומיין?", "Do you connect the domain?"), a: tr("כן. ניתן לחבר דומיין, SSL, Google Search Console וכלים בסיסיים ל-SEO.", "Yes. We connect the domain, SSL, Google Search Console, and core SEO tools.") },
+    { q: tr("האם אתם מחברים דומיין?", "Do you connect the domain?"), a: tr("כן. ניתן לחבר דומיין, SSL, Google Search Console וכלים בסיסיים למדידה וגילוי ברשת.", "Yes. We connect the domain, SSL, Google Search Console, and basic measurement and discovery tools.") },
     { q: tr("האם האתר מותאם למובייל?", "Is the site mobile-friendly?"), a: tr("כן. כל אתר נבנה בגישה רספונסיבית ומתאים למובייל, טאבלט ודסקטופ.", "Yes. Every site is built responsively for mobile, tablet, and desktop.") },
     { q: tr("האם אפשר לחבר וואטסאפ או טופס לידים?", "Can you connect WhatsApp or a lead form?"), a: tr("כן. אפשר לחבר כפתור וואטסאפ, טפסים, מיילים, Google Sheets, CRM ואוטומציות נוספות.", "Yes. WhatsApp buttons, forms, emails, Google Sheets, CRM, and more automations.") },
     { q: tr("האם אתם עושים גם AI ואוטומציות?", "Do you also do AI & automation?"), a: tr("כן. אפשר להוסיף בוטים, אוטומציות, חיבורי API ותהליכים שמייעלים את העבודה בעסק.", "Yes. We add bots, automations, API integrations, and processes that streamline business work.") },
