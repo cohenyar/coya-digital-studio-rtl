@@ -71,9 +71,14 @@ function ContactPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      if (!res.ok) throw new Error("send_failed");
+      if (!res.ok) {
+        const errBody = await res.text().catch(() => "");
+        console.error("send-contact failed", res.status, errBody);
+        throw new Error(`send_failed_${res.status}`);
+      }
       setSent(true);
-    } catch {
+    } catch (err) {
+      console.error(err);
       setError(tr("שליחה נכשלה. נסו שוב או פנו בוואטסאפ.", "Sending failed. Please try again or contact us on WhatsApp."));
     } finally {
       setSending(false);

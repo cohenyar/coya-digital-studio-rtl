@@ -142,6 +142,8 @@ function Home() {
     { icon: Globe, title: tr("בניית אתרים", "Website Development"), desc: tr("אתרים מהירים, רספונסיביים ומעוצבים לעסקים שרוצים להיראות מקצועיים ולייצר אמון מהשנייה הראשונה.", "Fast, responsive, well-designed websites for businesses that want to look professional and build trust from the first second."), to: "/websites" as const },
     { icon: Rocket, title: tr("בניית דפי נחיתה", "Landing Pages"), desc: tr("דפי נחיתה ממוקדי המרה לקמפיינים, שירותים ומוצרים — עם מסר ברור, עיצוב חד וקריאה לפעולה חזקה.", "Conversion-focused landing pages for campaigns, services and products — with a clear message, sharp design and a strong CTA."), to: "/landing" as const },
     { icon: Bot, title: tr("AI ואוטומציות", "AI & Automation"), desc: tr("חיבור מערכות, בוטים חכמים, אוטומציות עסקיות ותהליכים שחוסכים זמן ומשפרים שירות לקוחות.", "Systems integration, smart bots, business automation, and processes that save time and improve customer service."), to: "/ai" as const },
+    { icon: Workflow, title: tr("הטמעת מערכות AI לעסק", "AI Systems for Business"), desc: tr("שילוב כלי AI בתהליכי העבודה של העסק — CRM, שירות לקוחות, מכירות ותוכן — עם ליווי מלא מהאפיון ועד ההטמעה.", "Embedding AI tools into your business workflows — CRM, customer service, sales and content — with full guidance from planning to deployment."), to: "/ai" as const },
+    { icon: TrendingUp, title: tr("SEO וקידום אורגני", "SEO & Organic Growth"), desc: tr("קידום אורגני בגוגל: אופטימיזציה טכנית, מילות מפתח, תוכן, נתונים מובנים ומהירות אתר — כדי שהעסק שלכם יימצא ראשון.", "Organic Google growth: technical SEO, keywords, content, structured data and site speed — so your business is found first."), to: "/websites" as const },
   ];
 
   const steps = [
@@ -220,10 +222,10 @@ function Home() {
       <Section>
         <SectionHeader
           eyebrow={tr("שירותים", "Services")}
-          title={tr("שלושה עולמות. כל מה שהעסק שלכם צריך.", "Three disciplines. Everything your business needs.")}
+          title={tr("חמישה עולמות. כל מה שהעסק שלכם צריך.", "Five disciplines. Everything your business needs.")}
           subtitle={tr("פתרונות דיגיטליים מקצה לקצה — מהאסטרטגיה ועד לאוטומציה שרצה ברקע.", "End-to-end digital solutions — from strategy to the automation running in the background.")}
         />
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => (
             <Link key={s.title} to={s.to} className="group glass-card rounded-2xl p-8 hover:border-primary/40 transition-all hover:-translate-y-1 duration-300">
               <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center mb-5 group-hover:scale-110 transition">
