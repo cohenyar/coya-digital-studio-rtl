@@ -12,6 +12,33 @@ const coyaLogo = { url: "/images/coya-logo.png" };
 import { useState } from "react";
 import { useTr } from "@/lib/i18n";
 
+// Hero service tags used in both the page and meta tags so they stay identical.
+const HERO_SERVICES_HE = [
+  "בניית אתרים",
+  "דפי נחיתה",
+  "אוטומציות AI",
+  "סוכני AI / בוטים",
+  "דמויות AI",
+  "פרסומות AI",
+  "סרטוני AI",
+];
+
+const HERO_SERVICES_EN = [
+  "Websites",
+  "Landing pages",
+  "AI automation",
+  "AI agents / bots",
+  "AI avatars",
+  "AI ads",
+  "AI videos",
+];
+
+const HERO_TAGLINE_HE = "סטודיו דיגיטלי ל" + HERO_SERVICES_HE.join(", ") + " לעסקים שרוצים להיראות מקצועיים, לחסוך זמן ולהגדיל פניות.";
+const HERO_TAGLINE_EN = "Digital studio for " + HERO_SERVICES_EN.join(", ") + " for businesses that want to look professional, save time, and generate more leads.";
+const HERO_TITLE_HE = "COYA Studio | " + HERO_SERVICES_HE.join(", ");
+const HERO_TITLE_EN = "COYA Studio | " + HERO_SERVICES_EN.join(", ");
+
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
