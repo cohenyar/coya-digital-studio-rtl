@@ -7,9 +7,9 @@ import { useTr } from "@/lib/i18n";
 export const Route = createFileRoute("/ai-avatars")({
   head: () => ({
     meta: [
-      { title: "בניית דמויות AI לעסקים | COYA Studio" },
-      { name: "description", content: "דמויות דיגיטליות מבוססות AI — Avatars מציאותיים לוידאו, מצגות, הדרכות ותוכן שיווקי עם קול, שפה ואופי אחידים למותג." },
-      { name: "keywords", content: "דמויות AI, Avatars, AI Avatars, אווטארים דיגיטליים, דמות וירטואלית, וידאו AI, COYA" },
+      { title: "בניית דמויות AI (Avatars) לעסקים בישראל | COYA Studio" },
+      { name: "description", content: "בניית דמויות AI (AI Avatars) מציאותיות לוידאו, מצגות והדרכות — עם קול, שפה ואופי אחידים למותג. פתרונות AI לעסקים ומותגים בישראל." },
+      { name: "keywords", content: "דמויות AI, AI Avatars, בניית דמות AI, אווטארים דיגיטליים, דמות וירטואלית, וידאו AI, בינה מלאכותית לעסקים, פתרונות AI לעסקים, COYA" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "AI Avatar Creation for Business | COYA Studio" },
       { property: "og:description", content: "Photorealistic AI avatars for video, presentations, training and marketing content that speak in your brand voice." },
