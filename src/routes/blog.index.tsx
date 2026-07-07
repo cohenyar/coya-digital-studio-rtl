@@ -49,6 +49,12 @@ function BlogIndex() {
     <>
       <Breadcrumbs items={[{ name: tr("בלוג", "Blog") }]} />
       <Section>
+        <h1 className="sr-only">
+          {tr(
+            "בלוג COYA — AI, בניית אתרים, אוטומציות ו-SEO לעסקים",
+            "COYA Blog — AI, Web Development, Automation & SEO for Businesses"
+          )}
+        </h1>
         <SectionHeader
           eyebrow={tr("בלוג COYA", "COYA Blog")}
           title={tr("ידע מעשי לבעלי עסקים בעולם הדיגיטלי", "Practical knowledge for business owners in the digital world")}
@@ -57,6 +63,7 @@ function BlogIndex() {
             "Field-tested guides — no buzzwords. AI, automation, website development, SEO, and digital marketing."
           )}
         />
+
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           {BLOG_CATEGORIES_I18N.map((c) => {
