@@ -311,35 +311,34 @@ function Home() {
                 )}
               </span>
             </h1>
-            <div className="mt-5 flex flex-wrap gap-2" aria-label={tr("שירותים", "Services")}>
-              {HERO_SERVICES_HE.map((he, i) => {
-                const en = HERO_SERVICES_EN[i];
-                const label = tr(he, en);
-                return (
-                  <span
-                    key={he}
-                    className="px-3 py-1 rounded-full text-xs md:text-sm border border-white/10 bg-white/[0.03] text-white/75 backdrop-blur-sm"
-                  >
-                    {label}
-                  </span>
-                );
-              })}
-            </div>
+            <nav
+              className="mt-5 flex flex-wrap gap-2"
+              aria-label={tr("שירותים", "Services")}
+            >
+              {[
+                { to: "/websites" as const, he: "בניית אתרים", en: "Websites" },
+                { to: "/landing" as const, he: "דפי נחיתה", en: "Landing pages" },
+                { to: "/ai" as const, he: "אוטומציות AI", en: "AI automation" },
+                { to: "/ai-systems" as const, he: "סוכני AI / בוטים", en: "AI agents / bots" },
+                { to: "/ai-avatars" as const, he: "דמויות AI", en: "AI avatars" },
+                { to: "/ai-ads" as const, he: "פרסומות AI", en: "AI ads" },
+                { to: "/ai-videos" as const, he: "סרטוני AI", en: "AI videos" },
+              ].map((s) => (
+                <Link
+                  key={s.to}
+                  to={s.to}
+                  className="px-3 py-1 rounded-full text-xs md:text-sm border border-white/10 bg-white/[0.03] text-white/75 backdrop-blur-sm hover:border-primary/50 hover:text-white hover:bg-primary/10 transition"
+                >
+                  {tr(s.he, s.en)}
+                </Link>
+              ))}
+            </nav>
             <p className="mt-5 text-base md:text-lg text-white/70 leading-relaxed max-w-xl">
               {tr(
                 "COYA Studio הוא סטודיו דיגיטלי המתמחה בבניית אתרים, דפי נחיתה, אוטומציות AI, סוכני AI וצ׳אטבוטים לעסקים. אנחנו משלבים עיצוב מודרני עם פתרונות AI פרקטיים — כדי שהאתר לא רק ייראה מקצועי, אלא גם יביא לידים, יחסוך זמן ויפעיל תהליכים חכמים ברקע.",
                 "COYA Studio is a digital studio specializing in website development, landing pages, AI automation, AI agents and chatbots for business. We combine modern design with practical AI solutions — so your site not only looks professional, but also brings leads, saves time, and runs smart processes in the background.",
               )}
             </p>
-            <nav className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm text-white/60" aria-label={tr("קישורים לשירותים", "Service links")}>
-              <Link to="/websites" className="hover:text-primary underline-offset-4 hover:underline">{tr("בניית אתרים", "Website Development")}</Link>
-              <Link to="/landing" className="hover:text-primary underline-offset-4 hover:underline">{tr("דפי נחיתה", "Landing Pages")}</Link>
-              <Link to="/ai" className="hover:text-primary underline-offset-4 hover:underline">{tr("אוטומציות AI", "AI Automation")}</Link>
-              <Link to="/ai-systems" className="hover:text-primary underline-offset-4 hover:underline">{tr("הטמעת מערכות AI", "AI Systems")}</Link>
-              <Link to="/ai-avatars" className="hover:text-primary underline-offset-4 hover:underline">{tr("דמויות AI", "AI Avatars")}</Link>
-              <Link to="/ai-ads" className="hover:text-primary underline-offset-4 hover:underline">{tr("פרסומות AI", "AI Ads")}</Link>
-              <Link to="/ai-videos" className="hover:text-primary underline-offset-4 hover:underline">{tr("סרטוני AI", "AI Videos")}</Link>
-            </nav>
             <div className="mt-7 flex flex-wrap gap-3">
               <a href={WA_LINK} target="_blank" rel="noreferrer" className="btn-primary">
                 {tr("אני רוצה אתר כזה", "I want a site like this")} <ArrowLeft className="size-5" />
