@@ -344,7 +344,8 @@ function Home() {
       </section>
 
       {/* Services */}
-      <Section>
+      <Section id="services">
+
         <SectionHeader
           eyebrow={tr("שירותים", "Services")}
           title={tr("שבעה עולמות. כל מה שהעסק שלכם צריך.", "Seven disciplines. Everything your business needs.")}
