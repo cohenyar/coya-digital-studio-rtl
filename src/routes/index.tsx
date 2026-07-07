@@ -15,9 +15,9 @@ import { useTr } from "@/lib/i18n";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "\u00a0COYA Studio | בניית אתרים, דפי נחיתה, אוטומציות וסוכני AI/בוטים" },
-      { name: "description", content: "סטודיו דיגיטלי לבניית אתרים, דפי נחיתה ואוטומציות AI לעסקים שרוצים להיראות מקצועיים, לחסוך זמן ולהגדיל פניות." },
-      { name: "keywords", content: "בניית אתרים, דפי נחיתה, אוטומציות AI, סטודיו דיגיטלי, קידום אתרים, עיצוב אתרים, COYA" },
+      { title: "\u00a0COYA Studio | בניית אתרים, דפי נחיתה, אוטומציות AI, דמויות AI, פרסומות וסרטוני AI" },
+      { name: "description", content: "סטודיו דיגיטלי לבניית אתרים, דפי נחיתה, אוטומציות AI, דמויות AI, פרסומות AI וסרטוני AI לעסקים שרוצים להיראות מקצועיים, לחסוך זמן ולהגדיל פניות." },
+      { name: "keywords", content: "בניית אתרים, דפי נחיתה, אוטומציות AI, דמויות AI, אווטארים דיגיטליים, פרסומות AI, סרטוני AI, וידאו גנרטיבי, סטודיו דיגיטלי, קידום אתרים, COYA" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "COYA Studio | Websites, Landing Pages & AI Automation" },
       { property: "og:description", content: "Websites, landing pages, and AI automation for businesses that want to look professional and generate more leads." },
