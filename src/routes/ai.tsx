@@ -1,7 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Section, SectionHeader } from "../components/site/Section";
 import { ServiceHero, CTABlock } from "./websites";
-import { Bot, MessageCircle, FileSpreadsheet, Mail, Workflow, Clock, Users, Zap } from "lucide-react";
+import { Bot, MessageCircle, FileSpreadsheet, Mail, Workflow, Clock, Users, Zap, UserSquare, Megaphone, Clapperboard, ArrowLeft } from "lucide-react";
 import { useTr } from "@/lib/i18n";
 
 export const Route = createFileRoute("/ai")({
