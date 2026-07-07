@@ -24,6 +24,10 @@ export function Footer() {
             <li><Link to="/websites" className="text-white/70 hover:text-white">{t("nav.websites")}</Link></li>
             <li><Link to="/landing" className="text-white/70 hover:text-white">{t("nav.landing")}</Link></li>
             <li><Link to="/ai" className="text-white/70 hover:text-white">{t("nav.ai")}</Link></li>
+            <li><Link to="/ai" className="text-white/70 hover:text-white">{t("nav.aiForBusiness")}</Link></li>
+            <li><Link to="/ai" className="text-white/70 hover:text-white">{t("nav.aiAvatars")}</Link></li>
+            <li><Link to="/ai" className="text-white/70 hover:text-white">{t("nav.aiAds")}</Link></li>
+            <li><Link to="/ai" className="text-white/70 hover:text-white">{t("nav.aiVideos")}</Link></li>
           </ul>
         </div>
 
