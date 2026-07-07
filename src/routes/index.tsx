@@ -510,8 +510,8 @@ function Home() {
             <h2 className="text-3xl md:text-4xl font-display font-bold text-gradient leading-tight">{tr("מי עומד מאחורי COYA?", "Who is behind COYA?")}</h2>
             <p className="mt-5 text-white/70 leading-relaxed text-lg whitespace-pre-line">
               {tr(
-                "היי אני ירין כהן ואני בניתי את האתר הזה מאפס מאמץ ומאה אחוזים נתינה\nCOYA\u00a0נבנתה מתוך מטרה לעזור לעסקים קטנים ובינוניים להיראות גדולים יותר, לעבוד חכם יותר ולהשתמש בטכנולוגיה בצורה פרקטית. המיקוד שלנו הוא לא רק עיצוב יפה, אלא תוצאה עסקית: יותר אמון, יותר פניות, פחות עבודה ידנית.",
-                "Hi, I'm Yarin Cohen — I built this site from scratch with effort and 100% dedication.\nCOYA\u00a0was built to help small and mid-sized businesses look bigger, work smarter, and use technology in a practical way. Our focus isn't only beautiful design, but business outcomes: more trust, more inquiries, less manual work."
+                "היי אני ירין כהן ואני בניתי את האתר הזה מאפס\u00a0\nCOYA\u00a0נבנתה מתוך מטרה לעזור לעסקים קטנים ובינוניים להיראות גדולים יותר, לעבוד חכם יותר ולהשתמש בטכנולוגיה בצורה פרקטית. המיקוד שלנו הוא לא רק עיצוב יפה, אלא תוצאה עסקית: יותר אמון, יותר פניות, פחות עבודה ידנית.",
+                "Hi, I'm Yarin Cohen — I built this site from scratch.\nCOYA\u00a0was built to help small and mid-sized businesses look bigger, work smarter, and use technology in a practical way. Our focus isn't only beautiful design, but business outcomes: more trust, more inquiries, less manual work."
               )}
             </p>
           </div>
