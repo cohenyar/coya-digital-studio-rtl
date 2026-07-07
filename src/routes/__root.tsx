@@ -106,6 +106,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify(websiteJsonLd),
       },
+      ...servicesJsonLd.map((s) => ({
+        type: "application/ld+json",
+        children: JSON.stringify(s),
+      })),
     ],
   }),
   shellComponent: RootShell,
