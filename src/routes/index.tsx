@@ -12,27 +12,54 @@ const coyaLogo = { url: "/images/coya-logo.png" };
 import { useState } from "react";
 import { useTr } from "@/lib/i18n";
 
+// Hero service tags used in both the page and meta tags so they stay identical.
+const HERO_SERVICES_HE = [
+  "בניית אתרים",
+  "דפי נחיתה",
+  "אוטומציות AI",
+  "סוכני AI / בוטים",
+  "דמויות AI",
+  "פרסומות AI",
+  "סרטוני AI",
+];
+
+const HERO_SERVICES_EN = [
+  "Websites",
+  "Landing pages",
+  "AI automation",
+  "AI agents / bots",
+  "AI avatars",
+  "AI ads",
+  "AI videos",
+];
+
+const HERO_TAGLINE_HE = "סטודיו דיגיטלי ל" + HERO_SERVICES_HE.join(", ") + " לעסקים שרוצים להיראות מקצועיים, לחסוך זמן ולהגדיל פניות.";
+const HERO_TAGLINE_EN = "Digital studio for " + HERO_SERVICES_EN.join(", ") + " for businesses that want to look professional, save time, and generate more leads.";
+const HERO_TITLE_HE = "COYA Studio | " + HERO_SERVICES_HE.join(", ");
+const HERO_TITLE_EN = "COYA Studio | " + HERO_SERVICES_EN.join(", ");
+
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "COYA Studio | בניית אתרים, דפי נחיתה, אוטומציות AI, סוכני AI, דמויות AI, פרסומות וסרטוני AI" },
-      { name: "description", content: "סטודיו דיגיטלי לבניית אתרים, דפי נחיתה, אוטומציות AI, סוכני AI ובוטים, דמויות AI, פרסומות AI וסרטוני AI לעסקים שרוצים להיראות מקצועיים, לחסוך זמן ולהגדיל פניות." },
-      { name: "keywords", content: "בניית אתרים, דפי נחיתה, אוטומציות AI, סוכני AI, בוטים, דמויות AI, אווטארים דיגיטליים, פרסומות AI, סרטוני AI, וידאו גנרטיבי, סטודיו דיגיטלי, COYA" },
+      { title: HERO_TITLE_HE },
+      { name: "description", content: HERO_TAGLINE_HE },
+      { name: "keywords", content: [...HERO_SERVICES_HE, ...HERO_SERVICES_EN, "סטודיו דיגיטלי", "COYA"].join(", ") },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "COYA Studio | Websites, Landing Pages, AI Automation, AI Agents, Avatars, Ads & Videos" },
-      { property: "og:description", content: "Websites, landing pages, AI automation, AI agents & bots, AI avatars, AI ads and AI videos for businesses that want to look professional and generate more leads." },
+      { property: "og:title", content: HERO_TITLE_EN },
+      { property: "og:description", content: HERO_TAGLINE_EN },
       { property: "og:url", content: "https://www.coyastudioai.com/" },
       { property: "og:image", content: "https://www.coyastudioai.com/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "COYA Studio" },
+      { property: "og:image:alt", content: HERO_TITLE_HE },
       { name: "twitter:image", content: "https://www.coyastudioai.com/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
       { property: "og:site_name", content: "COYA Studio" },
       { property: "og:locale", content: "he_IL" },
       { property: "og:locale:alternate", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "COYA Studio" },
-      { name: "twitter:description", content: "A digital studio that builds a presence that drives results." },
+      { name: "twitter:title", content: HERO_TITLE_HE },
+      { name: "twitter:description", content: HERO_TAGLINE_EN },
     ],
     scripts: [
       {
@@ -41,7 +68,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
           name: "COYA Studio",
-          description: "Digital studio building websites, landing pages, and AI automation for businesses.",
+          description: HERO_TAGLINE_EN,
           url: "https://www.coyastudioai.com/",
           image: "https://www.coyastudioai.com/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg",
           logo: "https://www.coyastudioai.com/icon-512.png",
@@ -50,17 +77,7 @@ export const Route = createFileRoute("/")({
           areaServed: { "@type": "Country", name: "Israel" },
           inLanguage: ["he", "en"],
           priceRange: "$$",
-          serviceType: [
-            "Website Development",
-            "Landing Pages",
-            "AI Automation",
-            "AI Systems Integration",
-            "AI Avatars",
-            "AI Advertising Creatives",
-            "AI Video Production",
-            "Chatbots",
-            "n8n / Make Integrations",
-          ],
+          serviceType: HERO_SERVICES_EN,
         }),
       },
       {
@@ -68,7 +85,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          name: "COYA Studio | Websites, Landing Pages & AI Automation",
+          name: HERO_TITLE_EN,
           url: "https://www.coyastudioai.com/",
           inLanguage: "he-IL",
           isPartOf: {
@@ -204,22 +221,18 @@ function Home() {
               </span>
             </h1>
             <div className="mt-5 flex flex-wrap gap-2">
-              {[
-                tr("בניית אתרים", "Websites"),
-                tr("דפי נחיתה", "Landing pages"),
-                tr("אוטומציות AI", "AI automation"),
-                tr("סוכני AI / בוטים", "AI agents / bots"),
-                tr("דמויות AI", "AI avatars"),
-                tr("פרסומות AI", "AI ads"),
-                tr("סרטוני AI", "AI videos"),
-              ].map((label) => (
-                <span
-                  key={label}
-                  className="px-3 py-1 rounded-full text-xs md:text-sm border border-white/10 bg-white/[0.03] text-white/75 backdrop-blur-sm"
-                >
-                  {label}
-                </span>
-              ))}
+              {HERO_SERVICES_HE.map((he, i) => {
+                const en = HERO_SERVICES_EN[i];
+                const label = tr(he, en);
+                return (
+                  <span
+                    key={he}
+                    className="px-3 py-1 rounded-full text-xs md:text-sm border border-white/10 bg-white/[0.03] text-white/75 backdrop-blur-sm"
+                  >
+                    {label}
+                  </span>
+                );
+              })}
             </div>
             <p className="mt-5 text-base md:text-lg text-white/60 leading-relaxed max-w-xl">
               {tr("עיצוב מודרני, חוויית משתמש חדה, ודף שמוביל אנשים להשאיר פרטים.", "Modern design, sharp UX, and a page that gets people to leave their details.")}
