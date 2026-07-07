@@ -230,7 +230,7 @@ function Home() {
       <Section>
         <SectionHeader
           eyebrow={tr("שירותים", "Services")}
-          title={tr("חמישה עולמות. כל מה שהעסק שלכם צריך.", "Five disciplines. Everything your business needs.")}
+          title={tr("שמונה עולמות. כל מה שהעסק שלכם צריך.", "Eight disciplines. Everything your business needs.")}
           subtitle={tr("פתרונות דיגיטליים מקצה לקצה — מהאסטרטגיה ועד לאוטומציה שרצה ברקע.", "End-to-end digital solutions — from strategy to the automation running in the background.")}
         />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
