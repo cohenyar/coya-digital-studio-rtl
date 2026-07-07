@@ -24,6 +24,28 @@ export function Header() {
     { to: "/contact", label: t("nav.contact") },
   ];
 
+  const serviceGroups = [
+    {
+      title: t("nav.services"),
+      links: [
+        { to: "/websites", label: t("nav.websites") },
+        { to: "/landing", label: t("nav.landing") },
+        { to: "/ai", label: t("nav.ai") },
+      ],
+    },
+    {
+      title: t("nav.allServices"),
+      links: [
+        { to: "/ai", label: t("nav.aiForBusiness") },
+        { to: "/ai", label: t("nav.aiAvatars") },
+        { to: "/ai", label: t("nav.aiAds") },
+        { to: "/ai", label: t("nav.aiVideos") },
+        { to: "/ai", label: t("nav.automation") },
+        { to: "/ai", label: t("nav.chatbots") },
+      ],
+    },
+  ];
+
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 backdrop-blur-xl bg-background/70">
       <div className="container-x flex items-center justify-between h-16 gap-3">
