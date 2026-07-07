@@ -198,8 +198,29 @@ function Home() {
               <Sparkles className="size-3.5" /> {tr("סטודיו דיגיטלי פרימיום", "Premium digital studio")}
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.15] tracking-tight text-balance">
-              {"\u00a0"}{tr("COYA Studio — בניית אתרים, דפי נחיתה, אוטומציות וסוכני AI/בוטים", "COYA Studio — Websites, Landing Pages, Automation & AI Agents/Bots")}
+              <span className="block text-gradient">COYA Studio</span>
+              <span className="block mt-2 text-white/90">
+                {tr("נוכחות דיגיטלית ופתרונות AI לעסקים", "Digital presence & AI solutions for business")}
+              </span>
             </h1>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {[
+                tr("בניית אתרים", "Websites"),
+                tr("דפי נחיתה", "Landing pages"),
+                tr("אוטומציות AI", "AI automation"),
+                tr("סוכני AI / בוטים", "AI agents / bots"),
+                tr("דמויות AI", "AI avatars"),
+                tr("פרסומות AI", "AI ads"),
+                tr("סרטוני AI", "AI videos"),
+              ].map((label) => (
+                <span
+                  key={label}
+                  className="px-3 py-1 rounded-full text-xs md:text-sm border border-white/10 bg-white/[0.03] text-white/75 backdrop-blur-sm"
+                >
+                  {label}
+                </span>
+              ))}
+            </div>
             <p className="mt-5 text-base md:text-lg text-white/60 leading-relaxed max-w-xl">
               {tr("עיצוב מודרני, חוויית משתמש חדה, ודף שמוביל אנשים להשאיר פרטים.", "Modern design, sharp UX, and a page that gets people to leave their details.")}
             </p>
