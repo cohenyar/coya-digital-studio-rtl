@@ -221,22 +221,18 @@ function Home() {
               </span>
             </h1>
             <div className="mt-5 flex flex-wrap gap-2">
-              {[
-                tr("בניית אתרים", "Websites"),
-                tr("דפי נחיתה", "Landing pages"),
-                tr("אוטומציות AI", "AI automation"),
-                tr("סוכני AI / בוטים", "AI agents / bots"),
-                tr("דמויות AI", "AI avatars"),
-                tr("פרסומות AI", "AI ads"),
-                tr("סרטוני AI", "AI videos"),
-              ].map((label) => (
-                <span
-                  key={label}
-                  className="px-3 py-1 rounded-full text-xs md:text-sm border border-white/10 bg-white/[0.03] text-white/75 backdrop-blur-sm"
-                >
-                  {label}
-                </span>
-              ))}
+              {HERO_SERVICES_HE.map((he, i) => {
+                const en = HERO_SERVICES_EN[i];
+                const label = tr(he, en);
+                return (
+                  <span
+                    key={he}
+                    className="px-3 py-1 rounded-full text-xs md:text-sm border border-white/10 bg-white/[0.03] text-white/75 backdrop-blur-sm"
+                  >
+                    {label}
+                  </span>
+                );
+              })}
             </div>
             <p className="mt-5 text-base md:text-lg text-white/60 leading-relaxed max-w-xl">
               {tr("עיצוב מודרני, חוויית משתמש חדה, ודף שמוביל אנשים להשאיר פרטים.", "Modern design, sharp UX, and a page that gets people to leave their details.")}
