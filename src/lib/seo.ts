@@ -58,10 +58,10 @@ export function canonicalLink(path: string) {
 
 export const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
   "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
-  alternateName: "COYA Studio",
+  alternateName: ["COYA Studio", "קויה סטודיו", "COYA"],
   url: SITE_URL,
   logo: {
     "@type": "ImageObject",
@@ -71,11 +71,67 @@ export const organizationJsonLd = {
   },
   image: OG_IMAGE_URL,
   description:
-    "סטודיו דיגיטלי לבניית אתרים, דפי נחיתה, אוטומציות AI, דמויות AI, פרסומות וסרטוני AI לעסקים.",
+    "COYA Studio — סטודיו דיגיטלי בישראל לבניית אתרים, פיתוח אתרים לעסקים, דפי נחיתה, אוטומציות AI, סוכני AI, צ׳אטבוטים ופתרונות בינה מלאכותית לעסקים.",
+  slogan: "בניית אתרים ופתרונות AI לעסקים בישראל",
   email: CONTACT_EMAIL,
   telephone: CONTACT_PHONE,
-  areaServed: { "@type": "Country", name: "Israel" },
-  address: { "@type": "PostalAddress", addressCountry: "IL" },
+  priceRange: "$$",
+  currenciesAccepted: "ILS",
+  paymentAccepted: ["Cash", "Credit Card", "Bank Transfer"],
+  areaServed: [
+    { "@type": "Country", name: "Israel" },
+    { "@type": "AdministrativeArea", name: "תל אביב" },
+    { "@type": "AdministrativeArea", name: "מרכז" },
+    { "@type": "AdministrativeArea", name: "ירושלים" },
+    { "@type": "AdministrativeArea", name: "חיפה והצפון" },
+    { "@type": "AdministrativeArea", name: "השרון" },
+    { "@type": "AdministrativeArea", name: "הדרום" },
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "IL",
+    addressRegion: "Israel",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 32.0853,
+    longitude: 34.7818,
+  },
+  serviceArea: {
+    "@type": "GeoShape",
+    addressCountry: "IL",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+      opens: "09:00",
+      closes: "19:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Friday",
+      opens: "09:00",
+      closes: "13:00",
+    },
+  ],
+  knowsAbout: [
+    "בניית אתרים",
+    "בניית אתר לעסק",
+    "פיתוח אתרים",
+    "דפי נחיתה",
+    "אוטומציה לעסקים",
+    "אוטומציות AI",
+    "סוכני AI",
+    "פיתוח סוכני AI",
+    "צ׳אטבוט לעסק",
+    "בינה מלאכותית לעסקים",
+    "פתרונות AI לעסקים",
+    "יישום AI",
+    "AI לעסקים",
+    "SEO",
+  ],
+  knowsLanguage: ["he", "en"],
   contactPoint: [
     {
       "@type": "ContactPoint",
@@ -85,9 +141,30 @@ export const organizationJsonLd = {
       areaServed: "IL",
       availableLanguage: ["Hebrew", "English"],
     },
+    {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      telephone: CONTACT_PHONE,
+      areaServed: "IL",
+      availableLanguage: ["Hebrew", "English"],
+    },
   ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "שירותי COYA Studio",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "בניית אתרים לעסקים", url: `${SITE_URL}/websites` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "בניית דפי נחיתה", url: `${SITE_URL}/landing` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "אוטומציות AI ואוטומציה לעסקים", url: `${SITE_URL}/ai` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "הטמעת מערכות AI וסוכני AI", url: `${SITE_URL}/ai-systems` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "בניית דמויות AI", url: `${SITE_URL}/ai-avatars` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "פרסומות AI", url: `${SITE_URL}/ai-ads` } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "סרטוני AI", url: `${SITE_URL}/ai-videos` } },
+    ],
+  },
   sameAs: [] as string[],
 };
+
 
 const SERVICE_DEFS: Array<{ path: string; name: string; serviceType: string; description: string }> = [
   { path: "/websites", name: "בניית אתרים", serviceType: "Website Development", description: "בניית אתרים מקצועיים לעסקים — עיצוב מותאם, ביצועים גבוהים, SEO ותשתית מוכנה לצמיחה." },
