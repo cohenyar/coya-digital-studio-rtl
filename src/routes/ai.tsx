@@ -108,8 +108,9 @@ function AiPage() {
               <h3 className="font-display font-bold mb-2">{s.title}</h3>
               <p className="text-white/60 text-sm leading-relaxed mb-4">{s.desc}</p>
               <div className="flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all">
-                {tr("לפרטים נוספים", "Learn more")} <ArrowLeft className="size-4" />
+                {tr(`לפרטים על ${s.title}`, `Explore ${s.title}`)} <ArrowLeft className="size-4" />
               </div>
+
             </Link>
           ))}
         </div>
