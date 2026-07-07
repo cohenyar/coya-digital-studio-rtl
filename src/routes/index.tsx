@@ -325,9 +325,10 @@ function Home() {
               <a href={WA_LINK} target="_blank" rel="noreferrer" className="btn-primary">
                 {tr("אני רוצה אתר כזה", "I want a site like this")} <ArrowLeft className="size-5" />
               </a>
-              <Link to="/websites" className="btn-ghost">
+              <a href="#services" className="btn-ghost">
                 {tr("צפו בשירותים", "View services")} <ArrowLeft className="size-4" />
-              </Link>
+              </a>
+
             </div>
             <div className="mt-10 flex items-center gap-6 text-xs text-white/40">
               <div>⚡ {tr("טעינה מהירה", "Fast loading")}</div>
