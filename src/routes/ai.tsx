@@ -97,6 +97,24 @@ function AiPage() {
         </div>
       </Section>
 
+      <Section>
+        <SectionHeader eyebrow={tr("שירותי AI נוספים", "More AI Services")} title={tr("AI מכל הכיוונים", "AI from every angle")} />
+        <div className="grid md:grid-cols-2 gap-6">
+          {aiServices.map(s => (
+            <Link key={s.to} to={s.to} className="group glass-card rounded-2xl p-6 hover:border-primary/40 transition hover:-translate-y-1 duration-300">
+              <div className="h-11 w-11 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center mb-4 group-hover:scale-110 transition">
+                <s.icon className="size-5 text-primary" />
+              </div>
+              <h3 className="font-display font-bold mb-2">{s.title}</h3>
+              <p className="text-white/60 text-sm leading-relaxed mb-4">{s.desc}</p>
+              <div className="flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all">
+                {tr("לפרטים נוספים", "Learn more")} <ArrowLeft className="size-4" />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </Section>
+
       <CTABlock />
     </>
   );
