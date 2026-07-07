@@ -12,7 +12,8 @@ const coyaLogo = { url: "/images/coya-logo.png" };
 import { useState } from "react";
 import { useTr } from "@/lib/i18n";
 
-// Hero service tags used in both the page and meta tags so they stay identical.
+// Hero service tags — short, intent-driven phrases. Kept intentionally
+// distinct from the meta title/description so we don't duplicate copy.
 const HERO_SERVICES_HE = [
   "בניית אתרים",
   "דפי נחיתה",
@@ -33,33 +34,82 @@ const HERO_SERVICES_EN = [
   "AI videos",
 ];
 
-const HERO_TAGLINE_HE = "סטודיו דיגיטלי ל" + HERO_SERVICES_HE.join(", ") + " לעסקים שרוצים להיראות מקצועיים, לחסוך זמן ולהגדיל פניות.";
-const HERO_TAGLINE_EN = "Digital studio for " + HERO_SERVICES_EN.join(", ") + " for businesses that want to look professional, save time, and generate more leads.";
-const HERO_TITLE_HE = "COYA Studio | " + HERO_SERVICES_HE.join(", ");
-const HERO_TITLE_EN = "COYA Studio | " + HERO_SERVICES_EN.join(", ");
+// Unique meta — not a duplicate of the hero H1 or the tag row.
+const META_TITLE_HE = "בניית אתרים, דפי נחיתה ופתרונות AI לעסקים | COYA Studio";
+const META_TITLE_EN = "COYA Studio — AI Solutions, Website Development & Business Automation";
+const META_DESC_HE =
+  "COYA Studio — סטודיו לבניית אתרים, דפי נחיתה, אוטומציות AI, סוכני AI וצ׳אטבוטים חכמים לעסקים. פתרונות AI שמייצרים לידים, חוסכים זמן ומייעלים תהליכים.";
+const META_DESC_EN =
+  "COYA Studio builds websites, landing pages, AI automation, AI agents and chatbots for businesses — practical AI solutions that generate leads and save time.";
 
+const HOME_KEYWORDS = [
+  "בניית אתרים",
+  "בניית דפי נחיתה",
+  "אוטומציות AI",
+  "סוכני AI",
+  "צ׳אטבוטים",
+  "פתרונות AI לעסקים",
+  "ייעוץ AI",
+  "אוטומציה עסקית",
+  "AI לעסקים",
+  "Website development",
+  "Landing pages",
+  "AI automation",
+  "AI agents",
+  "AI chatbots",
+  "AI solutions",
+  "AI consulting",
+  "Business automation",
+];
+
+const HOME_FAQS: Array<{ q: string; a: string }> = [
+  {
+    q: "כמה זמן לוקח לבנות אתר או דף נחיתה?",
+    a: "דף נחיתה עולה לאוויר בדרך כלל תוך 3–7 ימי עבודה, ואתר עסקי מלא תוך 2–4 שבועות, תלוי בהיקף התוכן, בעיצוב ובאינטגרציות שנרצה לחבר (טפסים, CRM, וואטסאפ, אנליטיקס וכו׳).",
+  },
+  {
+    q: "מה זה אוטומציות AI לעסק ואיך זה עוזר לי?",
+    a: "אוטומציות AI מחברות בין המערכות של העסק (טפסים, מייל, וואטסאפ, CRM, Google Sheets, חנות) ומריצות תהליכים ברקע — סינון לידים, מענה ראשוני, סיכומי שיחות, יצירת משימות ועדכון דוחות — כך שהצוות מתעסק פחות בעבודה ידנית ויותר בלקוחות.",
+  },
+  {
+    q: "מה ההבדל בין סוכן AI לצ׳אטבוט רגיל?",
+    a: "צ׳אטבוט קלאסי עונה לפי תסריט קבוע. סוכן AI (AI Agent) מבין את הבקשה, שולף מידע מהמערכות שלכם, מבצע פעולות (הזמנת פגישה, פתיחת פנייה, שליחת הצעת מחיר) ומחזיר תשובה בשפה טבעית — 24/7.",
+  },
+  {
+    q: "האם COYA מתאים גם לעסקים קטנים ולא רק לחברות גדולות?",
+    a: "כן. רוב הלקוחות שלנו הם עסקים קטנים ובינוניים. אנחנו בונים פתרון AI שמתאים לגודל של העסק ולתקציב — מדף נחיתה בסיסי עם צ׳אטבוט ועד מערכת אוטומציה מלאה עם סוכני AI.",
+  },
+  {
+    q: "האם צריך ידע טכני כדי להשתמש במערכות שאתם בונים?",
+    a: "לא. אנחנו מספקים ליווי, הדרכה ותיעוד. הממשקים בנויים כך שכל בעל עסק יוכל לצפות בלידים, לעדכן תשובות של הבוט ולראות דוחות בלי מתכנת.",
+  },
+  {
+    q: "האם אתם נותנים ייעוץ AI לפני שמתחייבים לפרויקט?",
+    a: "כן. שיחת ייעוץ ראשונית היא ללא עלות — אנחנו ממפים את התהליכים בעסק, מזהים איפה AI ואוטומציה יביאו את ההחזר הכי מהיר, ורק אז בונים הצעת עבודה מדויקת.",
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: HERO_TITLE_HE },
-      { name: "description", content: HERO_TAGLINE_HE },
-      { name: "keywords", content: [...HERO_SERVICES_HE, ...HERO_SERVICES_EN, "סטודיו דיגיטלי", "COYA"].join(", ") },
+      { title: META_TITLE_HE },
+      { name: "description", content: META_DESC_HE },
+      { name: "keywords", content: HOME_KEYWORDS.join(", ") },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: HERO_TITLE_EN },
-      { property: "og:description", content: HERO_TAGLINE_EN },
+      { property: "og:title", content: META_TITLE_EN },
+      { property: "og:description", content: META_DESC_EN },
       { property: "og:url", content: "https://www.coyastudioai.com/" },
       { property: "og:image", content: "https://www.coyastudioai.com/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: HERO_TITLE_HE },
+      { property: "og:image:alt", content: "COYA Studio — בניית אתרים, דפי נחיתה ופתרונות AI לעסקים" },
       { name: "twitter:image", content: "https://www.coyastudioai.com/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
       { property: "og:site_name", content: "COYA Studio" },
       { property: "og:locale", content: "he_IL" },
       { property: "og:locale:alternate", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: HERO_TITLE_HE },
-      { name: "twitter:description", content: HERO_TAGLINE_EN },
+      { name: "twitter:title", content: META_TITLE_EN },
+      { name: "twitter:description", content: META_DESC_EN },
     ],
     scripts: [
       {
@@ -68,7 +118,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
           name: "COYA Studio",
-          description: HERO_TAGLINE_EN,
+          description: META_DESC_EN,
           url: "https://www.coyastudioai.com/",
           image: "https://www.coyastudioai.com/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg",
           logo: "https://www.coyastudioai.com/icon-512.png",
@@ -77,7 +127,19 @@ export const Route = createFileRoute("/")({
           areaServed: { "@type": "Country", name: "Israel" },
           inLanguage: ["he", "en"],
           priceRange: "$$",
-          serviceType: HERO_SERVICES_EN,
+          serviceType: [
+            "Website Development",
+            "Landing Page Development",
+            "AI Automation",
+            "AI Agents",
+            "AI Chatbots",
+            "AI Solutions",
+            "AI Consulting",
+            "Business Automation",
+            "AI Avatars",
+            "AI Ads",
+            "AI Video Production",
+          ],
         }),
       },
       {
@@ -85,7 +147,8 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          name: HERO_TITLE_EN,
+          name: META_TITLE_EN,
+          description: META_DESC_EN,
           url: "https://www.coyastudioai.com/",
           inLanguage: "he-IL",
           isPartOf: {
@@ -93,6 +156,32 @@ export const Route = createFileRoute("/")({
             name: "COYA Studio",
             url: "https://www.coyastudioai.com",
           },
+          primaryImageOfPage: {
+            "@type": "ImageObject",
+            url: "https://www.coyastudioai.com/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg",
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.coyastudioai.com/" },
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: HOME_FAQS.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
         }),
       },
     ],
