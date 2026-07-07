@@ -15,12 +15,12 @@ import { useTr } from "@/lib/i18n";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "\u00a0COYA Studio | בניית אתרים, דפי נחיתה, אוטומציות AI, דמויות AI, פרסומות וסרטוני AI" },
-      { name: "description", content: "סטודיו דיגיטלי לבניית אתרים, דפי נחיתה, אוטומציות AI, דמויות AI, פרסומות AI וסרטוני AI לעסקים שרוצים להיראות מקצועיים, לחסוך זמן ולהגדיל פניות." },
-      { name: "keywords", content: "בניית אתרים, דפי נחיתה, אוטומציות AI, דמויות AI, אווטארים דיגיטליים, פרסומות AI, סרטוני AI, וידאו גנרטיבי, סטודיו דיגיטלי, COYA" },
+      { title: "COYA Studio | בניית אתרים, דפי נחיתה, אוטומציות AI, סוכני AI, דמויות AI, פרסומות וסרטוני AI" },
+      { name: "description", content: "סטודיו דיגיטלי לבניית אתרים, דפי נחיתה, אוטומציות AI, סוכני AI ובוטים, דמויות AI, פרסומות AI וסרטוני AI לעסקים שרוצים להיראות מקצועיים, לחסוך זמן ולהגדיל פניות." },
+      { name: "keywords", content: "בניית אתרים, דפי נחיתה, אוטומציות AI, סוכני AI, בוטים, דמויות AI, אווטארים דיגיטליים, פרסומות AI, סרטוני AI, וידאו גנרטיבי, סטודיו דיגיטלי, COYA" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "COYA Studio | Websites, Landing Pages & AI Automation" },
-      { property: "og:description", content: "Websites, landing pages, and AI automation for businesses that want to look professional and generate more leads." },
+      { property: "og:title", content: "COYA Studio | Websites, Landing Pages, AI Automation, AI Agents, Avatars, Ads & Videos" },
+      { property: "og:description", content: "Websites, landing pages, AI automation, AI agents & bots, AI avatars, AI ads and AI videos for businesses that want to look professional and generate more leads." },
       { property: "og:url", content: "https://www.coyastudioai.com/" },
       { property: "og:image", content: "https://www.coyastudioai.com/__l5e/assets-v1/ad34d32a-a11e-457e-ae39-ba36e30f33f5/og-image.jpg" },
       { property: "og:image:width", content: "1200" },
