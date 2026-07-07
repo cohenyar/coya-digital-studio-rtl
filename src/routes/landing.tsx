@@ -7,9 +7,9 @@ import { useTr } from "@/lib/i18n";
 export const Route = createFileRoute("/landing")({
   head: () => ({
     meta: [
-      { title: "בניית דפי נחיתה ממוקדי המרה | COYA Studio" },
-      { name: "description", content: "דפי נחיתה לקמפיינים, מוצרים ושירותים — מסר ברור, עיצוב חד ומבנה שנועד להמיר גולשים ללידים משלמים." },
-      { name: "keywords", content: "דפי נחיתה, בניית דף נחיתה, לידים, קמפיינים, המרות, COYA" },
+      { title: "בניית דפי נחיתה לעסקים בישראל | דפי נחיתה ממירים | COYA Studio" },
+      { name: "description", content: "בניית דפי נחיתה לעסקים בישראל — דפי נחיתה ממוקדי המרה לקמפיינים במטא, גוגל וטיקטוק. עיצוב, קופי ומבנה שנועדו להביא לידים איכותיים." },
+      { name: "keywords", content: "דפי נחיתה, בניית דפי נחיתה, דף נחיתה לעסק, בניית דף נחיתה, דפי נחיתה לקמפיינים, לידים, המרות, דפי נחיתה בישראל, COYA" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "Conversion-Focused Landing Pages | COYA Studio" },
       { property: "og:description", content: "Landing pages that convert visitors into leads — built for Meta, Google, and TikTok campaigns." },
