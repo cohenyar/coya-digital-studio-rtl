@@ -12,27 +12,9 @@ const coyaLogo = { url: "/images/coya-logo.png" };
 import { useState } from "react";
 import { useTr } from "@/lib/i18n";
 
-// Hero service tags — short, intent-driven phrases. Kept intentionally
-// distinct from the meta title/description so we don't duplicate copy.
-const HERO_SERVICES_HE = [
-  "בניית אתרים",
-  "דפי נחיתה",
-  "אוטומציות AI",
-  "סוכני AI / בוטים",
-  "דמויות AI",
-  "פרסומות AI",
-  "סרטוני AI",
-];
-
-const HERO_SERVICES_EN = [
-  "Websites",
-  "Landing pages",
-  "AI automation",
-  "AI agents / bots",
-  "AI avatars",
-  "AI ads",
-  "AI videos",
-];
+// Hero service tags render as internal links (see the nav in Home()).
+// Kept intentionally separate from the meta title/description to avoid
+// duplicating copy on the page.
 
 // Unique meta — not a duplicate of the hero H1 or the tag row.
 const META_TITLE_HE = "בניית אתרים, דפי נחיתה ופתרונות AI לעסקים | COYA Studio";
