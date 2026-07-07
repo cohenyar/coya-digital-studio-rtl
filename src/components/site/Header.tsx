@@ -93,6 +93,13 @@ export function Header() {
       {open && (
         <div className="md:hidden border-t border-border bg-background">
           <nav className="container-x py-4 flex flex-col gap-4">
+            <Link
+              to="/"
+              onClick={() => setOpen(false)}
+              className="px-3 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/5 rounded-md"
+            >
+              {t("nav.home")}
+            </Link>
             {serviceGroups.map((group) => (
               <div key={group.title}>
                 <p className="px-3 text-xs font-semibold uppercase tracking-wider text-white/40 mb-1">
