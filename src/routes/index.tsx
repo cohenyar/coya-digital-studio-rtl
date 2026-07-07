@@ -222,10 +222,10 @@ function Home() {
       <Section>
         <SectionHeader
           eyebrow={tr("שירותים", "Services")}
-          title={tr("שלושה עולמות. כל מה שהעסק שלכם צריך.", "Three disciplines. Everything your business needs.")}
+          title={tr("חמישה עולמות. כל מה שהעסק שלכם צריך.", "Five disciplines. Everything your business needs.")}
           subtitle={tr("פתרונות דיגיטליים מקצה לקצה — מהאסטרטגיה ועד לאוטומציה שרצה ברקע.", "End-to-end digital solutions — from strategy to the automation running in the background.")}
         />
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => (
             <Link key={s.title} to={s.to} className="group glass-card rounded-2xl p-8 hover:border-primary/40 transition-all hover:-translate-y-1 duration-300">
               <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-primary to-purple-500 flex items-center justify-center mb-5 group-hover:scale-110 transition">
