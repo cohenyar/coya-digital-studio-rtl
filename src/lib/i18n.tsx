@@ -33,8 +33,8 @@ export const translations: Dict = {
 
   // Footer
   "footer.tagline": {
-    he: "סטודיו דיגיטלי לבניית אתרים, דפי נחיתה ואוטומציות AI לעסקים שרוצים להיראות מקצועיים ולייצר תוצאות.",
-    en: "Digital studio building websites, landing pages, and AI automation for businesses that want to look professional and drive results.",
+    he: "",
+    en: "",
   },
   "footer.services": { he: "שירותים", en: "Services" },
   "footer.blog": { he: "בלוג", en: "Blog" },
