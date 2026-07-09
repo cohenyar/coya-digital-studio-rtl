@@ -480,7 +480,7 @@ function Home() {
                   <div className="absolute inset-0 rounded-full bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
                   <img
                     src={`https://cdn.simpleicons.org/${b.slug}/${b.color}`}
-                    alt={`${b.name} logo`}
+                    alt={tr(`${b.name} — אינטגרציה עם COYA Studio`, `${b.name} integration`)}
                     loading="lazy"
                     className="relative h-7 w-7 md:h-9 md:w-9 object-contain"
                   />
@@ -552,7 +552,7 @@ function Home() {
       {/* Big Logo */}
       <Section>
         <div className="flex justify-center">
-          <img src={coyaLogo.url} alt="COYA" className="w-64 md:w-96 h-auto" />
+          <img src={coyaLogo.url} alt={tr("COYA Studio — סטודיו דיגיטלי לבניית אתרים ואוטומציות AI", "COYA Studio — digital studio for websites and AI automation")} className="w-64 md:w-96 h-auto" />
         </div>
       </Section>
     </>

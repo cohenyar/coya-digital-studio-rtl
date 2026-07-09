@@ -1,0 +1,44 @@
+# COYA Studio
+
+> COYA Studio is an Israel-based digital studio building high-converting business websites, landing pages, and end-to-end AI automation — including AI agents, chatbots, AI avatars, AI ads, and AI-generated videos for small and mid-sized businesses.
+
+COYA Studio (קויה סטודיו) helps businesses in Israel look professional, save hours of manual work, and grow through practical AI. All services are delivered in Hebrew and English, with full support for RTL design, local SEO, and Israeli payment and messaging platforms (WhatsApp, iCount, Green Invoice, HubSpot, and more).
+
+Contact: cohenyar21@gmail.com · +972-54-550-9927 · WhatsApp
+
+## Services
+
+- [Website Development (בניית אתרים לעסקים)](/websites): Custom business websites, fast, responsive, SEO-optimized. Primary Hebrew keywords: בניית אתרים, בניית אתר לעסק, פיתוח אתרים.
+- [Landing Pages (בניית דפי נחיתה)](/landing): Conversion-focused landing pages for Google, Meta, and TikTok campaigns. Keywords: דפי נחיתה, דף נחיתה לעסק.
+- [AI Automation (אוטומציה לעסקים ואוטומציות AI)](/ai): WhatsApp, CRM, email, and workflow automation using n8n and Make. Keywords: אוטומציה לעסקים, אוטומציות AI.
+- [AI Systems & Agents (פיתוח סוכני AI)](/ai-systems): AI agents, chatbots, and full AI integration into CRM, sales, service, and operations. Keywords: סוכני AI, פיתוח סוכני AI, בינה מלאכותית לעסקים, צ׳אטבוט לעסק, פתרונות AI לעסקים.
+- [AI Avatars (בניית דמויות AI)](/ai-avatars): Photorealistic AI avatars for video, presentations, and branded content. Keywords: דמויות AI, בניית דמויות AI.
+- [AI Ads (פרסומות AI)](/ai-ads): AI-generated ad creative for Meta, Google, TikTok, and YouTube campaigns. Keywords: פרסומות AI, פרסומות AI לעסקים.
+- [AI Videos (סרטוני AI)](/ai-videos): AI video production using Sora, Runway, and HeyGen for marketing, explainers, and social. Keywords: סרטוני AI, סרטוני AI לעסקים.
+
+## Pages
+
+- [Home](/): Overview of COYA Studio, services, founder, portfolio, and FAQ.
+- [Contact](/contact): Contact form, WhatsApp, email, and phone.
+- [Blog](/blog): Guides on websites, AI, automation, and SEO for Israeli businesses.
+
+## Blog Categories
+
+- [Websites](/blog/websites): Articles on business website design, performance, and SEO.
+- [Landing Pages](/blog/landing): Landing-page strategy, structure, and CRO for Israeli campaigns.
+- [AI & Automation](/blog/ai): Practical AI automation, chatbots, and agents for SMBs.
+- [Marketing](/blog/marketing): Digital marketing, funnels, and lead generation.
+- [SEO](/blog/seo): Hebrew SEO, local SEO Israel, and technical SEO.
+
+## About COYA Studio
+
+- Founder: Yarin Cohen (ירין כהן)
+- Location: Israel — serving Tel Aviv, Jerusalem, Haifa, Sharon, Center, and remote clients nationwide.
+- Languages: Hebrew (primary), English.
+- Focus: Business outcomes over decoration — trust, inquiries, and reduced manual work.
+
+## Optional
+
+- [Terms of Service](/terms)
+- [Privacy Policy](/privacy)
+- [Accessibility Statement](/accessibility)
