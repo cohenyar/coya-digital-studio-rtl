@@ -65,8 +65,8 @@ function detectInitial(): Lang {
     const stored = window.localStorage.getItem(STORAGE_KEY);
     if (stored === "he" || stored === "en") return stored;
   } catch {}
-  const browser = (navigator.language || "he").toLowerCase();
-  return browser.startsWith("he") ? "he" : "en";
+  // Default to Hebrew — this is an Israel-focused site. Users can switch via the language switcher.
+  return "he";
 }
 
 export function I18nProvider({ children }: { children: ReactNode }) {
