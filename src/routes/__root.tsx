@@ -139,7 +139,10 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <I18nProvider>
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col relative">
+          <div className="fixed inset-0 -z-10 pointer-events-none">
+            <ShaderBackground />
+          </div>
           <Header />
           <main className="flex-1">
             <Outlet />
