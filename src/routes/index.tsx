@@ -272,9 +272,6 @@ function Home() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-32">
-        <div className="absolute inset-0 pointer-events-none opacity-60">
-          <ShaderBackground />
-        </div>
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/40 via-background/60 to-background" />
         <div className="absolute inset-0 pointer-events-none" style={{background: "var(--gradient-hero)"}} />
         <div className="container-x relative grid lg:grid-cols-2 gap-14 items-center">
