@@ -20,6 +20,7 @@ import { Analytics } from "../components/site/Analytics";
 import { OG_IMAGE_URL, organizationJsonLd, websiteJsonLd, servicesJsonLd } from "../lib/seo";
 import { GA_MEASUREMENT_ID } from "../lib/analytics";
 import { I18nProvider } from "../lib/i18n";
+import { ShaderBackground } from "../components/ui/violet-swirl";
 
 function NotFoundComponent() {
   return (
@@ -138,7 +139,10 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <I18nProvider>
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col relative">
+          <div className="fixed inset-0 -z-10 pointer-events-none">
+            <ShaderBackground />
+          </div>
           <Header />
           <main className="flex-1">
             <Outlet />

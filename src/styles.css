@@ -74,6 +74,7 @@
 html {
   direction: rtl;
   color-scheme: dark;
+  background-color: var(--background);
 }
 
 html.a11y-large { font-size: 112.5%; }
@@ -86,7 +87,7 @@ html.a11y-dyslexia body { font-family: "Comic Sans MS", "Heebo", sans-serif !imp
 @layer base {
   * { border-color: var(--color-border); }
   body {
-    background-color: var(--background);
+    background-color: transparent;
     color: var(--foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
