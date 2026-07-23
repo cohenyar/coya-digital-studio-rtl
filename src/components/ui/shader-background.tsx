@@ -10,82 +10,81 @@ const fsSource = `
   uniform vec2 iResolution;
   uniform float iTime;
 
-  const float overallSpeed = 0.2;
-  const float gridSmoothWidth = 0.015;
-  const float axisWidth = 0.05;
-  const float majorLineWidth = 0.025;
-  const float minorLineWidth = 0.0125;
-  const float majorLineFrequency = 5.0;
-  const float minorLineFrequency = 1.0;
-  const float scale = 5.0;
-  const vec4 lineColor = vec4(0.486, 0.227, 0.929, 1.0);
-  const float minLineWidth = 0.01;
-  const float maxLineWidth = 0.2;
-  const float lineSpeed = 1.0 * overallSpeed;
-  const float lineAmplitude = 1.0;
-  const float lineFrequency = 0.2;
-  const float warpSpeed = 0.2 * overallSpeed;
-  const float warpFrequency = 0.5;
-  const float warpAmplitude = 1.0;
-  const float offsetFrequency = 0.5;
-  const float offsetSpeed = 1.33 * overallSpeed;
-  const float minOffsetSpread = 0.6;
-  const float maxOffsetSpread = 2.0;
-  const int linesPerGroup = 16;
+  // Deep purple wave field — driven by the uploaded "wave signals the purple" reference.
+  const vec3 bgDeep = vec3(0.024, 0.004, 0.055);        // #05010e
+  const vec3 bgMid  = vec3(0.045, 0.008, 0.090);        // #0b0517
+  const vec3 purpleCore = vec3(0.49, 0.22, 0.93);     // #7c3aed
+  const vec3 purpleSoft = vec3(0.66, 0.33, 0.98);     // #a855f7
+  const vec3 purpleGlow = vec3(0.85, 0.53, 1.00);     // #d88bff
 
-  #define drawCircle(pos, radius, coord) smoothstep(radius + gridSmoothWidth, radius, length(coord - (pos)))
-  #define drawSmoothLine(pos, halfWidth, t) smoothstep(halfWidth, 0.0, abs(pos - (t)))
-  #define drawCrispLine(pos, halfWidth, t) smoothstep(halfWidth + gridSmoothWidth, halfWidth, abs(pos - (t)))
-  #define drawPeriodicLine(freq, width, t) drawCrispLine(freq / 2.0, width, abs(mod(t, freq) - (freq) / 2.0))
-
-  float random(float t) {
-    return (cos(t) + cos(t * 1.3 + 1.3) + cos(t * 1.4 + 1.4)) / 3.0;
+  float rand(vec2 n) {
+    return fract(sin(dot(n, vec2(12.9898, 78.233))) * 43758.5453);
   }
 
-  float getPlasmaY(float x, float horizontalFade, float offset) {
-    return random(x * lineFrequency + iTime * lineSpeed) * horizontalFade * lineAmplitude + offset;
+  float noise(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    f = f * f * (3.0 - 2.0 * f);
+    float a = rand(i);
+    float b = rand(i + vec2(1.0, 0.0));
+    float c = rand(i + vec2(0.0, 1.0));
+    float d = rand(i + vec2(1.0, 1.0));
+    return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+  }
+
+  float waveY(float x, float t, float freq, float amp, float phase) {
+    return sin(x * freq + t + phase) * amp
+         + sin(x * freq * 2.1 + t * 1.3 + phase) * amp * 0.35
+         + sin(x * freq * 0.5 + t * 0.7 + phase) * amp * 0.6;
+  }
+
+  float line(vec2 uv, float y, float w, float glow) {
+    float d = abs(uv.y - y);
+    float core = smoothstep(w, 0.0, d);
+    float halo = smoothstep(w * 4.0, w, d) * glow;
+    return core + halo;
   }
 
   void main() {
-    vec2 fragCoord = gl_FragCoord.xy;
-    vec4 fragColor;
-    vec2 uv = fragCoord.xy / iResolution.xy;
-    vec2 space = (fragCoord - iResolution.xy / 2.0) / iResolution.x * 2.0 * scale;
+    vec2 uv = gl_FragCoord.xy / iResolution.xy;
+    vec2 p = (gl_FragCoord.xy - iResolution.xy * 0.5) / iResolution.y;
 
-    float horizontalFade = 1.0 - (cos(uv.x * 6.28) * 0.5 + 0.5);
-    float verticalFade = 1.0 - (cos(uv.y * 6.28) * 0.5 + 0.5);
+    // Dark vignette + subtle gradient.
+    vec3 color = mix(bgDeep, bgMid, uv.y * 0.6 + uv.x * 0.2);
+    float vignette = 1.0 - smoothstep(0.4, 1.6, length(p));
+    color *= 0.75 + vignette * 0.35;
 
-    space.y += random(space.x * warpFrequency + iTime * warpSpeed) * warpAmplitude * (0.5 + horizontalFade);
-    space.x += random(space.y * warpFrequency + iTime * warpSpeed + 2.0) * warpAmplitude * horizontalFade;
+    // Layered flowing wave lines.
+    float t = iTime * 0.25;
+    const int lineCount = 14;
 
-    vec4 lines = vec4(0.0);
-    vec4 bgColor1 = vec4(0.02, 0.02, 0.02, 1.0);
-    vec4 bgColor2 = vec4(0.08, 0.03, 0.15, 1.0);
+    for (int i = 0; i < lineCount; i++) {
+      float fi = float(i);
+      float idx = fi / float(lineCount);
+      float phase = fi * 1.47;
+      float offset = (fi - float(lineCount) * 0.5) * 0.13;
 
-    for(int l = 0; l < linesPerGroup; l++) {
-      float normalizedLineIndex = float(l) / float(linesPerGroup);
-      float offsetTime = iTime * offsetSpeed;
-      float offsetPosition = float(l) + space.x * offsetFrequency;
-      float rand = random(offsetPosition + offsetTime) * 0.5 + 0.5;
-      float halfWidth = mix(minLineWidth, maxLineWidth, rand * horizontalFade) / 2.0;
-      float offset = random(offsetPosition + offsetTime * (1.0 + normalizedLineIndex)) * mix(minOffsetSpread, maxOffsetSpread, horizontalFade);
-      float linePosition = getPlasmaY(space.x, horizontalFade, offset);
-      float line = drawSmoothLine(linePosition, halfWidth, space.y) / 2.0 + drawCrispLine(linePosition, halfWidth * 0.15, space.y);
+      float y = waveY(p.x, t + phase * 0.6, 1.8 + idx * 0.7, 0.25 + idx * 0.08, phase) + offset;
 
-      float circleX = mod(float(l) + iTime * lineSpeed, 25.0) - 12.0;
-      vec2 circlePosition = vec2(circleX, getPlasmaY(circleX, horizontalFade, offset));
-      float circle = drawCircle(circlePosition, 0.01, space) * 4.0;
+      // Horizontal fade keeps lines gentle at the edges.
+      float edgeFade = 1.0 - smoothstep(0.6, 1.3, abs(p.x));
+      float w = mix(0.001, 0.004, fract(fi * 7.13)) * edgeFade;
+      float glow = mix(0.15, 0.45, fract(fi * 3.71));
 
-      line = line + circle;
-      lines += line * lineColor * rand;
+      float l = line(p, y, w, glow) * edgeFade;
+      float sparkle = noise(vec2(p.x * 30.0 + fi * 12.0, p.y * 30.0 + t * 2.0));
+      l += sparkle * 0.04 * edgeFade;
+
+      vec3 lineCol = mix(purpleCore, purpleSoft, fract(fi * 9.23));
+      lineCol = mix(lineCol, purpleGlow, smoothstep(0.35, 0.85, l));
+      color += lineCol * l * (0.7 + 0.3 * edgeFade);
     }
 
-    fragColor = mix(bgColor1, bgColor2, uv.x);
-    fragColor *= verticalFade;
-    fragColor.a = 1.0;
-    fragColor += lines;
+    // Add a faint horizontal "signal" sweep.
+    float sweep = sin(p.y * 6.0 - t * 2.0) * 0.5 + 0.5;
+    color += purpleCore * sweep * 0.015;
 
-    gl_FragColor = fragColor;
+    gl_FragColor = vec4(color, 1.0);
   }
 `;
 
