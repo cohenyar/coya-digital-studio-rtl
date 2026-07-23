@@ -74,6 +74,7 @@
 html {
   direction: rtl;
   color-scheme: dark;
+  background-color: var(--background);
 }
 
 html.a11y-large { font-size: 112.5%; }
