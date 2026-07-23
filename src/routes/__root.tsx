@@ -20,6 +20,7 @@ import { Analytics } from "../components/site/Analytics";
 import { OG_IMAGE_URL, organizationJsonLd, websiteJsonLd, servicesJsonLd } from "../lib/seo";
 import { GA_MEASUREMENT_ID } from "../lib/analytics";
 import { I18nProvider } from "../lib/i18n";
+import { ShaderBackground } from "../components/ui/violet-swirl";
 
 function NotFoundComponent() {
   return (
