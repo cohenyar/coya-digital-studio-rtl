@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Section, SectionHeader } from "../components/site/Section";
 import { WA_LINK } from "../components/site/Header";
-import ShaderBackground from "../components/ui/shader-background";
+
 import {
   ArrowLeft, Check, X, MessageCircle, Globe, Rocket, Bot, Search, Layers,
   Palette, Code2, Send, TrendingUp, Sparkles, Zap, Workflow, ChevronDown,
