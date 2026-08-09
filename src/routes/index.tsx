@@ -277,8 +277,8 @@ function Home() {
   ];
 
   const faqs = HOME_FAQS.map((f) => ({
-    q: tr(f.q, f.q),
-    a: tr(f.a, f.a),
+    q: tr(f.q, f.qEn),
+    a: tr(f.a, f.aEn),
   }));
 
   return (
