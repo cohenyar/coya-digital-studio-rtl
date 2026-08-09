@@ -44,32 +44,45 @@ const HOME_KEYWORDS = [
   "Business automation",
 ];
 
-const HOME_FAQS: Array<{ q: string; a: string }> = [
+const HOME_FAQS: Array<{ q: string; a: string; qEn: string; aEn: string }> = [
   {
     q: "כמה זמן לוקח לבנות אתר או דף נחיתה?",
     a: "דף נחיתה עולה לאוויר בדרך כלל תוך 3–7 ימי עבודה, ואתר עסקי מלא תוך 2–4 שבועות, תלוי בהיקף התוכן, בעיצוב ובאינטגרציות שנרצה לחבר (טפסים, CRM, וואטסאפ, אנליטיקס וכו׳).",
+    qEn: "How long does it take to build a website or landing page?",
+    aEn: "A landing page usually goes live within 3–7 working days, and a full business website within 2–4 weeks — depending on content scope, design, and the integrations we connect (forms, CRM, WhatsApp, analytics, etc.).",
   },
   {
     q: "מה זה אוטומציות AI לעסק ואיך זה עוזר לי?",
     a: "אוטומציות AI מחברות בין המערכות של העסק (טפסים, מייל, וואטסאפ, CRM, Google Sheets, חנות) ומריצות תהליכים ברקע — סינון לידים, מענה ראשוני, סיכומי שיחות, יצירת משימות ועדכון דוחות — כך שהצוות מתעסק פחות בעבודה ידנית ויותר בלקוחות.",
+    qEn: "What is AI automation for business and how does it help me?",
+    aEn: "AI automation connects your business systems (forms, email, WhatsApp, CRM, Google Sheets, store) and runs processes in the background — lead qualification, first-response replies, call summaries, task creation, and report updates — so your team spends less time on manual work and more time with customers.",
   },
   {
     q: "מה ההבדל בין סוכן AI לצ׳אטבוט רגיל?",
     a: "צ׳אטבוט קלאסי עונה לפי תסריט קבוע. סוכן AI (AI Agent) מבין את הבקשה, שולף מידע מהמערכות שלכם, מבצע פעולות (הזמנת פגישה, פתיחת פנייה, שליחת הצעת מחיר) ומחזיר תשובה בשפה טבעית — 24/7.",
+    qEn: "What's the difference between an AI agent and a regular chatbot?",
+    aEn: "A classic chatbot answers from a fixed script. An AI agent understands the request, pulls data from your systems, takes actions (booking a meeting, opening a ticket, sending a quote) and replies in natural language — 24/7.",
   },
   {
     q: "האם COYA מתאים גם לעסקים קטנים ולא רק לחברות גדולות?",
     a: "כן. רוב הלקוחות שלנו הם עסקים קטנים ובינוניים. אנחנו בונים פתרון AI שמתאים לגודל של העסק ולתקציב — מדף נחיתה בסיסי עם צ׳אטבוט ועד מערכת אוטומציה מלאה עם סוכני AI.",
+    qEn: "Is COYA a fit for small businesses, not just large companies?",
+    aEn: "Yes. Most of our clients are small and mid-sized businesses. We build an AI solution that matches the size of the business and the budget — from a basic landing page with a chatbot to a full automation system with AI agents.",
   },
   {
     q: "האם צריך ידע טכני כדי להשתמש במערכות שאתם בונים?",
     a: "לא. אנחנו מספקים ליווי, הדרכה ותיעוד. הממשקים בנויים כך שכל בעל עסק יוכל לצפות בלידים, לעדכן תשובות של הבוט ולראות דוחות בלי מתכנת.",
+    qEn: "Do I need technical knowledge to use the systems you build?",
+    aEn: "No. We provide onboarding, training, and documentation. The interfaces are built so any business owner can view leads, update the bot's answers, and see reports without a developer.",
   },
   {
     q: "האם אתם נותנים ייעוץ AI לפני שמתחייבים לפרויקט?",
     a: "כן. שיחת ייעוץ אינטרנטית או טלפונית ראשונית היא ללא עלות — אנחנו ממפים את התהליכים בעסק, מזהים איפה AI ואוטומציה יביאו את ההחזר הכי מהיר, ורק אז בונים הצעת עבודה מדויקת.",
+    qEn: "Do you offer AI consulting before committing to a project?",
+    aEn: "Yes. The first online or phone consultation is free — we map your business processes, identify where AI and automation deliver the fastest return, and only then build a precise proposal.",
   },
 ];
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
