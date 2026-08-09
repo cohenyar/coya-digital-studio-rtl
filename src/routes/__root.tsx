@@ -142,6 +142,7 @@ function RootComponent() {
         <div className="min-h-screen flex flex-col relative">
           <div className="fixed inset-0 -z-10 pointer-events-none">
             <ShaderBackground />
+            <div className="absolute inset-0 bg-background/55" />
           </div>
           <Header />
           <main className="flex-1">
